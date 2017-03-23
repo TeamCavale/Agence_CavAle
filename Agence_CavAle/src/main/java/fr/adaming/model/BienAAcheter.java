@@ -1,15 +1,12 @@
 package fr.adaming.model;
 
-import java.beans.Transient;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -18,6 +15,9 @@ import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 /**
  * 
@@ -48,7 +48,8 @@ public class BienAAcheter extends BienImmo implements Serializable {
 	@OneToOne(mappedBy = "bienAAcheter")
 	private Adresse adresse;
 
-	@OneToMany(mappedBy = "bienAAcheter")
+	@OneToMany(mappedBy = "bienAAcheter", fetch=FetchType.EAGER)
+	@Fetch(value=FetchMode.SUBSELECT)
 	private List<Visite> listeVisites;
 
 	@OneToOne(mappedBy = "bienAAcheter")
@@ -121,7 +122,7 @@ public class BienAAcheter extends BienImmo implements Serializable {
 		this.listeVisites = listeVisites;
 	}
 
-	@Transient
+	@XmlTransient
 	public Contrat getContrat() {
 		return contrat;
 	}
