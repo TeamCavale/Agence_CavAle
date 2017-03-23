@@ -1,0 +1,34 @@
+
+<form class="form-horizontal">
+	<div class="form-group">
+	<div class="col-sm-6">
+		<label for="inputId" class="col-sm-2 control-label">Id</label> <input type="text"
+			class="form-control" id="inputnom" placeholder="Id du client supp"
+			ng-model="id"></div>
+	</div>
+	
+	</div>
+<div class="col-sm-2">
+	<button ng-click="chercher()" class="btn btn-default">Chercher</button></div>
+</form>
+
+<div class="table-responsive">
+	<table class="table table-bordered" style="text-align: center" ng-show="indice">
+		<thead>
+			<tr>
+				<th style="text-align: center">Nom</th>
+				<th style="text-align: center">Telephone</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>{{client.nom}}</td>
+				<td>{{client.telephone}}</td>
+			</tr>
+
+
+		</tbody>
+
+
+
+	</table>

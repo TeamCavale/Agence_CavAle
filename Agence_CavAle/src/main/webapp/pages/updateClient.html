@@ -1,0 +1,27 @@
+<h1>Modifier un client</h1>
+
+<form class="form-horizontal">
+
+
+<div class="form-group">
+	<div class="col-sm-6">
+		<label for="inputid" class="col-sm-2 control-label">Id</label> <input type="number"
+			class="form-control" id="inputid" placeholder="id client"
+			ng-model="clientForm.id"></div>
+	</div>
+	<div class="form-group">
+	<div class="col-sm-6">
+		<label for="inputnom" class="col-sm-2 control-label">Nom</label> <input type="text"
+			class="form-control" id="inputnom" placeholder="Nom du client"
+			ng-model="clientForm.nom"></div>
+	</div>
+	<div class="form-group">
+	<div class="col-sm-6">
+		<label for="telephone" class="col-sm-2 control-label">Telephone</label> <input type="text"
+			class="form-control" id="telephone" placeholder="telephone"
+			ng-model="clientForm.telephone">
+			</div>
+	</div>
+<div class="col-sm-2">
+	<button ng-click="modifier()" class="btn btn-default">Modifier</button></div>
+</form>
