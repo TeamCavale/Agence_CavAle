@@ -20,7 +20,9 @@ import javax.xml.bind.annotation.XmlTransient;
 
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
-import org.springframework.beans.factory.annotation.Autowired;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 /**
  * 
@@ -55,6 +57,7 @@ public class BienAAcheter extends BienImmo implements Serializable {
 	
 	@OneToMany(mappedBy = "bienAAcheter", fetch=FetchType.EAGER,cascade=CascadeType.REMOVE)
 	@Fetch(value=FetchMode.SUBSELECT)
+	@JsonIgnore
 	private List<Visite> listeVisites;
 
 	@OneToOne(mappedBy = "bienAAcheter")

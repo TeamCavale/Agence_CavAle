@@ -40,7 +40,7 @@ public class VisiteServiceImpl implements IVisitesService {
 //mise en place de la condition d'ajout (ajout impossible si meme bien et meme heure)
 		int service=0;
 		List<Visite> listVisite=visiteDao.getAllVisiteDao();
-		
+	/*	
 		System.out.println(v.getBienAAcheter().getId());
 		System.out.println(v.getDate());
 		for (Visite visite : listVisite) {
@@ -56,7 +56,8 @@ public class VisiteServiceImpl implements IVisitesService {
 			visiteDao.addVisiteDao(v);
 		}else{
 			System.out.println("ajout impossible");
-		}
+		}*/
+		visiteDao.addVisiteDao(v);
 	}
 		
 		
