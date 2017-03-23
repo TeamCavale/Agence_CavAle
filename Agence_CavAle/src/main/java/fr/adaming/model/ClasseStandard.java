@@ -22,6 +22,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  * 
  * @author inti0295
@@ -158,7 +160,7 @@ public class ClasseStandard implements Serializable {
 		this.listeClients = listeClients;
 	}
 
-	@XmlElement
+	@JsonIgnore
 	public List<BienAAcheter> getListeBiensAAcheter() {
 		return listeBiensAAcheter;
 	}
@@ -167,7 +169,7 @@ public class ClasseStandard implements Serializable {
 		this.listeBiensAAcheter = listeBiensAAcheter;
 	}
 
-	@XmlElement
+	@JsonIgnore
 	public List<BienALouer> getListeBiensALouer() {
 		return listeBiensALouer;
 	}

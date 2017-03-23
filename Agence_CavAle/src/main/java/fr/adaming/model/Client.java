@@ -22,6 +22,8 @@ import javax.xml.bind.annotation.XmlTransient;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 
 /**
@@ -119,7 +121,7 @@ public class Client implements Serializable {
 		this.adresse = adresse;
 	}
 
-	@XmlTransient
+	@JsonIgnore
 	public List<ClasseStandard> getListeClassesStandards() {
 		return listeClassesStandards;
 	}
@@ -128,7 +130,7 @@ public class Client implements Serializable {
 		this.listeClassesStandards = listeClassesStandards;
 	}
 
-	@XmlTransient
+	@JsonIgnore
 	public List<Contrat> getListeContrats() {
 		return listeContrats;
 	}

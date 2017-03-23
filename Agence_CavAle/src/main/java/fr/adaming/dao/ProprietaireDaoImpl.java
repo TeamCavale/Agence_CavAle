@@ -27,11 +27,14 @@ public class ProprietaireDaoImpl implements IProprietaireDao {
 
 	@Override
 	public List<Proprietaire> getAllProprietaires() {
+		
 		Session s = sf.getCurrentSession();
 
 		String req = "select p from Proprietaire p";
 
 		Query query = s.createQuery(req);
+		
+	
 
 		return query.list();
 	}

@@ -53,12 +53,11 @@ public class Proprietaire implements Serializable {
 	private Adresse adresse;
 
 	@OneToMany(mappedBy = "proprietaire", fetch = FetchType.EAGER)
-	@Fetch(value=FetchMode.SUBSELECT)
+	@Fetch(value = FetchMode.SUBSELECT)
 	private List<BienALouer> listeBiensALouer;
 
 	@OneToMany(mappedBy = "proprietaire", fetch = FetchType.EAGER)
-	@Fetch(value=FetchMode.SUBSELECT)
-	@JsonIgnore
+	@Fetch(value = FetchMode.SUBSELECT)
 	private List<BienAAcheter> listeBiensAAcheter;
 
 	public Proprietaire() {
@@ -125,7 +124,7 @@ public class Proprietaire implements Serializable {
 		this.adresse = adresse;
 	}
 
-	@XmlTransient
+	@JsonIgnore
 	public List<BienALouer> getListeBiensALouer() {
 		return listeBiensALouer;
 	}
@@ -134,7 +133,7 @@ public class Proprietaire implements Serializable {
 		this.listeBiensALouer = listeBiensALouer;
 	}
 
-	@XmlTransient
+	@JsonIgnore
 	public List<BienAAcheter> getListeBiensAAcheter() {
 		return listeBiensAAcheter;
 	}

@@ -5,13 +5,21 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElements;
 import javax.xml.bind.annotation.XmlRootElement;
+
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 /**
  * 
@@ -47,7 +55,12 @@ public class Agent implements Serializable{
 	private String mdp;
 	
 	@OneToMany(mappedBy="agent")
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<Visite> listeVisites;
+	
+	@OneToMany(mappedBy="agent")
+	@LazyCollection(LazyCollectionOption.FALSE)
+	private List<Contrat> listeContrats;
 
 	public Agent() {
 		super();
@@ -115,7 +128,7 @@ public class Agent implements Serializable{
 		this.mdp = mdp;
 	}
 
-	@XmlElement
+	@JsonIgnore
 	public List<Visite> getListeVisites() {
 		return listeVisites;
 	}
@@ -123,5 +136,15 @@ public class Agent implements Serializable{
 	public void setListeVisites(List<Visite> listeVisites) {
 		this.listeVisites = listeVisites;
 	}
+	
+	@JsonIgnore
+	public List<Contrat> getListeContrats() {
+		return listeContrats;
+	}
+
+	public void setListeContrats(List<Contrat> listeContrats) {
+		this.listeContrats = listeContrats;
+	}
+	
 
 }
