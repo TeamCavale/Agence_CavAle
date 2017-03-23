@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -14,6 +15,9 @@ import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 /**
  * 
@@ -47,12 +51,13 @@ public class Proprietaire implements Serializable {
 	@OneToOne(mappedBy = "proprietaire")
 	private Adresse adresse;
 
-	@OneToMany(mappedBy="proprietaire")
+	@OneToMany(mappedBy = "proprietaire", fetch = FetchType.EAGER)
 	private List<BienALouer> listeBiensALouer;
-	
-	@OneToMany(mappedBy="proprietaire")
+
+	@OneToMany(mappedBy = "proprietaire")
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<BienAAcheter> listeBiensAAcheter;
-	
+
 	public Proprietaire() {
 		super();
 	}
@@ -89,7 +94,7 @@ public class Proprietaire implements Serializable {
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
-	
+
 	@XmlElement
 	public String getTel_prive() {
 		return tel_prive;
@@ -98,7 +103,7 @@ public class Proprietaire implements Serializable {
 	public void setTel_prive(String tel_prive) {
 		this.tel_prive = tel_prive;
 	}
-	
+
 	@XmlElement
 	public String getTel_travail() {
 		return tel_travail;
@@ -134,6 +139,5 @@ public class Proprietaire implements Serializable {
 	public void setListeBiensAAcheter(List<BienAAcheter> listeBiensAAcheter) {
 		this.listeBiensAAcheter = listeBiensAAcheter;
 	}
-	
 
 }
