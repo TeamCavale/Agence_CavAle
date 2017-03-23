@@ -1,13 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="appImmo">
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+
+<!-- JQuery libraries-->
+<script type="text/javascript" src="static/resources/bootstrap/js/jquery.js"></script>
+
+<!-- Bootstrap libraries-->
+<link rel="stylesheet" type="text/css" href="static/resources/bootstrap/css/bootstrap.css">
+<script type="text/javascript" src="static/resources/bootstrap/js/bootstrap.js"></script>
+
+<!-- AngularJs libraries-->
+<script src="static/resources/angular/angular.js"></script>
+<script src="static/resources/angular/angular-route.js"></script>
+<script src="static/resources/angular/angular-resource.js"></script>
+
+
+<!-- import des sripts Angular-->
+<script  src="static/scriptsJS/module/app.js"></script>
+<script src="static/scriptsJS/routing/routing.js"></script>
+<script src="static/scriptsJS/controllers/controller.js"></script>
+<script src="static/scriptsJS/providers/provider.js"></script>
+
+<title>Index</title>
 </head>
 <body>
+	<nav class="navbar navbar-inverse">
+		<ul class="nav nav-pills">
+			<li role="presentation" class="active"><a href="#">Accueil</a></li>
+			<li role="presentation"><a href="#/accueil">Liste des Client</a></li>
+			
+		</ul>
+	</nav>
 
-<h1>toto pokemoNgo</h1>
-
-
+<div ng-view></div>
 </body>
 </html>

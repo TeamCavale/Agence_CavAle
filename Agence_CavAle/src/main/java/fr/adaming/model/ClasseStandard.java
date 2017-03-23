@@ -3,8 +3,10 @@ package fr.adaming.model;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,6 +18,9 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 /**
  * 
@@ -54,16 +59,19 @@ public class ClasseStandard implements Serializable {
 	@OneToOne(mappedBy="classeStandard")
 	private TypeBien typeBien;
 	
-	@ManyToMany
+	@ManyToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	@JoinTable(name="jointure_cs_cl", 
 	joinColumns=@JoinColumn(name="fk_cl"),
 	inverseJoinColumns=@JoinColumn(name="fk_cs"))
+	@Fetch(value = FetchMode.SUBSELECT)
 	private List<Client> listeClients;
 	
-	@OneToMany(mappedBy="classeStandard")
+	@OneToMany(mappedBy="classeStandard", fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	@Fetch(value = FetchMode.SUBSELECT)
 	private List<BienAAcheter> listeBiensAAcheter;
 	
-	@OneToMany(mappedBy="classeStandard")
+	@OneToMany(mappedBy="classeStandard", fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	@Fetch(value = FetchMode.SUBSELECT)
 	private List<BienALouer> listeBiensALouer;
 
 	public ClasseStandard() {

@@ -1,0 +1,30 @@
+<h1 align="center">Liste des clients</h1>
+
+<div class="table-responsive">
+	<table class="table table-bordered" style="text-align: center">
+		<thead>
+			<tr>
+				<th style="text-align: center">Nom</th>
+				<th style="text-align: center">Telephone</th>
+				<th style="text-align: center">Opérations</th>
+			</tr>
+		</thead>
+		<tbody ng-repeat="client in clients">
+			<tr>
+				<td>{{client.nom}}</td>
+				<td>{{client.telephone}}</td>
+				<td><a ng-click="updateLien(client)">Modifier</a> | <a ng-click="deleteLien(client.id)">Supprimer</a></td>
+			</tr>
+
+
+		</tbody>
+
+
+
+	</table>
+
+
+
+
+
+</div>

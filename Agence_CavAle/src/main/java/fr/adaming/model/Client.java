@@ -3,8 +3,10 @@ package fr.adaming.model;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -15,6 +17,12 @@ import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
+
 
 /**
  * 
@@ -46,13 +54,16 @@ public class Client implements Serializable {
 	@OneToOne(mappedBy="client")
 	private Adresse adresse;
 
-	@ManyToMany(mappedBy="listeClients")
+	@ManyToMany(mappedBy="listeClients", fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	@Fetch(value = FetchMode.SUBSELECT)
 	private List<ClasseStandard> listeClassesStandards;
 
-	@OneToMany(mappedBy="client")
+	@OneToMany(mappedBy="client", fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	@Fetch(value = FetchMode.SUBSELECT)
 	private List<Contrat> listeContrats;
 	
-	@OneToMany(mappedBy="client")
+	@OneToMany(mappedBy="client", fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	@Fetch(value = FetchMode.SUBSELECT)
 	private List<Visite> listeVisites;
 
 	public Client() {
@@ -126,7 +137,7 @@ public class Client implements Serializable {
 		this.listeContrats = listeContrats;
 	}
 
-	@XmlElement
+	@XmlTransient
 	public List<Visite> getListeVisites() {
 		return listeVisites;
 	}
