@@ -38,6 +38,29 @@ public class BienImmoServiceImpl implements IBienImmoService {
 		bienImmoDao.addBienImmo(bienImmo);
 	}
 
+	@Override
+	public void delBienAAcheter(int id) {
+		bienImmoDao.delBienAAcheter(id);
+	}
+
+	@Override
+	public void delBienALouer(int id) {
+		bienImmoDao.delBienALouer(id);
+		
+	}
+
+	@Override
+	public void updateBienAAcheter(BienAAcheter bienImmo) {
+		bienImmoDao.updateBienAAcheter(bienImmo);
+		
+	}
+	
+	@Override
+	public void updateBienALouer(BienALouer bienImmo) {
+		bienImmoDao.updateBienALouer(bienImmo);
+		
+	}
+
 	
 
 }

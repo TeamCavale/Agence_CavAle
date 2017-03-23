@@ -38,4 +38,24 @@ public class BienImmoDaoImpl implements IBienImmoDao {
 		sf.getCurrentSession().save(bienImmo);
 	}
 
+	@Override
+	public void delBienAAcheter(int id) {
+		sf.getCurrentSession().delete(sf.getCurrentSession().get(BienAAcheter.class, id));		
+	}
+	
+	@Override
+	public void delBienALouer(int id) {
+		sf.getCurrentSession().delete(sf.getCurrentSession().get(BienALouer.class, id));		
+	}
+
+	@Override
+	public void updateBienAAcheter(BienAAcheter bienImmo) {
+		sf.getCurrentSession().update(bienImmo);
+	}
+	
+	@Override
+	public void updateBienALouer(BienALouer bienImmo) {
+		sf.getCurrentSession().update(bienImmo);
+	}
+
 }

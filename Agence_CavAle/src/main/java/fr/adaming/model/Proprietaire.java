@@ -3,6 +3,7 @@ package fr.adaming.model;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,11 +14,12 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
-import org.hibernate.annotations.LazyCollection;
-import org.hibernate.annotations.LazyCollectionOption;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * 
@@ -26,7 +28,6 @@ import org.hibernate.annotations.LazyCollectionOption;
  */
 @Entity
 @Table(name = "proprietaires")
-@XmlRootElement
 public class Proprietaire implements Serializable {
 
 	/**
@@ -52,10 +53,12 @@ public class Proprietaire implements Serializable {
 	private Adresse adresse;
 
 	@OneToMany(mappedBy = "proprietaire", fetch = FetchType.EAGER)
+	@Fetch(value=FetchMode.SUBSELECT)
 	private List<BienALouer> listeBiensALouer;
 
-	@OneToMany(mappedBy = "proprietaire")
-	@LazyCollection(LazyCollectionOption.FALSE)
+	@OneToMany(mappedBy = "proprietaire", fetch = FetchType.EAGER)
+	@Fetch(value=FetchMode.SUBSELECT)
+	@JsonIgnore
 	private List<BienAAcheter> listeBiensAAcheter;
 
 	public Proprietaire() {
@@ -131,7 +134,7 @@ public class Proprietaire implements Serializable {
 		this.listeBiensALouer = listeBiensALouer;
 	}
 
-	@XmlElement
+	@XmlTransient
 	public List<BienAAcheter> getListeBiensAAcheter() {
 		return listeBiensAAcheter;
 	}

@@ -14,5 +14,13 @@ public interface IBienImmoDao {
 	
 	public void addBienImmo(BienImmo bienImmo);
 	
+	public void delBienAAcheter(int id);
+	
+	public void delBienALouer(int id);
+	
+	public void updateBienAAcheter(BienAAcheter bienImmo);
+	
+	public void updateBienALouer(BienALouer bienImmo);
+	
 
 }
