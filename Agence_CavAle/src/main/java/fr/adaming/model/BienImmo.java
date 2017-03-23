@@ -17,6 +17,7 @@ import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -75,6 +76,7 @@ public class BienImmo implements Serializable {
 		this.revenuCadastral = revenuCadastral;
 	}
 
+	@XmlElement
 	public int getId() {
 		return id;
 	}
@@ -83,6 +85,7 @@ public class BienImmo implements Serializable {
 		this.id = id;
 	}
 
+	@XmlElement
 	public String getStatut() {
 		return statut;
 	}
@@ -91,6 +94,7 @@ public class BienImmo implements Serializable {
 		this.statut = statut;
 	}
 
+	@XmlElement
 	public Date getDateSoumission() {
 		return dateSoumission;
 	}
@@ -99,6 +103,7 @@ public class BienImmo implements Serializable {
 		this.dateSoumission = dateSoumission;
 	}
 
+	@XmlElement
 	public Date getDateDispo() {
 		return dateDispo;
 	}
@@ -107,6 +112,7 @@ public class BienImmo implements Serializable {
 		this.dateDispo = dateDispo;
 	}
 
+	@XmlElement
 	public double getRevenuCadastral() {
 		return revenuCadastral;
 	}

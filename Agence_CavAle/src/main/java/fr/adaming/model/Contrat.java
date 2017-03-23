@@ -13,6 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.hibernate.annotations.ManyToAny;
@@ -76,6 +77,7 @@ public class Contrat implements Serializable {
 		this.dateAchat = dateAchat;
 	}
 
+	@XmlElement
 	public int getId() {
 		return id;
 	}
@@ -84,6 +86,7 @@ public class Contrat implements Serializable {
 		this.id = id;
 	}
 
+	@XmlElement
 	public double getPrixEffectif() {
 		return prixEffectif;
 	}
@@ -92,6 +95,7 @@ public class Contrat implements Serializable {
 		this.prixEffectif = prixEffectif;
 	}
 
+	@XmlElement
 	public Date getDateAchat() {
 		return dateAchat;
 	}
@@ -100,6 +104,7 @@ public class Contrat implements Serializable {
 		this.dateAchat = dateAchat;
 	}
 
+	@XmlElement
 	public Agent getAgent() {
 		return agent;
 	}
@@ -108,6 +113,7 @@ public class Contrat implements Serializable {
 		this.agent = agent;
 	}
 
+	@XmlElement
 	public Client getClient() {
 		return client;
 	}
@@ -116,6 +122,7 @@ public class Contrat implements Serializable {
 		this.client = client;
 	}
 
+	@XmlElement
 	public BienALouer getBienALouer() {
 		return bienALouer;
 	}
@@ -124,6 +131,7 @@ public class Contrat implements Serializable {
 		this.bienALouer = bienALouer;
 	}
 
+	@XmlElement
 	public BienAAcheter getBienAAcheter() {
 		return bienAAcheter;
 	}

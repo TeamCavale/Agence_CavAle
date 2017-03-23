@@ -12,7 +12,9 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  * 
@@ -69,7 +71,8 @@ public class Client implements Serializable {
 		this.nom = nom;
 		this.telephone = telephone;
 	}
-
+	
+	@XmlElement
 	public int getId() {
 		return id;
 	}
@@ -78,6 +81,7 @@ public class Client implements Serializable {
 		this.id = id;
 	}
 
+	@XmlElement
 	public String getNom() {
 		return nom;
 	}
@@ -86,6 +90,7 @@ public class Client implements Serializable {
 		this.nom = nom;
 	}
 
+	@XmlElement
 	public String getTelephone() {
 		return telephone;
 	}
@@ -93,7 +98,8 @@ public class Client implements Serializable {
 	public void setTelephone(String telephone) {
 		this.telephone = telephone;
 	}
-
+	
+	@XmlElement
 	public Adresse getAdresse() {
 		return adresse;
 	}
@@ -102,6 +108,7 @@ public class Client implements Serializable {
 		this.adresse = adresse;
 	}
 
+	@XmlTransient
 	public List<ClasseStandard> getListeClassesStandards() {
 		return listeClassesStandards;
 	}
@@ -110,6 +117,7 @@ public class Client implements Serializable {
 		this.listeClassesStandards = listeClassesStandards;
 	}
 
+	@XmlTransient
 	public List<Contrat> getListeContrats() {
 		return listeContrats;
 	}
@@ -118,10 +126,12 @@ public class Client implements Serializable {
 		this.listeContrats = listeContrats;
 	}
 
+	@XmlElement
 	public List<Visite> getListeVisites() {
 		return listeVisites;
 	}
-
+	
+	
 	public void setListeVisites(List<Visite> listeVisites) {
 		this.listeVisites = listeVisites;
 	}

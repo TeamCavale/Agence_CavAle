@@ -1,5 +1,6 @@
 package fr.adaming.model;
 
+import java.beans.Transient;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -14,7 +15,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  * 
@@ -73,6 +76,7 @@ public class BienAAcheter extends BienImmo implements Serializable {
 		this.etat = etat;
 	}
 
+	@XmlElement
 	public double getPrixAchat() {
 		return prixAchat;
 	}
@@ -81,6 +85,7 @@ public class BienAAcheter extends BienImmo implements Serializable {
 		this.prixAchat = prixAchat;
 	}
 
+	@XmlElement
 	public String getEtat() {
 		return etat;
 	}
@@ -89,6 +94,7 @@ public class BienAAcheter extends BienImmo implements Serializable {
 		this.etat = etat;
 	}
 
+	@XmlTransient
 	public ClasseStandard getClasseStandard() {
 		return classeStandard;
 	}
@@ -97,6 +103,7 @@ public class BienAAcheter extends BienImmo implements Serializable {
 		this.classeStandard = classeStandard;
 	}
 
+	@XmlElement
 	public Adresse getAdresse() {
 		return adresse;
 	}
@@ -105,6 +112,7 @@ public class BienAAcheter extends BienImmo implements Serializable {
 		this.adresse = adresse;
 	}
 
+	@XmlElement
 	public List<Visite> getListeVisites() {
 		return listeVisites;
 	}
@@ -113,6 +121,7 @@ public class BienAAcheter extends BienImmo implements Serializable {
 		this.listeVisites = listeVisites;
 	}
 
+	@Transient
 	public Contrat getContrat() {
 		return contrat;
 	}
@@ -121,6 +130,7 @@ public class BienAAcheter extends BienImmo implements Serializable {
 		this.contrat = contrat;
 	}
 
+	@XmlElement
 	public Proprietaire getProprietaire() {
 		return proprietaire;
 	}

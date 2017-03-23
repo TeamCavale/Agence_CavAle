@@ -14,7 +14,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  * 
@@ -89,6 +91,7 @@ public class BienALouer extends BienImmo implements Serializable {
 		this.garniture = garniture;
 	}
 
+	@XmlElement
 	public double getCaution() {
 		return caution;
 	}
@@ -97,6 +100,7 @@ public class BienALouer extends BienImmo implements Serializable {
 		this.caution = caution;
 	}
 
+	@XmlElement
 	public double getLoyer() {
 		return loyer;
 	}
@@ -105,6 +109,7 @@ public class BienALouer extends BienImmo implements Serializable {
 		this.loyer = loyer;
 	}
 
+	@XmlElement
 	public double getCharges() {
 		return charges;
 	}
@@ -113,6 +118,7 @@ public class BienALouer extends BienImmo implements Serializable {
 		this.charges = charges;
 	}
 
+	@XmlElement
 	public String getTypeBail() {
 		return typeBail;
 	}
@@ -121,6 +127,7 @@ public class BienALouer extends BienImmo implements Serializable {
 		this.typeBail = typeBail;
 	}
 
+	@XmlElement
 	public String getGarniture() {
 		return garniture;
 	}
@@ -129,6 +136,7 @@ public class BienALouer extends BienImmo implements Serializable {
 		this.garniture = garniture;
 	}
 
+	@XmlTransient
 	public ClasseStandard getClasseStandard() {
 		return classeStandard;
 	}
@@ -137,6 +145,7 @@ public class BienALouer extends BienImmo implements Serializable {
 		this.classeStandard = classeStandard;
 	}
 
+	@XmlElement
 	public Adresse getAdresse() {
 		return adresse;
 	}
@@ -145,6 +154,7 @@ public class BienALouer extends BienImmo implements Serializable {
 		this.adresse = adresse;
 	}
 
+	@XmlElement
 	public List<Visite> getListeVisites() {
 		return listeVisites;
 	}
@@ -153,6 +163,7 @@ public class BienALouer extends BienImmo implements Serializable {
 		this.listeVisites = listeVisites;
 	}
 
+	@XmlTransient
 	public Contrat getContrat() {
 		return contrat;
 	}
@@ -161,6 +172,7 @@ public class BienALouer extends BienImmo implements Serializable {
 		this.contrat = contrat;
 	}
 
+	@XmlElement
 	public Proprietaire getProprietaire() {
 		return proprietaire;
 	}

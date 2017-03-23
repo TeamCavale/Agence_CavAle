@@ -11,7 +11,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  * 
@@ -70,6 +72,7 @@ public class Proprietaire implements Serializable {
 		this.tel_travail = tel_travail;
 	}
 
+	@XmlElement
 	public int getId() {
 		return id;
 	}
@@ -78,6 +81,7 @@ public class Proprietaire implements Serializable {
 		this.id = id;
 	}
 
+	@XmlElement
 	public String getNom() {
 		return nom;
 	}
@@ -85,7 +89,8 @@ public class Proprietaire implements Serializable {
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
-
+	
+	@XmlElement
 	public String getTel_prive() {
 		return tel_prive;
 	}
@@ -93,7 +98,8 @@ public class Proprietaire implements Serializable {
 	public void setTel_prive(String tel_prive) {
 		this.tel_prive = tel_prive;
 	}
-
+	
+	@XmlElement
 	public String getTel_travail() {
 		return tel_travail;
 	}
@@ -102,6 +108,7 @@ public class Proprietaire implements Serializable {
 		this.tel_travail = tel_travail;
 	}
 
+	@XmlElement
 	public Adresse getAdresse() {
 		return adresse;
 	}
@@ -109,5 +116,24 @@ public class Proprietaire implements Serializable {
 	public void setAdresse(Adresse adresse) {
 		this.adresse = adresse;
 	}
+
+	@XmlTransient
+	public List<BienALouer> getListeBiensALouer() {
+		return listeBiensALouer;
+	}
+
+	public void setListeBiensALouer(List<BienALouer> listeBiensALouer) {
+		this.listeBiensALouer = listeBiensALouer;
+	}
+
+	@XmlElement
+	public List<BienAAcheter> getListeBiensAAcheter() {
+		return listeBiensAAcheter;
+	}
+
+	public void setListeBiensAAcheter(List<BienAAcheter> listeBiensAAcheter) {
+		this.listeBiensAAcheter = listeBiensAAcheter;
+	}
+	
 
 }

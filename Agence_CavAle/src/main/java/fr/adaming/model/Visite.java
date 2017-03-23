@@ -12,7 +12,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  * 
@@ -69,6 +71,7 @@ public class Visite implements Serializable {
 		this.date = date;
 	}
 
+	@XmlElement
 	public int getId() {
 		return id;
 	}
@@ -77,6 +80,7 @@ public class Visite implements Serializable {
 		this.id = id;
 	}
 
+	@XmlElement
 	public Date getDate() {
 		return date;
 	}
@@ -85,6 +89,7 @@ public class Visite implements Serializable {
 		this.date = date;
 	}
 
+	@XmlElement
 	public Client getClient() {
 		return client;
 	}
@@ -93,6 +98,7 @@ public class Visite implements Serializable {
 		this.client = client;
 	}
 
+	@XmlTransient
 	public Agent getAgent() {
 		return agent;
 	}
@@ -101,6 +107,7 @@ public class Visite implements Serializable {
 		this.agent = agent;
 	}
 
+	@XmlTransient
 	public BienALouer getBienALouer() {
 		return bienALouer;
 	}
@@ -109,6 +116,7 @@ public class Visite implements Serializable {
 		this.bienALouer = bienALouer;
 	}
 
+	@XmlTransient
 	public BienAAcheter getBienAAcheter() {
 		return bienAAcheter;
 	}

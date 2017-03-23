@@ -10,7 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  * 
@@ -60,6 +62,7 @@ public class TypeBien implements Serializable {
 		this.typeDeBien = typeDeBien;
 	}
 
+	@XmlElement
 	public int getId() {
 		return id;
 	}
@@ -68,6 +71,7 @@ public class TypeBien implements Serializable {
 		this.id = id;
 	}
 
+	@XmlElement
 	public String getCategorie() {
 		return categorie;
 	}
@@ -76,6 +80,7 @@ public class TypeBien implements Serializable {
 		this.categorie = categorie;
 	}
 
+	@XmlElement
 	public String getTypeDeBien() {
 		return typeDeBien;
 	}
@@ -84,6 +89,7 @@ public class TypeBien implements Serializable {
 		this.typeDeBien = typeDeBien;
 	}
 
+	@XmlTransient
 	public ClasseStandard getClasseStandard() {
 		return classeStandard;
 	}

@@ -10,7 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  * 
@@ -77,6 +79,7 @@ public class Adresse implements Serializable {
 		this.ville = ville;
 	}
 
+	@XmlElement
 	public int getId() {
 		return id;
 	}
@@ -85,6 +88,7 @@ public class Adresse implements Serializable {
 		this.id = id;
 	}
 
+	@XmlElement
 	public String getRue() {
 		return rue;
 	}
@@ -93,6 +97,7 @@ public class Adresse implements Serializable {
 		this.rue = rue;
 	}
 
+	@XmlElement
 	public String getCodePostal() {
 		return codePostal;
 	}
@@ -101,6 +106,7 @@ public class Adresse implements Serializable {
 		this.codePostal = codePostal;
 	}
 
+	@XmlElement
 	public String getVille() {
 		return ville;
 	}
@@ -109,6 +115,7 @@ public class Adresse implements Serializable {
 		this.ville = ville;
 	}
 
+	@XmlTransient
 	public Proprietaire getProprietaire() {
 		return proprietaire;
 	}
@@ -117,6 +124,7 @@ public class Adresse implements Serializable {
 		this.proprietaire = proprietaire;
 	}
 
+	@XmlTransient
 	public Client getClient() {
 		return client;
 	}
@@ -125,6 +133,7 @@ public class Adresse implements Serializable {
 		this.client = client;
 	}
 
+	@XmlTransient
 	public BienALouer getBienALouer() {
 		return bienALouer;
 	}
@@ -133,6 +142,7 @@ public class Adresse implements Serializable {
 		this.bienALouer = bienALouer;
 	}
 
+	@XmlTransient
 	public BienAAcheter getBienAAcheter() {
 		return bienAAcheter;
 	}

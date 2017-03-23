@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -69,6 +70,7 @@ public class Agent implements Serializable{
 		this.mdp = mdp;
 	}
 
+	@XmlElement
 	public int getId() {
 		return id;
 	}
@@ -77,6 +79,7 @@ public class Agent implements Serializable{
 		this.id = id;
 	}
 
+	@XmlElement
 	public String getNom() {
 		return nom;
 	}
@@ -85,6 +88,7 @@ public class Agent implements Serializable{
 		this.nom = nom;
 	}
 
+	@XmlElement
 	public String getMail() {
 		return mail;
 	}
@@ -93,6 +97,7 @@ public class Agent implements Serializable{
 		this.mail = mail;
 	}
 
+	@XmlElement
 	public String getTelephone() {
 		return telephone;
 	}
@@ -101,6 +106,7 @@ public class Agent implements Serializable{
 		this.telephone = telephone;
 	}
 
+	@XmlElement
 	public String getMdp() {
 		return mdp;
 	}
@@ -109,6 +115,7 @@ public class Agent implements Serializable{
 		this.mdp = mdp;
 	}
 
+	@XmlElement
 	public List<Visite> getListeVisites() {
 		return listeVisites;
 	}

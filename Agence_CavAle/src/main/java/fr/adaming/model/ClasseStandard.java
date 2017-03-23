@@ -14,6 +14,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -86,6 +87,7 @@ public class ClasseStandard implements Serializable {
 		this.superficieMin = superficieMin;
 	}
 
+	@XmlElement
 	public int getId() {
 		return id;
 	}
@@ -94,6 +96,7 @@ public class ClasseStandard implements Serializable {
 		this.id = id;
 	}
 
+	@XmlElement
 	public String getCode() {
 		return code;
 	}
@@ -102,6 +105,7 @@ public class ClasseStandard implements Serializable {
 		this.code = code;
 	}
 
+	@XmlElement
 	public String getTypeOffre() {
 		return typeOffre;
 	}
@@ -110,6 +114,7 @@ public class ClasseStandard implements Serializable {
 		this.typeOffre = typeOffre;
 	}
 
+	@XmlElement
 	public double getPrixMax() {
 		return prixMax;
 	}
@@ -118,6 +123,7 @@ public class ClasseStandard implements Serializable {
 		this.prixMax = prixMax;
 	}
 
+	@XmlElement
 	public String getSuperficieMin() {
 		return superficieMin;
 	}
@@ -126,6 +132,7 @@ public class ClasseStandard implements Serializable {
 		this.superficieMin = superficieMin;
 	}
 
+	@XmlElement
 	public TypeBien getTypeBien() {
 		return typeBien;
 	}
@@ -134,6 +141,7 @@ public class ClasseStandard implements Serializable {
 		this.typeBien = typeBien;
 	}
 
+	@XmlElement
 	public List<Client> getListeClients() {
 		return listeClients;
 	}
@@ -142,6 +150,7 @@ public class ClasseStandard implements Serializable {
 		this.listeClients = listeClients;
 	}
 
+	@XmlElement
 	public List<BienAAcheter> getListeBiensAAcheter() {
 		return listeBiensAAcheter;
 	}
@@ -150,6 +159,7 @@ public class ClasseStandard implements Serializable {
 		this.listeBiensAAcheter = listeBiensAAcheter;
 	}
 
+	@XmlElement
 	public List<BienALouer> getListeBiensALouer() {
 		return listeBiensALouer;
 	}
