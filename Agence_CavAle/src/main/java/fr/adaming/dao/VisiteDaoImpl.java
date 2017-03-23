@@ -9,12 +9,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import fr.adaming.model.Contrat;
+import fr.adaming.model.Visite;
 
 @Repository
-public class ContratDaoImpl implements IContratDao {
+public class VisiteDaoImpl implements IVisiteDao {
 
 	@Autowired
 	private SessionFactory sf;
+	
 	
 	
 	public void setSf(SessionFactory sf) {
@@ -22,8 +24,8 @@ public class ContratDaoImpl implements IContratDao {
 	}
 
 	@Override
-	public List<Contrat> getAllContratDao() {
-		String req="SELECT c FROM Contrat c";
+	public List<Visite> getAllVisiteDao() {
+		String req="SELECT v FROM Visite v";
 		Session s=sf.getCurrentSession();
 		Query query=s.createQuery(req);
 		
@@ -31,33 +33,31 @@ public class ContratDaoImpl implements IContratDao {
 	}
 
 	@Override
-	public Contrat getContratbyIdDao(int id) {
+	public Visite getVisitebyIdDao(int id) {
 		Session s=sf.getCurrentSession();
-		Contrat contrat=(Contrat) s.get(Contrat.class, id);
+		Visite visite=(Visite) s.get(Visite.class, id);
+		return visite;
+	}
+
+	@Override
+	public void addVisiteDao(Visite v) {
+		Session s=sf.getCurrentSession();
 		
-		return contrat;
-	}
-
-	@Override
-	public void addContratDao(Contrat c) {
-		Session s=sf.getCurrentSession();
-		
-		s.save(c);
+		s.save(v);
 
 	}
 
 	@Override
-	public void delContratDao(int id) {
+	public void delVisiteDao(int id) {
 		Session s=sf.getCurrentSession();
-		Contrat contrat=(Contrat) s.get(Contrat.class, id);
-		s.delete(contrat);
-
+		Visite visite=(Visite) s.get(Visite.class, id);
+		s.delete(visite);
 	}
 
 	@Override
-	public void updateContratDao(Contrat c) {
+	public void updateVisiteDao(Visite v) {
 		Session s=sf.getCurrentSession();
-		s.update(c);
+		s.update(v);
 
 	}
 

@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -16,8 +17,10 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
+
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * 
@@ -48,7 +51,9 @@ public class BienAAcheter extends BienImmo implements Serializable {
 	@OneToOne(mappedBy = "bienAAcheter")
 	private Adresse adresse;
 
-	@OneToMany(mappedBy = "bienAAcheter", fetch=FetchType.EAGER)
+	
+	
+	@OneToMany(mappedBy = "bienAAcheter", fetch=FetchType.EAGER,cascade=CascadeType.REMOVE)
 	@Fetch(value=FetchMode.SUBSELECT)
 	private List<Visite> listeVisites;
 
@@ -113,7 +118,7 @@ public class BienAAcheter extends BienImmo implements Serializable {
 		this.adresse = adresse;
 	}
 
-	@XmlElement
+	@XmlTransient
 	public List<Visite> getListeVisites() {
 		return listeVisites;
 	}
