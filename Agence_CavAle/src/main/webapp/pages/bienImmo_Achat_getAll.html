@@ -16,8 +16,18 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<td></td>
+			<tr ng-repeat="bi in biAchat">
+				<td>{{bi.id}}</td>
+				<td>{{bi.statut}}</td>
+				<td>{{bi.dateSoumission | date : 'dd/MM/yyyy'}}</td>
+				<td>{{bi.dateDispo | date : 'dd/MM/yyyy'}}</td>
+				<td>{{bi.revenuCadastral | currency:'&euro;':2}}</td>
+				<td>{{bi.prixAchat | currency:'&euro;':2}}</td>
+				<td>{{bi.etat}}</td>
+				<td>{{bi.classeStandard}}</td>
+				<td>{{bi.adresse}}</td>
+				<td>{{bi.contrat}}</td>
+				<td>{{bi.proprietaire.nom}}</td>
 			</tr>
 		</tbody>
 	</table>

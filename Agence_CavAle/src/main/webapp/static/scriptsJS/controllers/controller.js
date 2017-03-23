@@ -13,9 +13,11 @@ app.controller("findAllClientCtrl", function($scope, $rootScope, $window, client
 		clientProvider.deleteClient(id, function(callback){
 			if(callback !=undefined && callback!=""){
 				
-				clientProvider.findAllClients(function(callback){
-					$scope.clients = callback.data;
+				clientProvider.findAllClients(function(callback_client){
+					if(callback_client !=undefined && callback_client!=""){
+					$scope.clients = callback_client.data;
 					$location.path("getAllClient")
+					}
 				});
 			}
 		})

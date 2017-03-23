@@ -42,8 +42,8 @@ app.factory("clientProvider", function($http) {
 			
 			
 		}).success(function (response){
-			console.log(response);
-			callback(response);
+			
+			callback("OK");
 			
 		}).error(function(response){
 			console.log('Erreur : ' + response.statusText);
