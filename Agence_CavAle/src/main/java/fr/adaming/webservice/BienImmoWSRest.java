@@ -64,6 +64,7 @@ public class BienImmoWSRest {
 
 	@RequestMapping(value = "/location/update", method = RequestMethod.PUT, consumes = "application/json")
 	public void updateBienALouer(@RequestBody BienALouer bienImmoLouer) {
+		System.out.println(bienImmoLouer);
 		bienImmoService.updateBienALouer(bienImmoLouer);
 	}
 
