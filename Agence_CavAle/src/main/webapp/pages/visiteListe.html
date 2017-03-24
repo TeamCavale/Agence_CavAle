@@ -1,1 +1,30 @@
 <h1>Liste Visite</h1>
+
+<div class="table-responsive">
+
+	<table class="table table-bordered" style="text-align: center;">
+		<thead>
+			<tr>
+				<th style="text-align: center;">Date</th>
+				<th style="text-align: center;">Client</th>
+				<th style="text-align: center;">Agent</th>
+				<th style="text-align: center;">Bien a Louer</th>
+				<th style="text-align: center;">Bien a Acheter</th>
+				
+			</tr>
+		</thead>
+		<tbody ng-repeat="visite in visites">
+			<tr >
+				<td>{{visite.date | date : dd/MM/yyyy}}</td>
+				<td>{{visite.client}}</td>
+				<td>{{visite.agent}}</td>
+				<td>{{visite.bienALouer}}</td>
+				<td>{{visite.bienAAcheter}}</td>
+				<td>Modifier| Supprimer</td>
+			</tr>
+		</tbody>
+
+	</table>
+
+
+</div>
