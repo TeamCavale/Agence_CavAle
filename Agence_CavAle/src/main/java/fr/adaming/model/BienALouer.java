@@ -19,6 +19,8 @@ import javax.xml.bind.annotation.XmlTransient;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  * 
  * @author inti0295
@@ -165,7 +167,7 @@ public class BienALouer extends BienImmo implements Serializable {
 		this.listeVisites = listeVisites;
 	}
 
-	@XmlTransient
+	@JsonIgnore
 	public Contrat getContrat() {
 		return contrat;
 	}

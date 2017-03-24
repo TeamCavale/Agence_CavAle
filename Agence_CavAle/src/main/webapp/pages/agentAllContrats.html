@@ -17,7 +17,7 @@
 					<td>{{con.prixEffectif}}</td>
 					<td>{{con.dateAchat | date : 'dd/MM/yyyy'}}</td>
 					<td>{{con.client.nom}}</td>
-					<td>{{con.bienALouer}}{{con.bienAAcheter}}</td>
+					<td>{{con.bienALouer.classeStandard.code}}{{con.bienAAcheter.classeStandard.code}} #{{con.bienALouer.id}}{{con.bienAAcheter.id}}</td>
 				</tr>
 			</tbody>
 		</table>

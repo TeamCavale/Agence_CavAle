@@ -151,7 +151,7 @@ public class ClasseStandard implements Serializable {
 		this.typeBien = typeBien;
 	}
 
-	@XmlElement
+	@JsonIgnore
 	public List<Client> getListeClients() {
 		return listeClients;
 	}

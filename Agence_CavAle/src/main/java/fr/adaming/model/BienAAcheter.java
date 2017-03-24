@@ -103,7 +103,7 @@ public class BienAAcheter extends BienImmo implements Serializable {
 		this.etat = etat;
 	}
 
-	@XmlTransient
+	
 	public ClasseStandard getClasseStandard() {
 		return classeStandard;
 	}
@@ -130,7 +130,7 @@ public class BienAAcheter extends BienImmo implements Serializable {
 		this.listeVisites = listeVisites;
 	}
 
-	@XmlTransient
+	@JsonIgnore
 	public Contrat getContrat() {
 		return contrat;
 	}
