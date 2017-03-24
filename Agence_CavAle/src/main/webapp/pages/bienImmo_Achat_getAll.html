@@ -1,34 +1,90 @@
-<div class="table-responsive">
-	<table class="table table-bordered table-hover">
-		<thead>
-			<tr>
-				<td>#</td>
-				<td>Statut</td>
-				<td>Soumis le</td>
-				<td>Disponible le</td>
-				<td>Revenu Cadastral</td>
-				<td>Prix</td>
-				<td>Etat</td>
-				<td>Classe</td>
-				<td>Adresse</td>
-				<td>Contrat</td>
-				<td>Propriétaire</td>
-			</tr>
-		</thead>
-		<tbody>
-			<tr ng-repeat="bi in biAchat">
-				<td>{{bi.id}}</td>
-				<td>{{bi.statut}}</td>
-				<td>{{bi.dateSoumission | date : 'dd/MM/yyyy'}}</td>
-				<td>{{bi.dateDispo | date : 'dd/MM/yyyy'}}</td>
-				<td>{{bi.revenuCadastral | currency:'&euro;':2}}</td>
-				<td>{{bi.prixAchat | currency:'&euro;':2}}</td>
-				<td>{{bi.etat}}</td>
-				<td>{{bi.classeStandard}}</td>
-				<td>{{bi.adresse}}</td>
-				<td>{{bi.contrat}}</td>
-				<td>{{bi.proprietaire.nom}}</td>
-			</tr>
-		</tbody>
-	</table>
+<div class="row">
+	<div class="table-responsive col-md-8">
+		<table class="table table-bordered table-hover">
+			<thead>
+				<tr>
+					<td>#</td>
+					<td>Statut</td>
+					<td>Soumis le</td>
+					<td>Disponible le</td>
+					<td>Revenu Cadastral</td>
+					<td>Prix</td>
+					<td>Etat</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="bi in biAchat" ng-click="getDetail(bi.id)">
+					<td>{{bi.id}}</td>
+					<td>{{bi.statut}}</td>
+					<td>{{bi.dateSoumission | date : 'dd/MM/yyyy'}}</td>
+					<td>{{bi.dateDispo | date : 'dd/MM/yyyy'}}</td>
+					<td>{{bi.revenuCadastral | currency:'&euro;':2}}</td>
+					<td>{{bi.prixAchat | currency:'&euro;':2}}</td>
+					<td>{{bi.etat}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="col-md-4">
+		<span>Classe Standard</span>
+		<dl class="dl-horizontal">
+			<dt>Code</dt>
+			<dd>{{bienImmo.classeStandard.code}}</dd>
+			<dt>Type</dt>
+			<dd>{{bienImmo.classeStandard.typeOffre}}</dd>
+			<dt>Prix Max</dt>
+			<dd>{{bienImmo.classeStandard.prixMax}}</dd>
+			<dt>Superficie Min</dt>
+			<dd>{{bienImmo.classeStandard.superficieMin}}</dd>
+			<dt>Type de bien</dt>
+			<dd>{{bienImmo.classeStandard.typeBien}}</dd>
+		</dl>
+		<span>Propriétaire</span>
+		<dl class="dl-horizontal">
+			<dt>Nom</dt>
+			<dd>{{bienImmo.proprietaire.nom}}</dd>
+			<dt>Téléphone Privé</dt>
+			<dd>{{bienImmo.proprietaire.tel_prive}}</dd>
+			<dt>Téléphone Pro</dt>
+			<dd>{{bienImmo.proprietaire.tel_travail}}</dd>
+			<dt>Adresse</dt>
+			<dd>
+				<dl class="dl-horizontal">
+					<dt>Rue</dt>
+					<dd>{{bienImmo.proprietaire.adresse.rue_adr}}</dd>
+					<dt>Code Postal</dt>
+					<dd>{{bienImmo.proprietaire.adresse.codePostale_adr}}</dd>
+					<dt>Ville</dt>
+					<dd>{{bienImmo.proprietaire.adresse.ville_adr}}</dd>
+				</dl>
+			</dd>
+		</dl>
+		<span>Contrat</span>
+		<dl class="dl-horizontal">
+			<dt>Prix</dt>
+			<dd>{{bienImmo.contrat.prixEffectif}}</dd>
+			<dt>Date</dt>
+			<dd>{{bienImmo.contrat.dateAchat}}</dd>
+			<dt>Client</dt>
+			<dd>
+				<dl class="dl-horizontal">
+					<dt>Nom</dt>
+					<dd>{{bienImmo.contrat.client.nom}}</dd>
+					<dt>Téléphone</dt>
+					<dd>{{bienImmo.contrat.client.telephone}}</dd>
+					<dt>Adresse</dt>
+					<dd>
+						<dl class="dl-horizontal">
+							<dt>Rue</dt>
+							<dd>{{bienImmo.contrat.client.adresse.rue_adr}}</dd>
+							<dt>Code Postal</dt>
+							<dd>{{bienImmo.contrat.client.adresse.codePostale_adr}}</dd>
+							<dt>Ville</dt>
+							<dd>{{bienImmo.contrat.client.adresse.ville_adr}}</dd>
+						</dl>
+					</dd>
+				</dl>
+			</dd>
+		</dl>
+	</div>
 </div>

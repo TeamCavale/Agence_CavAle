@@ -22,4 +22,7 @@ public interface IBienImmoService {
 	
 	public void updateBienALouer(BienALouer bienImmo);
 
+	public BienAAcheter getBienAAcheterById(int id);
+	
+	public BienALouer getBienALouerById(int id);
 }

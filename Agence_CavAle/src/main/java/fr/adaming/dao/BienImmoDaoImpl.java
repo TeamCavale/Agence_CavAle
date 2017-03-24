@@ -58,4 +58,14 @@ public class BienImmoDaoImpl implements IBienImmoDao {
 		sf.getCurrentSession().update(bienImmo);
 	}
 
+	@Override
+	public BienAAcheter getBienAAcheterById(int id) {
+		return (BienAAcheter) sf.getCurrentSession().get(BienAAcheter.class, id);
+	}
+
+	@Override
+	public BienALouer getBienALouerById(int id) {
+		return (BienALouer) sf.getCurrentSession().get(BienALouer.class, id);
+	}
+
 }

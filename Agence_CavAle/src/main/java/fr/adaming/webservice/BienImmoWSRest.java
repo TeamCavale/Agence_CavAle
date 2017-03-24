@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.adaming.model.BienAAcheter;
@@ -64,8 +63,17 @@ public class BienImmoWSRest {
 
 	@RequestMapping(value = "/location/update", method = RequestMethod.PUT, consumes = "application/json")
 	public void updateBienALouer(@RequestBody BienALouer bienImmoLouer) {
-		System.out.println(bienImmoLouer);
 		bienImmoService.updateBienALouer(bienImmoLouer);
+	}
+	
+	@RequestMapping(value = "/achat/getById/{id}", method = RequestMethod.GET, produces = "application/json")
+	public BienAAcheter getBienAAcheterByIdWS(@PathVariable int id) {
+		return bienImmoService.getBienAAcheterById(id);
+	}
+
+	@RequestMapping(value = "/location/getById/{id}", method = RequestMethod.GET, produces = "application/json")
+	public BienALouer getBienALouerByIdWS(@PathVariable int id) {
+		return bienImmoService.getBienALouerById(id);
 	}
 
 }

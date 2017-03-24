@@ -61,6 +61,16 @@ public class BienImmoServiceImpl implements IBienImmoService {
 		
 	}
 
+	@Override
+	public BienAAcheter getBienAAcheterById(int id) {
+		return bienImmoDao.getBienAAcheterById(id);
+	}
+
+	@Override
+	public BienALouer getBienALouerById(int id) {
+		return bienImmoDao.getBienALouerById(id);
+	}
+
 	
 
 }
