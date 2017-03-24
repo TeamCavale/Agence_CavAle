@@ -2,16 +2,29 @@
  * 
  */
 
-app.factory("getCByCSProvider", function($http) {
+app.factory("getCByBIProvider", function($http) {
 	var urlglobal = "http://localhost:8080/Agence_CavAle";
 
 	
-	function getAllClassStand(callback) {
+	function getAllBA(callback) {
 	
 		$http({
 			method : 'GET',
-			url : urlglobal + '/classeStandard/classeStandards'
+			url : urlglobal + '/bienimmo/achat/getAll'
 		}).then(function successCallback(response) {
+			console.log(response.data);
+			callback(response);
+		}, function errorCallback(response) {
+			console.log("erreur : " + response.statusText);
+		});
+	}
+	function getAllBL(callback) {
+		
+		$http({
+			method : 'GET',
+			url : urlglobal + '/bienimmo/location/getAll'
+		}).then(function successCallback(response) {
+			console.log(response.data);
 			callback(response);
 		}, function errorCallback(response) {
 			console.log("erreur : " + response.statusText);

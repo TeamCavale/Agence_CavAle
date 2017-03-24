@@ -28,12 +28,13 @@ public class ClientWSRest {
 	//methodes
 	@RequestMapping(value="/clients", method=RequestMethod.GET, produces="application/json")
 	public List<Client> getAllClientRest(){
-		System.out.println("voici la liste: "+clientService.getAllClientService());
+		
 		return clientService.getAllClientService();
 		}
 
 	@RequestMapping(value="/add", method=RequestMethod.POST, consumes="application/json")
 	public void addClientRest(@RequestBody Client client){
+		
 		clientService.addClientService(client);
 	}
 	@RequestMapping(value="/client/{id_param}", method=RequestMethod.GET, produces="application/json")
@@ -43,6 +44,7 @@ public class ClientWSRest {
 		}
 	@RequestMapping(value="/update", method=RequestMethod.PUT, consumes="application/json")
 	public void updateClientRest(@RequestBody Client client){
+		
 		clientService.updateClientService(client);
 	}
 	

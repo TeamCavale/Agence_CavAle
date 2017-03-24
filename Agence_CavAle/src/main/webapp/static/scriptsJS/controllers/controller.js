@@ -8,7 +8,7 @@ app.controller("findAllClientCtrl", function($scope, $rootScope, $window, client
 		$scope.clients = callback.data;
 	});
 	
-	//methode supprimer avec un lien
+	// methode supprimer avec un lien
 	$scope.deleteLien=function(id){
 		clientProvider.deleteClient(id, function(callback){
 			if(callback !=undefined && callback!=""){
@@ -22,13 +22,13 @@ app.controller("findAllClientCtrl", function($scope, $rootScope, $window, client
 			}
 		})
 	}
-	//declarer le client dans le rootscope
+	// declarer le client dans le rootscope
 	$rootScope.clientForm={
 			id:undefined,
 			nom: "",
 			telephone: ""
 	}
-	//appelé la methode du provider avec le lien de l'index
+	// appelé la methode du provider avec le lien de l'index
 	$scope.updateLien=function(client){
 		$rootScope.clientForm.id=client.id;
 		$rootScope.clientForm.nom=client.nom;
@@ -38,19 +38,36 @@ app.controller("findAllClientCtrl", function($scope, $rootScope, $window, client
 })
 
 .controller("addClientCtrl", function($scope, $rootScope, clientProvider, $location) {
+	
+	clientProvider.getAllClassStand(function(callback) {
+
+		$scope.classeStandard = callback.data;
+		
+	});
+	
+
 	$scope.clientForm = {
 		nom : "",
-		telephone : ""
+		telephone : "",
+		
 	};
-
+	
+	
 	$scope.ajouter = function() {
-		clientProvider.addClient($scope.clientForm, function(callback) {
+
+	clientProvider.addClient($scope.clientForm, function(callback_cs) {
+		;
+					if (callback_cs != undefined && callback_cs != "") {
+						$scope.clients = callback_cs.data;
+				
+					}
+				});
+				}
+				
 			
-			if(callback !=undefined && callback!=""){
-				$location.path("listeClients");
-			}
-		})
-	}
+		
+	
+
 })
 .controller("deleteClientCtrl", function($scope, clientProvider, $location) {
 	

@@ -3,11 +3,11 @@
  */
 
 app.factory("clientProvider", function($http) {
-	var urlglobal = "http://localhost:8080/Agence_CavAle/client";
+	var urlglobal = "http://localhost:8080/Agence_CavAle";
 	function findAllClients(callback) {
 		$http({
 			method : 'GET',
-			url : urlglobal + '/clients'
+			url : urlglobal + '/client/clients'
 		}).then(function successCallback(response) {
 			console.log(response.data);
 			callback(response);}, 
@@ -17,7 +17,7 @@ app.factory("clientProvider", function($http) {
 	function addClient(clientForm, callback){
 		$http({
 			method : 'POST',
-			url: urlglobal+'/add',
+			url: urlglobal+'/client/add',
 			data: angular.toJson(clientForm),
 			headers :{
 				'Content-Type' : 'application/json'
@@ -38,7 +38,7 @@ app.factory("clientProvider", function($http) {
 	function deleteClient(id, callback){
 		$http({
 			method : 'GET',
-			url: urlglobal+'/delete?id_param='+id
+			url: urlglobal+'/client/delete?id_param='+id
 			
 			
 		}).success(function (response){
@@ -56,7 +56,7 @@ app.factory("clientProvider", function($http) {
 	function updateClient(clientForm, callback){
 		$http({
 			method : 'PUT',
-			url: urlglobal+'/update',
+			url: urlglobal+'/client/update',
 			data: angular.toJson(clientForm),
 			headers :{
 				'Content-Type' : 'application/json'
@@ -79,7 +79,7 @@ app.factory("clientProvider", function($http) {
 		$http({
 			
 			method : 'GET',
-			url: urlglobal+'/client/'+id
+			url: urlglobal+'/client/client/'+id
 			
 			
 		}).success(function (response){
@@ -94,12 +94,41 @@ app.factory("clientProvider", function($http) {
 		
 		
 	}
+	
+	function getAllClassStand(callback) {
+		
+		$http({
+			method : 'GET',
+			url : urlglobal + '/classeStandard/classeStandards'
+		}).then(function successCallback(response) {
+			callback(response);
+		}, function errorCallback(response) {
+			console.log("erreur : " + response.statusText);
+		});
+
+	}
+	
+	function getCSById(id, callback) {
+		$http({
+			method : 'GET',
+			url : urlglobal + '/classeStandard/classeStandard/'+id
+		}).then(function successCallback(response) {
+			callback(response);
+		}, function errorCallback(response) {
+			console.log("erreur : " + response.statusText);
+		});
+
+	}
+	
 
 	return {
 		findAllClients : findAllClients,
 		findClient : findClient,
 		addClient : addClient,
 		updateClient : updateClient,
-		deleteClient : deleteClient
+		deleteClient : deleteClient,
+		getCSById : getCSById,
+		getAllClassStand : getAllClassStand
+		
 	}
 })

@@ -42,13 +42,37 @@ app.controller("findAllClasseStandardCtrl", function($scope, $rootScope, $window
 })
 
 .controller("addClasseStandardCtrl", function($scope, $rootScope, classeStandardProvider, $location) {
+	
+	
+	classeStandardProvider.findAllClients(function(callback) {
+
+		$scope.listeClient = callback.data;
+		
+	});
+	
 	$scope.classeStandardForm = {
 			code: "",
 			typeOffre: "",
 			prixMax: undefined,
-			superficieMin: ""
-	};
+			superficieMin: "",
+			listeClients:[]
+				};
+	$scope.getCl = function() {
 
+		var id = $scope.clientSelectId;
+		if(id == undefined){
+			id = 0;
+		}
+		
+		classeStandardProvider.findClient(id, function(callback) {
+			
+			if (callback != undefined && callback != "") {
+				
+				$scope.classeStandardForm.listeClients[0] = callback;
+				
+			}
+		});
+	};
 	$scope.ajouter = function() {
 		classeStandardProvider.addClasseStandard($scope.classeStandardForm, function(callback) {
 			

@@ -1,10 +1,10 @@
 /**
  * 
  */
-app.controller("getClientByCSCtrl", function($scope, $rootScope, $window,
+app.controller("getClientByBICtrl", function($scope, $rootScope, $window,
 		$location, getCByCSProvider) {
 
-	getCByCSProvider.getAllClassStand(function(callback) {
+	getCByBIProvider.getAllClassStand(function(callback) {
 
 		$scope.classeStandard = callback.data;
 		

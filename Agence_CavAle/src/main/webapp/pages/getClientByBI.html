@@ -3,14 +3,21 @@
 		
 	
 		<div class="form-group">
-			<label class="sr-only" for="cs_bi">Classe standard par client</label>
+			<label class="sr-only" for="cs_bi">Bien a acheter</label>
 			<select
-				ng-model="classStandSelectId"  id="cs_bi" ng-click="getCS(classStand.id)">
-				<option value="{{classStand.id}}" ng-repeat="classStand in classeStandard">{{classStand.typeOffre}}
+				ng-model="bASelectId"  id="cs_bi" ng-click="getBA(classStand.id)">
+				<option value="{{classStand.id}}" ng-repeat="classStand in bienImmoA">{{classStand.typeOffre}}
 					| {{classStand.code}}</option>
 			</select>
 		</div>
-		
+		<div class="form-group">
+			<label class="sr-only" for="cs_bi">Bien a louer</label>
+			<select
+				ng-model="bLSelectId"  id="cs_bi" ng-click="getBL(classStand.id)">
+				<option value="{{classStand.id}}" ng-repeat="classStand in bienImmoL">{{classStand.typeOffre}}
+					| {{classStand.code}}</option>
+			</select>
+		</div>
 		
 		<div class="table-responsive">
 		<h2>liste clients</h2>

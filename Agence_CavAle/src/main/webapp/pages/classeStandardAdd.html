@@ -28,7 +28,14 @@
 			ng-model="classeStandardForm.superficieMin">
 			</div>
 	</div>
-	
+	<div class="form-group">
+			<label class="sr-only" for="cs_bi">Liste client</label>
+			<select
+				ng-model="clientSelectId"  id="cs_bi" ng-click="getCl(client.id)">
+				<option value="{{client.id}}" ng-repeat="client in listeClient">{{client.nom}}
+					| {{client.telephone}}</option>
+			</select>
+		</div>
 <div class="col-sm-2">
 	<button ng-click="ajouter()" class="btn btn-default">Ajouter</button></div>
 </form>

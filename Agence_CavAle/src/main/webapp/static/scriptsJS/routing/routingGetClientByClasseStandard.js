@@ -3,8 +3,8 @@
  */
 app.config(function($routeProvider) {
 	$routeProvider.when("/getClientByClasseStandard", {
-		templateUrl : "pages/bienImmo_Achat_getAll.html",
-		controller : "findAllBIAAcheterCtrl"
+		templateUrl : "pages/getClientByClasseStandard.html",
+		controller : "getClientByCSCtrl"
 	}).otherwise({
 		redirectTo : "/accueil"
 	})
