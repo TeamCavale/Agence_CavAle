@@ -15,7 +15,39 @@ app.controller("allContratsAgentCtrl",
 	
 	agentProvider.getAllContratsAgent(agent, function(callback) {
 		
-		$scope.contrats = callback.data;
+		var listeContrats = callback.data;
+		
+		$scope.contrats = listeContrats;
+		
+		var total =0;
+		
+		var date = new Date();
+	
+		//date en milliseconde comparable avec les Dates de Java
+		var jsDate = date.getTime();
+		
+		//recup le jour du mois
+		var jsJour = date.getDate();
+		console.log(date);
+		console.log(jsJour);
+		console.log(jsDate);
+		
+		for (var i = 0 ; i < listeContrats.length; i++){
+			
+			var jvDate = listeContrats[i].dateAchat;
+			
+			console.log(jvDate);
+			console.log("cond=" + ((jvDate <= jsDate && jvDate >= (jsDate - (jsJour*24*3600*1000)) ) || listeContrats[i].bienALouer!=null) );
+			
+			//test si l'achat a été effectué dans le mois ou si c'est un loyer
+			if ( ( jvDate <= jsDate && jvDate >= (jsDate - (jsJour*24*3600*1000)) ) || listeContrats[i].bienALouer!=null ){
+				total+=listeContrats[i].prixEffectif;
+			}
+		}
+		
+		console.log(total);
+		
+		$scope.chiffreAffaire = total;
 		
 	});
 	

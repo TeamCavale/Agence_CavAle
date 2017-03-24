@@ -57,6 +57,8 @@ public class AgentDaoImpl implements IAgentDao {
 		Query query = s.createQuery(req);
 
 		query.setParameter("idAgent", agent.getId());
+		
+		
 
 		return query.list();
 	}
