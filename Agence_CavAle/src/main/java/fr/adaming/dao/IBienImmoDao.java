@@ -4,7 +4,6 @@ import java.util.List;
 
 import fr.adaming.model.BienAAcheter;
 import fr.adaming.model.BienALouer;
-import fr.adaming.model.BienImmo;
 
 public interface IBienImmoDao {
 
@@ -12,7 +11,9 @@ public interface IBienImmoDao {
 
 	public List<BienALouer> getAllBienALouer();
 
-	public void addBienImmo(BienImmo bienImmo);
+	public void addBienImmoAchat(BienAAcheter bienImmo);
+	
+	public void addBienImmoLocation(BienALouer bienImmo);
 
 	public void delBienAAcheter(int id);
 

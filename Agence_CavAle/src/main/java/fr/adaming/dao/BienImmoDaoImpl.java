@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 
 import fr.adaming.model.BienAAcheter;
 import fr.adaming.model.BienALouer;
-import fr.adaming.model.BienImmo;
 
 @Repository
 public class BienImmoDaoImpl implements IBienImmoDao {
@@ -20,12 +19,14 @@ public class BienImmoDaoImpl implements IBienImmoDao {
 		this.sf = sf;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<BienAAcheter> getAllBienAAcheter() {
 		String req = "SELECT bi FROM BienAAcheter bi WHERE bi.statut='disponible'";
 		return sf.getCurrentSession().createQuery(req).list();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<BienALouer> getAllBienALouer() {
 		String req = "SELECT bi FROM BienALouer bi WHERE bi.statut='disponible'";
@@ -33,8 +34,12 @@ public class BienImmoDaoImpl implements IBienImmoDao {
 	}
 
 	@Override
-	public void addBienImmo(BienImmo bienImmo) {
-
+	public void addBienImmoAchat(BienAAcheter bienImmo) {
+		sf.getCurrentSession().save(bienImmo);
+	}
+	
+	@Override
+	public void addBienImmoLocation(BienALouer bienImmo) {
 		sf.getCurrentSession().save(bienImmo);
 	}
 

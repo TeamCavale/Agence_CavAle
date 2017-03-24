@@ -38,12 +38,12 @@ public class BienImmoWSRest {
 
 	@RequestMapping(value = "/achat/add", method = RequestMethod.POST, consumes = "application/json")
 	public void addBienAAcheter(@RequestBody BienAAcheter bienImmoAcheter) {
-		bienImmoService.addBienImmo(bienImmoAcheter);
+		bienImmoService.addBienImmoAchat(bienImmoAcheter);
 	}
 
 	@RequestMapping(value = "/location/add", method = RequestMethod.POST, consumes = "application/json")
 	public void addBienALouer(@RequestBody BienALouer bienImmoLouer) {
-		bienImmoService.addBienImmo(bienImmoLouer);
+		//bienImmoService.addBienImmo(bienImmoLouer);
 	}
 	
 	@RequestMapping(value = "/achat/del/{id}", method = RequestMethod.DELETE)

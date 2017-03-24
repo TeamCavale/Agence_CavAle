@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import fr.adaming.dao.IBienImmoDao;
+import fr.adaming.model.Adresse;
 import fr.adaming.model.BienAAcheter;
 import fr.adaming.model.BienALouer;
 import fr.adaming.model.BienImmo;
@@ -34,8 +35,19 @@ public class BienImmoServiceImpl implements IBienImmoService {
 	}
 
 	@Override
-	public void addBienImmo(BienImmo bienImmo) {
-		bienImmoDao.addBienImmo(bienImmo);
+	public void addBienImmoAchat(BienAAcheter bienImmo) {
+		Adresse adresse = bienImmo.getAdresse();
+		adresse.setBienAAcheter(bienImmo);
+		bienImmo.setAdresse(adresse);
+		bienImmoDao.addBienImmoAchat(bienImmo);
+	}
+	
+	@Override
+	public void addBienImmoLocation(BienALouer bienImmo) {
+		Adresse adresse = bienImmo.getAdresse();
+		adresse.setBienALouer(bienImmo);
+		bienImmo.setAdresse(adresse);
+		bienImmoDao.addBienImmoLocation(bienImmo);
 	}
 
 	@Override
@@ -51,12 +63,18 @@ public class BienImmoServiceImpl implements IBienImmoService {
 
 	@Override
 	public void updateBienAAcheter(BienAAcheter bienImmo) {
+		Adresse adresse = bienImmo.getAdresse();
+		adresse.setBienAAcheter(bienImmo);
+		bienImmo.setAdresse(adresse);
 		bienImmoDao.updateBienAAcheter(bienImmo);
 		
 	}
 	
 	@Override
 	public void updateBienALouer(BienALouer bienImmo) {
+		Adresse adresse = bienImmo.getAdresse();
+		adresse.setBienALouer(bienImmo);
+		bienImmo.setAdresse(adresse);
 		bienImmoDao.updateBienALouer(bienImmo);
 		
 	}

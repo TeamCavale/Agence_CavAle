@@ -50,7 +50,7 @@ public class BienAAcheter extends BienImmo implements Serializable {
 	@JoinColumn(name = "fk_cs", referencedColumnName = "id_cs")
 	private ClasseStandard classeStandard;
 
-	@OneToOne(mappedBy = "bienAAcheter")
+	@OneToOne(mappedBy = "bienAAcheter",fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	private Adresse adresse;
 
 	

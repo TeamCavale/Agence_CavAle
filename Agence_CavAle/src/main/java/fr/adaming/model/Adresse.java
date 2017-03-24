@@ -14,6 +14,8 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  * 
  * @author inti0295
@@ -133,7 +135,7 @@ public class Adresse implements Serializable {
 		this.client = client;
 	}
 
-	@XmlTransient
+	@JsonIgnore
 	public BienALouer getBienALouer() {
 		return bienALouer;
 	}
@@ -142,7 +144,7 @@ public class Adresse implements Serializable {
 		this.bienALouer = bienALouer;
 	}
 
-	@XmlTransient
+	@JsonIgnore
 	public BienAAcheter getBienAAcheter() {
 		return bienAAcheter;
 	}

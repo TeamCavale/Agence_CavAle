@@ -11,6 +11,9 @@ app.config(function($routeProvider) {
 	}).when("/addBienAAcheter", {
 		templateUrl : "pages/bienImmo_Achat_add.html",
 		controller : "addBIAAcheterCtrl"
+	}).when("/updateBienAAcheter/:idBI", {
+		templateUrl : "pages/bienImmo_Achat_add.html",
+		controller : "updateBIAAcheterCtrl"
 	}).otherwise({
 		redirectTo : "/accueil"
 	})

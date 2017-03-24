@@ -10,6 +10,7 @@
 					<td>Revenu Cadastral</td>
 					<td>Prix</td>
 					<td>Etat</td>
+					<td></td>
 				</tr>
 			</thead>
 			<tbody>
@@ -21,11 +22,22 @@
 					<td>{{bi.revenuCadastral | currency:'&euro;':2}}</td>
 					<td>{{bi.prixAchat | currency:'&euro;':2}}</td>
 					<td>{{bi.etat}}</td>
+					<td><a href="#/updateBienAAcheter/{{bi.id}}">Modifier</a> | <a
+						ng-click="delBI(bi.id)">Supprimer</a></td>
 				</tr>
 			</tbody>
 		</table>
 	</div>
 	<div class="col-md-4">
+		<span>Adresse</span>
+		<dl class="dl-horizontal">
+			<dt>Rue</dt>
+			<dd>{{bienImmo.adresse.rue}}</dd>
+			<dt>Code Postal</dt>
+			<dd>{{bienImmo.adresse.codePostal}}</dd>
+			<dt>Ville</dt>
+			<dd>{{bienImmo.adresse.ville}}</dd>
+		</dl>
 		<span>Classe Standard</span>
 		<dl class="dl-horizontal">
 			<dt>Code</dt>
@@ -51,11 +63,11 @@
 			<dd>
 				<dl class="dl-horizontal">
 					<dt>Rue</dt>
-					<dd>{{bienImmo.proprietaire.adresse.rue_adr}}</dd>
+					<dd>{{bienImmo.proprietaire.adresse.rue}}</dd>
 					<dt>Code Postal</dt>
-					<dd>{{bienImmo.proprietaire.adresse.codePostale_adr}}</dd>
+					<dd>{{bienImmo.proprietaire.adresse.codePostal}}</dd>
 					<dt>Ville</dt>
-					<dd>{{bienImmo.proprietaire.adresse.ville_adr}}</dd>
+					<dd>{{bienImmo.proprietaire.adresse.ville}}</dd>
 				</dl>
 			</dd>
 		</dl>
@@ -76,11 +88,11 @@
 					<dd>
 						<dl class="dl-horizontal">
 							<dt>Rue</dt>
-							<dd>{{bienImmo.contrat.client.adresse.rue_adr}}</dd>
+							<dd>{{bienImmo.contrat.client.adresse.rue}}</dd>
 							<dt>Code Postal</dt>
-							<dd>{{bienImmo.contrat.client.adresse.codePostale_adr}}</dd>
+							<dd>{{bienImmo.contrat.client.adresse.codePostale}}</dd>
 							<dt>Ville</dt>
-							<dd>{{bienImmo.contrat.client.adresse.ville_adr}}</dd>
+							<dd>{{bienImmo.contrat.client.adresse.ville}}</dd>
 						</dl>
 					</dd>
 				</dl>

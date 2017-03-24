@@ -12,7 +12,9 @@ public interface IBienImmoService {
 
 	public List<BienALouer> getAllBienALouer();
 	
-	public void addBienImmo(BienImmo bienImmo);
+	public void addBienImmoAchat(BienAAcheter bienImmo);
+	
+	public void addBienImmoLocation(BienALouer bienImmo);
 	
 	public void delBienAAcheter(int id);
 	
