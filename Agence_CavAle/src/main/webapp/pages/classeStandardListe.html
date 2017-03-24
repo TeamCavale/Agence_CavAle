@@ -1,0 +1,34 @@
+<h1 align="center">Liste des classes Standards</h1>
+
+<div class="table-responsive">
+	<table class="table table-bordered" style="text-align: center">
+		<thead>
+			<tr>
+				<th style="text-align: center">code</th>
+				<th style="text-align: center">typeOffre</th>
+				<th style="text-align: center">prixMax</th>
+				<th style="text-align: center">superficieMin</th>
+				<th style="text-align: center">Opérations</th>
+			</tr>
+		</thead>
+		<tbody ng-repeat="classeS in classeStandard">
+			<tr>
+				<td>{{classeS.code}}</td>
+				<td>{{classeS.typeOffre}}</td>
+				<td>{{classeS.prixMax}}</td>
+				<td>{{classeS.superficieMin}}</td>
+				<td><a ng-click="updateLien(classeS)">Modifier</a> | <a ng-click="deleteLien(classeS.id)">Supprimer</a></td>
+			</tr>
+
+
+		</tbody>
+
+
+
+	</table>
+
+
+
+
+
+</div>

@@ -1,0 +1,38 @@
+
+<form class="form-horizontal">
+	<div class="form-group">
+	<div class="col-sm-6">
+		<label for="inputId" class="col-sm-2 control-label">Id</label> <input type="text"
+			class="form-control" id="inputnom" placeholder="Id de la classeStandard a supp"
+			ng-model="id"></div>
+	</div>
+	
+	</div>
+<div class="col-sm-2">
+	<button ng-click="chercher()" class="btn btn-default">Chercher</button></div>
+</form>
+
+<div class="table-responsive">
+	<table class="table table-bordered" style="text-align: center" ng-show="indice">
+		<thead>
+			<tr>
+				<th style="text-align: center">code</th>
+				<th style="text-align: center">typeOffre</th>
+				<th style="text-align: center">prixMax</th>
+				<th style="text-align: center">superficieMin</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>{{classeStandard.code}}</td>
+				<td>{{classeStandard.typeOffre}}</td>
+				<td>{{classeStandard.prixMax}}</td>
+				<td>{{classeStandard.superficieMin}}</td>
+			</tr>
+
+
+		</tbody>
+
+
+
+	</table>

@@ -2,23 +2,23 @@
  * Provider
  */
 
-app.factory("clientProvider", function($http) {
-	var urlglobal = "http://localhost:8080/Agence_CavAle/client";
-	function findAllClients(callback) {
+app.factory("classeStandardProvider", function($http) {
+	var urlglobal = "http://localhost:8080/Agence_CavAle/classeStandard";
+	function findAllClasseStandard(callback) {
 		$http({
 			method : 'GET',
-			url : urlglobal + '/clients'
+			url : urlglobal + '/classeStandards'
 		}).then(function successCallback(response) {
 			console.log(response.data);
 			callback(response);}, 
 			function errorCallback(response) {console.log("erreur : " + response.statusText);});
 
 	}
-	function addClient(clientForm, callback){
+	function addClasseStandard(classeStandardForm, callback){
 		$http({
 			method : 'POST',
 			url: urlglobal+'/add',
-			data: angular.toJson(clientForm),
+			data: angular.toJson(classeStandardForm),
 			headers :{
 				'Content-Type' : 'application/json'
 			}
@@ -35,7 +35,7 @@ app.factory("clientProvider", function($http) {
 		
 		
 	}
-	function deleteClient(id, callback){
+	function deleteClasseStandard(id, callback){
 		$http({
 			method : 'GET',
 			url: urlglobal+'/delete?id_param='+id
@@ -53,11 +53,11 @@ app.factory("clientProvider", function($http) {
 		
 		
 	}
-	function updateClient(clientForm, callback){
+	function updateClasseStandard(classeStandardForm, callback){
 		$http({
 			method : 'PUT',
 			url: urlglobal+'/update',
-			data: angular.toJson(clientForm),
+			data: angular.toJson(classeStandardForm),
 			headers :{
 				'Content-Type' : 'application/json'
 			}
@@ -74,12 +74,12 @@ app.factory("clientProvider", function($http) {
 		
 		
 	}
-	function findClient(id, callback){
+	function findClasseStandard(id, callback){
 		
 		$http({
 			
 			method : 'GET',
-			url: urlglobal+'/client/'+id
+			url: urlglobal+'/classeStandard/'+id
 			
 			
 		}).success(function (response){
@@ -96,10 +96,10 @@ app.factory("clientProvider", function($http) {
 	}
 
 	return {
-		findAllClients : findAllClients,
-		findClient : findClient,
-		addClient : addClient,
-		updateClient : updateClient,
-		deleteClient : deleteClient
+		findAllClasseStandard : findAllClasseStandard,
+		findClasseStandard : findClasseStandard,
+		addClasseStandard : addClasseStandard,
+		updateClasseStandard : updateClasseStandard,
+		deleteClasseStandard : deleteClasseStandard
 	}
 })

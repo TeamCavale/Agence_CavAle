@@ -1,0 +1,36 @@
+<h1>Ajouter une classe Standardt</h1>
+
+<form class="form-horizontal">
+	<div class="form-group">
+	<div class="col-sm-6">
+		<label for="inputnom" class="col-sm-2 control-label">Nom categorie</label> <input type="text"
+			class="form-control" id="inputnom" placeholder="Nom categorie"
+			ng-model="classeStandardForm.code"></div>
+	</div>
+	<div class="form-group">
+	<div class="col-sm-6">
+		<label for="typeOffre" class="col-sm-2 control-label">typeOffre</label> <input type="text"
+			class="form-control" id="typeOffre" placeholder="typeOffre"
+			ng-model="classeStandardForm.typeOffre">
+			</div>
+	</div>
+	<div class="form-group">
+	<div class="col-sm-6">
+		<label for="prixMax" class="col-sm-2 control-label">prixMax</label> <input type="number"
+			class="form-control" id="typeOffre" placeholder="prixMax"
+			ng-model="classeStandardForm.prixMax">
+			</div>
+	</div>
+	<div class="form-group">
+	<div class="col-sm-6">
+		<label for="superficieMin" class="col-sm-2 control-label">superficieMin</label> <input type="text"
+			class="form-control" id="superficieMin" placeholder="superficieMin"
+			ng-model="classeStandardForm.superficieMin">
+			</div>
+	</div>
+	
+<div class="col-sm-2">
+	<button ng-click="ajouter()" class="btn btn-default">Ajouter</button></div>
+</form>
+
+
