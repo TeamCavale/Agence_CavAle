@@ -27,7 +27,7 @@ app.factory("visiteProvider", function ($http){
 		$http({
 			method : 'GET',
 			
-			url : urlglobal+"/visite"+id
+			url : urlglobal+"/visite/"+id
 				
 		}).then(function successCallback(response) {
 			callback(response);
@@ -36,11 +36,28 @@ app.factory("visiteProvider", function ($http){
 		});
 		
 	}
-	
-	
+	function addVisite(visiteForm, callback){
+		$http({
+			method : 'POST',
+			url: urlglobal+'/add',
+			data: angular.toJson(visiteForm),
+			headers :{
+				'Content-Type' : 'application/json'
+			}
+			
+		}).success(function (response){
+			console.log(response);
+			callback(response);
+			
+		}).error(function(response){
+			console.log('Erreur : ' + response.statusText);
+			
+		})
+	}
 	return {
-		findAllVisite : findAllVisite
-		
+		findAllVisite : findAllVisite,
+		getVisite : getVisite,
+		addVisite : addVisite
 	}
 	
 	

@@ -1,32 +1,41 @@
 <h1>Rechercher Visite</h1>
 
-<form>
-	<table>
-		<tr>
-			<td><label for="idVisite">ID de la Visite</label></td>
-			<td><input type="number" ng-model="appImmo" id="idVisite" ng-change="rechercher()"/></td>
-		</tr>
-	</table>
+<form class="form-horizontal">
+	<div class="form-group">
+	<div class="col-sm-6">
+		<label for="inputId" class="col-sm-2 control-label">Id</label> <input type="text"
+			class="form-control" id="inputnom" placeholder="Id de la visite supp"
+			ng-model="id"></div>
+	</div>
+	
+	</div>
+<div class="col-sm-2">
+	<button ng-click="rechercher()" class="btn btn-default">Chercher</button></div>
 </form>
-<table>
-	<tr>
-		<td>Date </td>
-		<td>{{visiteForm.date | date : dd/MM/yyyy}}</td>
-	</tr>
-	<tr>
-		<td>Client</td>
-		<td>{{visiteFrom.client}}</td>
-	</tr>
-	<tr>
-		<td>agent</td>
-		<td>{{visiteFrom.agent}}</td>
-	</tr>
-	<tr>
-		<td>Bien a louer</td>
-		<td>{{visiteFrom.bienALouer}}</td>
-	</tr>
-	<tr>
-		<td>Bien a acheter</td>
-		<td>{{visiteFrom.bienAAcheter}}</td>
-	</tr>
-</table>
+
+<div class="table-responsive">
+	<table class="table table-bordered" style="text-align: center" ng-show="indice">
+		<thead>
+			<tr>
+				<th style="text-align: center;">Date</th>
+				<th style="text-align: center;">Client</th>
+				<th style="text-align: center;">Agent</th>
+				<th style="text-align: center;">Bien a Louer</th>
+				<th style="text-align: center;">Bien a Acheter</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>{{visite.date | date : dd/MM/yyyy}}</td>
+				<td>{{visite.client}}</td>
+				<td>{{visite.agent}}</td>
+				<td>{{visite.bienALouer}}</td>
+				<td>{{visite.bienAAcheter}}</td>
+			</tr>
+
+
+		</tbody>
+
+
+
+	</table>
