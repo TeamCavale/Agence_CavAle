@@ -8,6 +8,9 @@ app.config(function($routeProvider) {
 	}).when("/getbyIdBienAAcheter", {
 		templateUrl : "pages/bienImmo_Achat_find.html",
 		controller : "findBIAAcheterCtrl"
+	}).when("/addBienAAcheter", {
+		templateUrl : "pages/bienImmo_Achat_add.html",
+		controller : "addBIAAcheterCtrl"
 	}).otherwise({
 		redirectTo : "/accueil"
 	})

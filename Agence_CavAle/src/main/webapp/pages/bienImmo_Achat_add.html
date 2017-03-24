@@ -1,56 +1,89 @@
 <div class="row" style="text-align: center;">
 	<form class="form-inline">
 		<div class="form-group">
-			<label class="sr-only" for="id_bi">ID du Bien Immobilier</label> <input
-				type="number" class="form-control" id="id_bi"
-				placeholder="ID du Bien Immobilier" ng-model="id_bi">
+			<label class="sr-only" for="statut_bi">Statut</label> <select
+				ng-model="bienImmo.statut" id="statut_bi">
+				<option value="disponible">Disponible</option>
+				<option value="vendu">Vendu</option>
+			</select>
 		</div>
 		<div class="form-group">
-			<label class="sr-only" for="id_bi">Statut</label> <input
-				type="number" class="form-control" id="id_bi"
-				placeholder="ID du Bien Immobilier" ng-model="id_bi">
+			<label class="sr-only" for="dispo_bi">Disponible le</label> <input
+				type="date" class="form-control" id="dispo_bi"
+				placeholder="Disponible le" ng-model="bienImmo.dateDispo">
 		</div>
 		<div class="form-group">
-			<label class="sr-only" for="id_bi">Disponible le</label> <input
-				type="number" class="form-control" id="id_bi"
-				placeholder="ID du Bien Immobilier" ng-model="id_bi">
+			<label class="sr-only" for="revenuCadastr_bi">Revenu
+				cadastral (&euro;)</label> <input type="number" class="form-control"
+				id="revenuCadastr_bi" placeholder="ID du Bien Immobilier"
+				ng-model="bienImmo.revenuCadastral">
 		</div>
 		<div class="form-group">
-			<label class="sr-only" for="id_bi">Revenu cadastral</label> <input
-				type="number" class="form-control" id="id_bi"
-				placeholder="ID du Bien Immobilier" ng-model="id_bi">
+			<label class="sr-only" for="prix_bi">Prix achat (&euro;)</label> <input
+				type="number" class="form-control" id="prix_bi"
+				placeholder="Prix Achat" ng-model="bienImmo.prixAchat">
 		</div>
 		<div class="form-group">
-			<label class="sr-only" for="id_bi">Prix achat</label> <input
-				type="number" class="form-control" id="id_bi"
-				placeholder="ID du Bien Immobilier" ng-model="id_bi">
+			<label class="sr-only" for="etat_bi">Etat</label> <select
+				ng-model="bienImmo.etat" id="etat_bi">
+				<option value="arestaurer">A restaurer</option>
+				<option value="correct">Correct</option>
+				<option value="impeccable">Impeccable</option>
+			</select>
 		</div>
 		<div class="form-group">
-			<label class="sr-only" for="id_bi">Etat</label> <input
-				type="number" class="form-control" id="id_bi"
-				placeholder="ID du Bien Immobilier" ng-model="id_bi">
+			<label class="sr-only" for="cs_bi">Classe standard</label>
+			<select
+				ng-model="classStandSelectId" id="cs_bi" ng-click="getCS(classStand.id)">
+				<option value="{{classStand.id}}" ng-repeat="classStand in listeCS">{{classStand.typeOffre}}
+					| {{classStand.code}}</option>
+			</select>
 		</div>
 		<div class="form-group">
-			<label class="sr-only" for="id_bi">Classe standard</label> <input
-				type="number" class="form-control" id="id_bi"
-				placeholder="ID du Bien Immobilier" ng-model="id_bi">
+			<span>Adresse</span>
+			<div class="form-group">
+				<label class="sr-only" for="rue_bi">Rue</label> <input type="text"
+					class="form-control" id="rue_bi" placeholder="Rue"
+					ng-model="bienImmo.adresse.rue">
+			</div>
+			<div class="form-group">
+				<label class="sr-only" for="cp_bi">Code Postal</label> <input
+					type="number" class="form-control" id="cp_bi"
+					placeholder="Code Postal" ng-model="bienImmo.adresse.codePostal">
+			</div>
+			<div class="form-group">
+				<label class="sr-only" for="ville_bi">Ville</label> <input
+					type="number" class="form-control" id="ville_bi"
+					placeholder="Ville" ng-model="bienImmo.adresse.ville">
+			</div>
 		</div>
 		<div class="form-group">
-			<label class="sr-only" for="id_bi">Adresse</label> <input
-				type="number" class="form-control" id="id_bi"
-				placeholder="ID du Bien Immobilier" ng-model="id_bi">
+			<span>Contrat</span>
+			<div class="form-group">
+				<label class="sr-only" for="prixEff_bi">Prix Effectif</label> <input
+					type="number" class="form-control" id="prixEff_bi"
+					placeholder="Prix Effectif"
+					ng-model="bienImmo.contrat.prixEffectif">
+			</div>
+			<div class="form-group">
+				<label class="sr-only" for="dateAchat_bi">Date d'achat</label> <input
+					type="date" class="form-control" id="dateAchat_bi"
+					placeholder="Date Achat" ng-model="bienImmo.contrat.dateAchat">
+			</div>
+			<div class="form-group">
+				<label class="sr-only" for="client_bi">Client</label> <select
+					ng-model="clientSelectId" id="client_bi" ng-click="getClient(clientBi.id)">
+					<option value="{{clientBi.id}}" ng-repeat="clientBi in listeClient">{{clientBi.nom}}</option>
+				</select>
+			</div>
 		</div>
 		<div class="form-group">
-			<label class="sr-only" for="id_bi">Contrat</label> <input
-				type="number" class="form-control" id="id_bi"
-				placeholder="ID du Bien Immobilier" ng-model="id_bi">
-		</div>
-		<div class="form-group">
-			<label class="sr-only" for="id_bi">Propriétaire</label> <input
-				type="number" class="form-control" id="id_bi"
-				placeholder="ID du Bien Immobilier" ng-model="id_bi">
-		</div>
-	
-		<button class="btn btn-default" ng-click="getBI()">Rechercher</button>
+				<label class="sr-only" for="prop_bi">Proprietaire</label> <select
+					ng-model="propSelectId" id="prop_bi" ng-selected="getProp(propBi.id)">
+					<option value="{{propBi.id}}" ng-repeat="propBi in listeProp">{{propBi.nom}}</option>
+				</select>
+			</div>
+
+		<button class="btn btn-default" ng-click="addBI()">Ajouter</button>
 	</form>
 </div>
