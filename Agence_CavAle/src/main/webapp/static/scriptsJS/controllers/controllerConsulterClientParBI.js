@@ -2,29 +2,35 @@
  * 
  */
 app.controller("getClientByBICtrl", function($scope, $rootScope, $window,
-		$location, getCByCSProvider) {
+		$location, getCByBIProvider) {
 
-	getCByBIProvider.getAllClassStand(function(callback) {
+	getCByBIProvider.getAllBA(function(callback) {
 
-		$scope.classeStandard = callback.data;
+		$scope.bienAchat = callback.data;
+		
+	});
+	getCByBIProvider.getAllBL(function(callback) {
+
+		$scope.bienLocation = callback.data;
 		
 	});
 
-	$scope.getCS = function() {
 
-		var id = $scope.classStandSelectId;
+	$scope.getBA = function() {
+
+		var id = $scope.bASelectId;
 		console.log("voici id "+id);
 		if (id == undefined) {
 			id = 0;
 		}
 
-		getCByCSProvider.getCSById(id, function(callback) {
+		getCByBIProvider.getCSById(id, function(callback) {
 			if (callback != undefined && callback != "" && id!=0) {
 				$scope.classeStandard = callback.data; 
 		
 				if($scope.classeStandard!=null || $scope.classeStandard!=""){
 				
-				getCByCSProvider.getAllClientByCS($scope.classeStandard, function(callback_cs) {
+					getCByBIProvider.getAllClientByCS($scope.classeStandard, function(callback_cs) {
 					if (callback_cs != undefined && callback_cs != "") {
 						$scope.clients = callback_cs.data;
 				
@@ -35,6 +41,29 @@ app.controller("getClientByBICtrl", function($scope, $rootScope, $window,
 		});
 	};
 
-	
+	$scope.getBL = function() {
+
+		var id = $scope.bLSelectId;
+		console.log("voici id "+id);
+		if (id == undefined) {
+			id = 0;
+		}
+
+		getCByBIProvider.getCSById(id, function(callback) {
+			if (callback != undefined && callback != "" && id!=0) {
+				$scope.classeStandard = callback.data; 
+		
+				if($scope.classeStandard!=null || $scope.classeStandard!=""){
+				
+					getCByBIProvider.getAllClientByCS($scope.classeStandard, function(callback_cs) {
+					if (callback_cs != undefined && callback_cs != "") {
+						$scope.clients = callback_cs.data;
+				
+					}
+				});}
+				
+			}
+		});
+	};
 
 })

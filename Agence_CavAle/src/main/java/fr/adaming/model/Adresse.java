@@ -126,7 +126,7 @@ public class Adresse implements Serializable {
 		this.proprietaire = proprietaire;
 	}
 
-	@XmlTransient
+	@JsonIgnore
 	public Client getClient() {
 		return client;
 	}

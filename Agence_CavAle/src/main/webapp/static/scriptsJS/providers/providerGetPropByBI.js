@@ -2,15 +2,15 @@
  * 
  */
 
-app.factory("getCByBIProvider", function($http) {
+app.factory("getPropByBIProvider", function($http) {
 	var urlglobal = "http://localhost:8080/Agence_CavAle";
 
 	
-	function getAllBA(callback) {
+	function getAllProp(callback) {
 	
 		$http({
 			method : 'GET',
-			url : urlglobal + '/bienimmo/achat/getAll'
+			url : urlglobal + '/proprietaire/all'
 		}).then(function successCallback(response) {
 			console.log(response.data);
 			callback(response);
@@ -18,24 +18,12 @@ app.factory("getCByBIProvider", function($http) {
 			console.log("erreur : " + response.statusText);
 		});
 	}
-	function getAllBL(callback) {
-		
-		$http({
-			method : 'GET',
-			url : urlglobal + '/bienimmo/location/getAll'
-		}).then(function successCallback(response) {
-			console.log(response.data);
-			callback(response);
-		}, function errorCallback(response) {
-			console.log("erreur : " + response.statusText);
-		});
-
-	}
 	
-	function getCSById(id, callback) {
+	
+	function getPropById(id, callback) {
 		$http({
 			method : 'GET',
-			url : urlglobal + '/classeStandard/classeStandard/'+id
+			url : urlglobal + '/proprietaire/get/'+id
 		}).then(function successCallback(response) {
 			callback(response);
 		}, function errorCallback(response) {
@@ -43,11 +31,11 @@ app.factory("getCByBIProvider", function($http) {
 		});
 
 	}
-	function getAllClientByCS(classeStandard, callback) {
+	function getAllPropByBI(classeStandard, callback) {
 		
 		$http({
 			method :'POST',
-			url : urlglobal + '/agent/clientsByClasseStandard',
+			url : urlglobal + '/agent/biensByProprietaire',
 			data: angular.toJson(classeStandard),
 			headers :{
 				'Content-Type' : 'application/json'
@@ -62,9 +50,9 @@ app.factory("getCByBIProvider", function($http) {
 	return {
 		
 	
-		getAllBA : getAllBA,
-		getAllBL : getAllBL,
-		getAllClientByCS : getAllClientByCS,
-		getCSById : getCSById
+		getAllProp : getAllProp,
+		getPropById : getPropById,
+		getAllPropByBI : getAllPropByBI,
+		
 	}
 })

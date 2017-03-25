@@ -26,13 +26,17 @@ app.controller("findAllClientCtrl", function($scope, $rootScope, $window, client
 	$rootScope.clientForm={
 			id:undefined,
 			nom: "",
-			telephone: ""
+			telephone: "",
+			adresse: null
 	}
 	// appelé la methode du provider avec le lien de l'index
 	$scope.updateLien=function(client){
 		$rootScope.clientForm.id=client.id;
 		$rootScope.clientForm.nom=client.nom;
 		$rootScope.clientForm.population=client.population;
+		$rootScope.clientForm.adresse.rue=client.adresse.rue;
+		$rootScope.clientForm.adresse.codePostal=client.adresse.codePosta;
+		$rootScope.clientForm.adresse.ville=client.adresse.ville;
 		$location.path("updateClient")
 	}
 })
@@ -49,12 +53,13 @@ app.controller("findAllClientCtrl", function($scope, $rootScope, $window, client
 	$scope.clientForm = {
 		nom : "",
 		telephone : "",
+		adresse : null
 		
 	};
 	
 	
 	$scope.ajouter = function() {
-
+console.log("adresse recup : "+$scope.clientForm.adresse)
 	clientProvider.addClient($scope.clientForm, function(callback_cs) {
 		;
 					if (callback_cs != undefined && callback_cs != "") {

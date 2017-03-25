@@ -1,0 +1,33 @@
+<div class="row" style="text-align: center;">
+	<form class="form-inline">
+	>
+		<div class="form-group">
+			<label class="sr-only" for="cs_bi">Proprietaires</label>
+			<select
+				ng-model="propSelectId"  id="cs_bi" ng-click="getProp(prop.id)">
+				<option value="{{prop.id}}" ng-repeat="prop in proprietaire">{{prop.nom}}
+					| {{prop.tel_prive}}</option>
+			</select>
+		</div>
+		
+		<div class="table-responsive">
+		<h2>liste Biens </h2>
+	<table class="table table-bordered" style="text-align: center">
+		<thead>
+			<tr>
+				<th style="text-align: center">Statut</th>
+				<th style="text-align: center">revenuCadastral</th>
+			</tr>
+		</thead>
+		<tbody ng-repeat="client in bienImmo">
+			<tr>
+				<td>{{client.statut}}</td>
+				<td>{{client.revenuCadastral}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+		
+	</form>
+</div>

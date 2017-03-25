@@ -5,17 +5,17 @@
 		<div class="form-group">
 			<label class="sr-only" for="cs_bi">Bien a acheter</label>
 			<select
-				ng-model="bASelectId"  id="cs_bi" ng-click="getBA(classStand.id)">
-				<option value="{{classStand.id}}" ng-repeat="classStand in bienImmoA">{{classStand.typeOffre}}
-					| {{classStand.code}}</option>
+				ng-model="bASelectId"  id="cs_bi" ng-click="getBA(bl.classeStandard.id)">
+				<option value="{{ba.classeStandard.id}}" ng-repeat="ba in bienAchat">{{ba.statut}}
+					| {{ba.etat}}</option>
 			</select>
 		</div>
 		<div class="form-group">
 			<label class="sr-only" for="cs_bi">Bien a louer</label>
 			<select
-				ng-model="bLSelectId"  id="cs_bi" ng-click="getBL(classStand.id)">
-				<option value="{{classStand.id}}" ng-repeat="classStand in bienImmoL">{{classStand.typeOffre}}
-					| {{classStand.code}}</option>
+				ng-model="bLSelectId"  id="cs_bi" ng-click="getBL(bl.classeStandard.id)">
+				<option value="{{bl.classeStandard.id}}" ng-repeat="bl in bienLocation">{{bl.statut}}
+					| {{bl.code}}</option>
 			</select>
 		</div>
 		
@@ -28,7 +28,7 @@
 				<th style="text-align: center">Telephone</th>
 			</tr>
 		</thead>
-		<tbody ng-repeat="client in classeStandard">
+		<tbody ng-repeat="client in clients">
 			<tr>
 				<td>{{client.nom}}</td>
 				<td>{{client.telephone}}</td>

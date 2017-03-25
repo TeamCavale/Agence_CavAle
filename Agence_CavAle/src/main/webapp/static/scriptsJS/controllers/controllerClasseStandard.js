@@ -68,14 +68,16 @@ app.controller("findAllClasseStandardCtrl", function($scope, $rootScope, $window
 			
 			if (callback != undefined && callback != "") {
 				
-				$scope.classeStandardForm.listeClients[0] = callback;
+				var client = callback;
+			
+				$scope.classeStandardForm.listeClients[0]=client;
 				
 			}
 		});
 	};
 	$scope.ajouter = function() {
 		classeStandardProvider.addClasseStandard($scope.classeStandardForm, function(callback) {
-			
+
 			if(callback !=undefined && callback!=""){
 				
 				$location.path("getAllClasseStandard");

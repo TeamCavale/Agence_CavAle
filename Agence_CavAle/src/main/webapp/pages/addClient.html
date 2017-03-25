@@ -14,7 +14,25 @@
 			ng-model="clientForm.telephone">
 			</div>
 	</div>
-	
+
+	<div class="col-sm-6">
+		<label for="Rue" class="col-sm-2 control-label">Rue</label> <input type="text"
+			class="form-control" id="Rue" placeholder="Rue"
+			ng-model="clientForm.adresse.rue">
+			</div>
+	</div>
+	<div class="col-sm-6">
+		<label for="codePostal" class="col-sm-2 control-label">Code Postal</label> <input type="number"
+			class="form-control" id="codePostal" placeholder="codePostal"
+			ng-model="clientForm.adresse.codePostal">
+			</div>
+	</div>
+	<div class="col-sm-6">
+		<label for="ville" class="col-sm-2 control-label">Ville</label> <input type="text"
+			class="form-control" id="ville" placeholder="ville"
+			ng-model="clientForm.adresse.ville">
+			</div>
+	</div>
 <div class="col-sm-2">
 	<button ng-click="ajouter()" class="btn btn-default">Ajouter</button></div>
 </form>

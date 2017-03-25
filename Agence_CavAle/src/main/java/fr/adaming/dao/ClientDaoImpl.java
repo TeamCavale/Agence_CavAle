@@ -8,6 +8,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import fr.adaming.model.Adresse;
 import fr.adaming.model.Client;
 /**
  * 
@@ -40,6 +41,9 @@ public class ClientDaoImpl implements IClientDao{
 	@Override
 	public void addClientDao(Client client) {
 		Session s=sf.getCurrentSession();
+		Adresse adresse=new Adresse(client.getAdresse().getRue(), client.getAdresse().getCodePostal(), client.getAdresse().getVille());
+		s.save(adresse);
+		adresse.setClient(client);
 		s.save(client);
 		
 	}

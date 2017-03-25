@@ -2,9 +2,9 @@
  * Routing pour les biens immobiliers
  */
 app.config(function($routeProvider) {
-	$routeProvider.when("/getPropByBI", {
-		templateUrl : "pages/getPropByBI.html",
-		controller : "getPropByBICtrl"
+	$routeProvider.when("/getClientByBI", {
+		templateUrl : "pages/getClientByBI.html",
+		controller : "getClientByBICtrl"
 	}).otherwise({
 		redirectTo : "/accueil"
 	})

@@ -1,5 +1,6 @@
 package fr.adaming.webservice;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.adaming.model.ClasseStandard;
-
+import fr.adaming.model.Client;
 import fr.adaming.service.IClasseStandardService;
 
 @RestController
@@ -34,7 +35,7 @@ public class ClasseStandardWSRest {
 
 		@RequestMapping(value="/add", method=RequestMethod.POST, consumes="application/json")
 		public void addClasseStandardRest(@RequestBody ClasseStandard classeStandard){
-		
+
 			classeStandardService.addClasseStandardService(classeStandard);
 		}
 		@RequestMapping(value="/classeStandard/{id_param}", method=RequestMethod.GET, produces="application/json")

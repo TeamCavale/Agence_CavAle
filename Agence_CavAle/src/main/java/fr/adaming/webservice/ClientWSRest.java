@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import fr.adaming.model.Adresse;
 import fr.adaming.model.Client;
 import fr.adaming.service.IClientService;
 
@@ -34,6 +35,7 @@ public class ClientWSRest {
 
 	@RequestMapping(value="/add", method=RequestMethod.POST, consumes="application/json")
 	public void addClientRest(@RequestBody Client client){
+		
 		
 		clientService.addClientService(client);
 	}
