@@ -1,0 +1,36 @@
+<div class="row" style="text-align: center;">
+	<form class="form-inline">
+		<div class="form-group">
+			<label class="sr-only" for="id_prop">ID du Propri&eacute;taire</label> <input
+				type="number" class="form-control" id="id_prop"
+				placeholder="ID du propri&eacute;taire" ng-model="id_prop">
+		</div>
+		<button class="btn btn-default" ng-click="getProp(id_prop)">Rechercher</button>
+	</form>
+</div>
+<br/>
+<div class="row">
+	<div class="table-responsive col-md-12">
+		<table class="table table-bordered table-hover" ng-show="findProp">
+			<thead>
+				<tr>
+					<td>#</td>
+					<td>Nom</td>
+					<td>Tel Priv&eacute;</td>
+					<td>Tel Prop</td>
+					<td>Adresse</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>{{proprietaire.id}}</td>
+					<td>{{proprietaire.nom}}</td>
+					<td>{{proprietaire.tel_prive}}</td>
+					<td>{{proprietaire.tel_travail}}</td>
+					<td>{{proprietaire.adresse.rue}}, {{proprietaire.adresse.codePostal}}
+						{{proprietaire.adresse.ville}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

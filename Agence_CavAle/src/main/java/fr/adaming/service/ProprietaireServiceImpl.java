@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import fr.adaming.dao.IProprietaireDao;
+import fr.adaming.model.Adresse;
 import fr.adaming.model.Proprietaire;
 
 /**
@@ -20,7 +21,6 @@ public class ProprietaireServiceImpl implements IProprietaireService {
 
 	@Autowired
 	IProprietaireDao proprioDao;
-	
 
 	public void setProprioDao(IProprietaireDao proprioDao) {
 		this.proprioDao = proprioDao;
@@ -28,18 +28,28 @@ public class ProprietaireServiceImpl implements IProprietaireService {
 
 	@Override
 	public List<Proprietaire> getAllProprietaires() {
-		
+
 		return proprioDao.getAllProprietaires();
 	}
 
 	@Override
 	public void addProprietaire(Proprietaire proprietaire) {
+		Adresse adresse = proprietaire.getAdresse();
+		if (adresse != null) {
+			adresse.setProprietaire(proprietaire);
+			proprietaire.setAdresse(adresse);
+		}
 		proprioDao.addProprietaire(proprietaire);
 
 	}
 
 	@Override
 	public void updateProprietaire(Proprietaire proprietaire) {
+		Adresse adresse = proprietaire.getAdresse();
+		if (adresse != null) {
+			adresse.setProprietaire(proprietaire);
+			proprietaire.setAdresse(adresse);
+		}
 		proprioDao.updateProprietaire(proprietaire);
 
 	}
@@ -52,7 +62,7 @@ public class ProprietaireServiceImpl implements IProprietaireService {
 
 	@Override
 	public Proprietaire getProprietaireById(int id_proprietaire) {
-	
+
 		return proprioDao.getProprietaireById(id_proprietaire);
 	}
 
