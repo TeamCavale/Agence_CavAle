@@ -11,6 +11,16 @@ app.config(function($routeProvider) {
 		
 		controller : "allContratsAgentCtrl"
 			
+	}).when("/getAllBiensByClasseStandard", {
+		
+		templateUrl : "pages/agentAllContrats.html",
+		
+		controller : "allContratsAgentCtrl"
+			
+	}).otherwise({
+		
+		redirectTo : "/accueil"
+			
 	})
 	
 	});

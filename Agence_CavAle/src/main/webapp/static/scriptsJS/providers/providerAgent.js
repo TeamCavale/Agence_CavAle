@@ -38,8 +38,37 @@ app.factory("agentProvider", function($http,$rootScope) {
 		
 	};
 	
+	function getAllClassesStandard(callback) {
+		$http({
+			method : 'GET',
+			url : urlglobal + '/classeStandard/classeStandards'
+		}).then(function successCallback(response) {
+			callback(response);
+		}, function errorCallback(response) {
+			console.log("erreur : " + response.statusText);
+		});
+
+	}
+	
+	function getClasseStandardById(id, callback) {
+		$http({
+			method : 'GET',
+			url : urlglobal + '/classeStandard/classeStandard/' + id
+		}).then(function successCallback(response) {
+			callback(response);
+		}, function errorCallback(response) {
+			console.log("erreur : " + response.statusText);
+		});
+
+	}
+	
+	
+	
 	return {
-		getAllContratsAgent : getAllContratsAgent
+		getAllContratsAgent : getAllContratsAgent,
+		delContratAgent : delContratAgent,
+		getAllClassesStandard : getAllClassesStandard,
+		getClasseStandardById : getClasseStandardById
 	
 	}
 	

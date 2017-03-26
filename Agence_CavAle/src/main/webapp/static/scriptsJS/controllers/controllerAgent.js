@@ -82,4 +82,71 @@ app
 
 									});
 
+				}).controller("allContratsAgentCtrl", function($scope, $rootScope,
+													$window, agentProvider, $location){
+					
+//					$scope.classeStandardSelected = {
+//							"code": "",
+//							"typeOffre": "",
+//							"prixMax": 0,
+//							"superficieMin": "",
+//							"typeBien": null,
+//							"listeClients":[],
+//							"listeBiensAAcheter":[],
+//							"listeBiensALouer":[]
+//								};
+//					
+					agentProvider.getAllClassesStandard(function(callback) {
+						if (callback != undefined && callback != "") {
+							$scope.listeCS = callback.data;
+						}
+					});
+
+//					$scope.getCS = function() {
+//
+//						var id = $scope.classeStandardSelectedId;
+//						if (id == undefined) {
+//							id = 0;
+//						}
+//
+//						agentProvider.getClasseStandardById(id, function(callback) {
+//							if (callback != undefined && callback != "") {
+//							$scope.classeStandardSelected = callback.data;
+//							}
+//						});
+//					};
+					
+					$scope.bienByCS = function(){
+						var classeStandard = $scope.classeStandardSelected
+						
+						$scope.listeBAA = classeStandard.listeBiensAAcheter;
+						$scope.listeBAL = classeStandard.listeBiensALouer;
+						
+						
+					};
+					
+					$scope.delBA = function(id, callback) {
+						bienImmoAchatProvider
+								.delBIAchat(
+										id,
+										function(callback) {
+//											if (callback != undefined
+//													&& callback != "") {
+//											}
+										});
+					};
+					
+					$scope.delBL = function(id, callback) {
+						bienImmoLocationProvider
+								.delBILocation(
+										id,
+										function(callback) {
+//											if (callback != undefined
+//													&& callback != "") {
+//											}
+										});
+					};
+					
+					
+					
 				});
