@@ -3,6 +3,7 @@ package fr.adaming.model;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -47,7 +48,7 @@ public class Proprietaire implements Serializable {
 	@Column(name = "tel_travail_prop")
 	private String tel_travail;
 
-	@OneToOne(mappedBy = "proprietaire", fetch=FetchType.LAZY)
+	@OneToOne(mappedBy = "proprietaire", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	private Adresse adresse;
 
 	@OneToMany(mappedBy = "proprietaire", fetch = FetchType.EAGER)

@@ -1,0 +1,28 @@
+<div class="row">
+	<div class="table-responsive col-md-12">
+		<table class="table table-bordered table-hover">
+			<thead>
+				<tr>
+					<td>#</td>
+					<td>Nom</td>
+					<td>Tel Privé</td>
+					<td>Tel Prop</td>
+					<td>Adresse</td>
+					<td></td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="prop in proprietaires">
+					<td>{{prop.id}}</td>
+					<td>{{prop.nom}}</td>
+					<td>{{prop.tel_prive}}</td>
+					<td>{{prop.tel_travail}}</td>
+					<td>{{prop.adresse.rue}}, {{prop.adresse.codePostal}}
+						{{prop.adresse.ville}}</td>
+					<td><a href="#/updateProprietaire/{{prop.id}}">Modifier</a> |
+						<a ng-click="delProp(prop.id)">Supprimer</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
