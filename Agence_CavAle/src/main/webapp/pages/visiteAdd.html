@@ -1,40 +1,38 @@
 <h1>Ajout d'une Visite</h1>
- <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+
 <form class="form-horizontal">
 	<div class="form-group">
-		<div class="col-sm-6">
-			<div id="datetimepicker" class="input-append date">
-				<input type="text"></input> <span class="add-on"> <i
-					data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
-				</span>
-			</div>
-			<script type="text/javascript">
-				$('#datetimepicker').datetimepicker({
-					format : 'dd/MM/yyyy hh:mm:ss',
-					language : 'en'
-				});
-			</script>
+	<div class="col-sm-6">
+			<label for="Date" class="col-sm-2 control-label">Date</label> <input
+				type="datetime-local" class="form-control" id="Date" placeholder="Date"
+				ng-model="visiteForm.date">
 		</div>
-	</div>
+    </div>
 
 	<div class="form-group">
 		<div class="col-sm-6">
 			<label for="Client" class="col-sm-2 control-label">Client</label> <input
-				type="number" class="form-control" id="Client" placeholder="Client"
+				type="text" class="form-control" id="Client" placeholder="Client"
 				ng-model="visiteForm.client">
 		</div>
 	</div>
 	<div class="form-group">
 		<div class="col-sm-6">
 			<label for="Agent" class="col-sm-2 control-label">Agent</label> <input
-				type="number" class="form-control" id="Agent" placeholder="Agent"
+				type="text" class="form-control" id="Agent" placeholder="Agent"
 				ng-model="visiteForm.agent">
 		</div>
 	</div>
 	<div class="form-group">
 		<div class="col-sm-6">
 			<label for="bienAAcheter" class="col-sm-2 control-label">Bien
-				a acheter</label> <input type="number" class="form-control"
+				a acheter</label> 
+				<select>
+				<option></option>
+				
+				</select>
+				
+				<input type="text" class="form-control"
 				id="bienAAcheter" placeholder="Bien a acheter"
 				ng-model="visiteForm.bienAAcheter">
 		</div>
@@ -42,7 +40,7 @@
 	<div class="form-group">
 		<div class="col-sm-6">
 			<label for="bienALouer" class="col-sm-2 control-label">bien A
-				Louer</label> <input type="number" class="form-control" id="bienALouer"
+				Louer</label> <input type="text" class="form-control" id="bienALouer"
 				placeholder="bienALouer" ng-model="visiteForm.bienALouer">
 		</div>
 	</div>

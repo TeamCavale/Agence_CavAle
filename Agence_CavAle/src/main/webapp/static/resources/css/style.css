@@ -1,0 +1,45 @@
+@CHARSET "ISO-8859-1";
+
+
+#Enveloppe {
+	margin-top : 25px;
+	border: solid 2px black ;
+	background-color: window;
+	height : 800px;
+	border-radius: 35px;
+	opacity: 0.8;
+	z-index: 1;
+}
+
+#navBar {
+opacity: 0.9;
+height: 50px;
+z-index: 10;
+}
+
+#header {
+	color : red;
+	margin-top : 25px;
+	text-align : center;
+	border: solid 2px black ;
+	background-color: window;
+	
+	border-radius: 35px;
+	opacity: 0.8;
+	z-index: 1;
+	
+}
+
+#accueil{
+	
+	height: 40px;
+	width: 100px;
+}
+
+.btn {	
+	height: 40px;	
+}
+
+#nav {
+	
+}

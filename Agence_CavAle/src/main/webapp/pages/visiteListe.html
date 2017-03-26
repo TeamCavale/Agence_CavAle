@@ -20,7 +20,7 @@
 				<td>{{visite.agent}}</td>
 				<td>{{visite.bienALouer}}</td>
 				<td>{{visite.bienAAcheter}}</td>
-				<td>Modifier| Supprimer</td>
+				<td><a ng-click="updateLien(visite)">Modifier</a> | <a ng-click="deleteLien(visite.id)">Supprimer</a></td>
 			</tr>
 		</tbody>
 

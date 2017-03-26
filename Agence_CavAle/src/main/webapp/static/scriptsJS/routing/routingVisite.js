@@ -22,8 +22,9 @@ app.config(function($routeProvider) {
 		templateUrl : "pages/visiteDel.html",
 
 		controller : "delVisiteCtrl"
+			
 	}).when("/updateVisite", {
-		templateUrl : "visiteUpdate.html",
+		templateUrl : "pages/visiteUpdate.html",
 		controller : "updateVisiteCtrl"
 	})
 })

@@ -1,1 +1,50 @@
 <h1>Modification d'une visite</h1>
+
+<form class="form-horizontal">
+<div class="form-group">
+	<div class="col-sm-6">
+		<label for="inputId" class="col-sm-2 control-label">Id</label> <input
+			type="number" class="form-control" id="inputId"
+			placeholder="Id de la visite a modif" ng-model="visiteForm.id">
+	</div>
+</div>
+	<div class="form-group">
+		<div class="col-sm-6">
+			<label for="Date" class="col-sm-2 control-label">Date</label> <input
+				type="datetime-local" class="form-control" id="Date"
+				placeholder="Date" ng-model="visiteForm.date">
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-sm-6">
+			<label for="Client" class="col-sm-2 control-label">Client</label> <input
+				type="text" class="form-control" id="Client" placeholder="Client"
+				ng-model="visiteForm.client">
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-sm-6">
+			<label for="Agent" class="col-sm-2 control-label">Agent</label> <input
+				type="text" class="form-control" id="Agent" placeholder="Agent"
+				ng-model="visiteForm.agent">
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-sm-6">
+			<label for="bienAAcheter" class="col-sm-2 control-label">Bien
+				a acheter</label> <input type="text" class="form-control" id="bienAAcheter"
+				placeholder="Bien a acheter" ng-model="visiteForm.bienAAcheter">
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-sm-6">
+			<label for="bienALouer" class="col-sm-2 control-label">bien A
+				Louer</label> <input type="text" class="form-control" id="bienALouer"
+				placeholder="bienALouer" ng-model="visiteForm.bienALouer">
+		</div>
+	</div>
+	<div class="col-sm-2">
+		<button ng-click="modifier()" class="btn btn-default">modifier</button>
+	</div>
+</form>
