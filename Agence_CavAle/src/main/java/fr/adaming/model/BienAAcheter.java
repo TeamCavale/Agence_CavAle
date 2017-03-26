@@ -17,12 +17,10 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
-
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
 
 /**
  * 
@@ -45,26 +43,24 @@ public class BienAAcheter extends BienImmo implements Serializable {
 	// a restaurer , correcte, impec
 	@Column(name = "etat_ba")
 	private String etat;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "fk_cs", referencedColumnName = "id_cs")
 	private ClasseStandard classeStandard;
 
-	@OneToOne(mappedBy = "bienAAcheter",fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	@OneToOne(mappedBy = "bienAAcheter", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private Adresse adresse;
 
-	
-	
-	@OneToMany(mappedBy = "bienAAcheter",cascade=CascadeType.ALL)
-	@Fetch(value=FetchMode.SUBSELECT)
+	@OneToMany(mappedBy = "bienAAcheter", cascade = CascadeType.ALL)
+	@Fetch(value = FetchMode.SUBSELECT)
 	@JsonIgnore
 	private List<Visite> listeVisites;
 
-	@OneToOne(mappedBy = "bienAAcheter", cascade=CascadeType.ALL)
+	@OneToOne(mappedBy = "bienAAcheter", cascade = CascadeType.ALL)
 	private Contrat contrat;
-	
+
 	@ManyToOne
-	@JoinColumn(name="fk_prop",referencedColumnName="id_prop")
+	@JoinColumn(name = "fk_prop", referencedColumnName = "id_prop")
 	private Proprietaire proprietaire;
 
 	public BienAAcheter() {
@@ -103,7 +99,6 @@ public class BienAAcheter extends BienImmo implements Serializable {
 		this.etat = etat;
 	}
 
-	
 	public ClasseStandard getClasseStandard() {
 		return classeStandard;
 	}
@@ -130,7 +125,6 @@ public class BienAAcheter extends BienImmo implements Serializable {
 		this.listeVisites = listeVisites;
 	}
 
-
 	public Contrat getContrat() {
 		return contrat;
 	}
@@ -147,6 +141,5 @@ public class BienAAcheter extends BienImmo implements Serializable {
 	public void setProprietaire(Proprietaire proprietaire) {
 		this.proprietaire = proprietaire;
 	}
-	
 
 }

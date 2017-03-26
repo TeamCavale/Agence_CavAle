@@ -1,6 +1,5 @@
 <div>
 	<form class="form-horizontal">
-	{{bienImmo}}
 		<table>
 			<tr>
 				<td class="col-sm-4">
@@ -69,7 +68,7 @@
 						<div class="col-sm-6">
 							<select class="form-control" ng-model="classStandSelectId"
 								id="cs_bi" ng-click="getCS(classStand.id)">
-								<option value="{{classStand.id}}"
+								<option value="{{classStand.id}}" ng-selected="csselected[{{classStand.id}}]"
 									ng-repeat="classStand in listeCS">{{classStand.typeOffre}}
 									| {{classStand.code}}</option>
 							</select>

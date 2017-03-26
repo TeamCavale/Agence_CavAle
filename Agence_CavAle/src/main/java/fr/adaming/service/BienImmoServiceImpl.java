@@ -11,7 +11,7 @@ import fr.adaming.dao.IBienImmoDao;
 import fr.adaming.model.Adresse;
 import fr.adaming.model.BienAAcheter;
 import fr.adaming.model.BienALouer;
-import fr.adaming.model.BienImmo;
+import fr.adaming.model.ClasseStandard;
 import fr.adaming.model.Client;
 import fr.adaming.model.Contrat;
 import fr.adaming.model.Proprietaire;
@@ -73,6 +73,18 @@ public class BienImmoServiceImpl implements IBienImmoService {
 			proprietaire.setListeBiensAAcheter(lbal);
 			bienImmo.setProprietaire(proprietaire);
 		}
+		
+		ClasseStandard cs = bienImmo.getClasseStandard();
+		if(cs != null){
+			List<BienAAcheter> lbaa = cs.getListeBiensAAcheter();
+			if(lbaa == null){
+				lbaa = new ArrayList<>();
+			}
+			lbaa.add(bienImmo);
+			cs.setListeBiensAAcheter(lbaa);
+			bienImmo.setClasseStandard(cs);
+		}
+		
 		bienImmoDao.addBienImmoAchat(bienImmo);
 	}
 
@@ -110,6 +122,17 @@ public class BienImmoServiceImpl implements IBienImmoService {
 			lbal.add(bienImmo);
 			proprietaire.setListeBiensALouer(lbal);
 			bienImmo.setProprietaire(proprietaire);
+		}
+		
+		ClasseStandard cs = bienImmo.getClasseStandard();
+		if(cs != null){
+			List<BienALouer> lbal = cs.getListeBiensALouer();
+			if(lbal == null){
+				lbal = new ArrayList<>();
+			}
+			lbal.add(bienImmo);
+			cs.setListeBiensALouer(lbal);
+			bienImmo.setClasseStandard(cs);
 		}
 		
 		bienImmoDao.addBienImmoLocation(bienImmo);
@@ -161,6 +184,18 @@ public class BienImmoServiceImpl implements IBienImmoService {
 			proprietaire.setListeBiensAAcheter(lbal);
 			bienImmo.setProprietaire(proprietaire);
 		}
+		
+		ClasseStandard cs = bienImmo.getClasseStandard();
+		if(cs != null){
+			List<BienAAcheter> lbaa = cs.getListeBiensAAcheter();
+			if(lbaa == null){
+				lbaa = new ArrayList<>();
+			}
+			lbaa.add(bienImmo);
+			cs.setListeBiensAAcheter(lbaa);
+			bienImmo.setClasseStandard(cs);
+		}
+		
 		bienImmoDao.updateBienAAcheter(bienImmo);
 
 	}
@@ -199,6 +234,17 @@ public class BienImmoServiceImpl implements IBienImmoService {
 			lbal.add(bienImmo);
 			proprietaire.setListeBiensALouer(lbal);
 			bienImmo.setProprietaire(proprietaire);
+		}
+		
+		ClasseStandard cs = bienImmo.getClasseStandard();
+		if(cs != null){
+			List<BienALouer> lbal = cs.getListeBiensALouer();
+			if(lbal == null){
+				lbal = new ArrayList<>();
+			}
+			lbal.add(bienImmo);
+			cs.setListeBiensALouer(lbal);
+			bienImmo.setClasseStandard(cs);
 		}
 		bienImmoDao.updateBienALouer(bienImmo);
 

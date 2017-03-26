@@ -19,8 +19,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 
 /**
  * 
@@ -56,7 +54,7 @@ public class BienALouer extends BienImmo implements Serializable {
 	@JoinColumn(name = "fk_cs", referencedColumnName = "id_cs")
 	private ClasseStandard classeStandard;
 
-	@OneToOne(mappedBy = "bienALouer",fetch=FetchType.LAZY)
+	@OneToOne(mappedBy = "bienALouer",fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	private Adresse adresse;
 
 	@OneToMany(mappedBy = "bienALouer", fetch=FetchType.EAGER, cascade=CascadeType.ALL)
@@ -141,7 +139,6 @@ public class BienALouer extends BienImmo implements Serializable {
 		this.garniture = garniture;
 	}
 
-	@JsonIgnore
 	public ClasseStandard getClasseStandard() {
 		return classeStandard;
 	}

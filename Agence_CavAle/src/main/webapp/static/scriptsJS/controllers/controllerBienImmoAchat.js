@@ -212,6 +212,13 @@ app
 											$scope.propselected[bi.proprietaire.id] = true;
 										}
 									}
+									
+									if (bi.classeStandard != null) {
+										if (bi.classeStandard.id != null) {
+											$scope.csselected = [false];
+											$scope.csselected[bi.classeStandard.id] = true;
+										}
+									}
 									$scope.bienImmo = bi;
 								}
 							})
