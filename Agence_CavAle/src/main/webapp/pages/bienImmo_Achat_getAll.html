@@ -1,115 +1,117 @@
-<div class="row">
-	<div class="table-responsive col-md-8">
-		<table class="table table-bordered table-hover">
-			<thead>
-				<tr>
-					<td>#</td>
-					<td>Statut</td>
-					<td>Soumis le</td>
-					<td>Disponible le</td>
-					<td>Revenu Cadastral</td>
-					<td>Prix</td>
-					<td>Etat</td>
-					<td></td>
-				</tr>
-			</thead>
-			<tbody>
-				<tr ng-repeat="bi in biAchat" ng-click="getDetail(bi.id)">
-					<td>{{bi.id}}</td>
-					<td>{{bi.statut}}</td>
-					<td>{{bi.dateSoumission | date : 'dd/MM/yyyy'}}</td>
-					<td>{{bi.dateDispo | date : 'dd/MM/yyyy'}}</td>
-					<td>{{bi.revenuCadastral | currency:'&euro;':2}}</td>
-					<td>{{bi.prixAchat | currency:'&euro;':2}}</td>
-					<td>{{bi.etat}}</td>
-					<td><a href="#/updateBienAAcheter/{{bi.id}}">Modifier</a> | <a
-						ng-click="delBI(bi.id)">Supprimer</a></td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
-	<div class="col-md-4">
-		<table>
-			<tr height="300px;">
-				<td class="col-md-2">
-					<address>
-						<strong style="text-decoration: underline;">Adresse</strong><br>{{bienImmo.adresse.rue}}<br>
-						{{bienImmo.adresse.codePostal}} {{bienImmo.adresse.ville}}
-					</address>
-				</td>
-				<td class="col-md-2">
-					<dl>
-						<dt style="text-decoration: underline;">Classe Standard</dt>
-						<dd></dd>
-						<dt>Code</dt>
-						<dd>{{bienImmo.classeStandard.code}}</dd>
-						<dt>Type</dt>
-						<dd>{{bienImmo.classeStandard.typeOffre}}</dd>
-						<dt>Prix Max</dt>
-						<dd>{{bienImmo.classeStandard.prixMax}}</dd>
-						<dt>Superficie Min</dt>
-						<dd>{{bienImmo.classeStandard.superficieMin}}</dd>
-						<dt>Type de bien</dt>
-						<dd>{{bienImmo.classeStandard.typeBien}}</dd>
-					</dl>
-				</td>
-			</tr>
-			<tr>
-				<td class="col-md-2">
-					<dl>
-						<dt style="text-decoration: underline;">Propri&eacute;taire</dt>
-						<dd></dd>
-						<dt>Nom</dt>
-						<dd>{{bienImmo.proprietaire.nom}}</dd>
-						<dt>Adresse</dt>
-						<dd>
-							<address>
-								{{bienImmo.proprietaire.adresse.rue}}<br>
-								{{bienImmo.proprietaire.adresse.codePostal}}
-								{{bienImmo.proprietaire.adresse.ville}}<br> <abbr
-									title="T&eacute;l&eacute;phone Priv&eacute;">Tel.
-									Priv&eacute; :</abbr> {{bienImmo.proprietaire.tel_prive}}<br> <abbr
-									title="T&eacute;l&eacute;phone Professionel">Tel. Pro :</abbr>
-								{{bienImmo.proprietaire.tel_travail}}
-							</address>
-						</dd>
-					</dl>
-				</td>
-				<td class="col-md-2">
-					<dl>
-						<dt style="text-decoration: underline;">Contrat</dt>
-						<dd></dd>
-						<dt>Prix</dt>
-						<dd>{{bienImmo.contrat.prixEffectif}}</dd>
-						<dt>Date</dt>
-						<dd>{{bienImmo.contrat.dateAchat}}</dd>
-						<dt style="text-decoration: underline;">Client</dt>
-						<dd>
-							<dl>
-								<dt>Nom</dt>
-								<dd>{{bienImmo.contrat.client.nom}}</dd>
-								<dt>T&eacute;l&eacute;phone</dt>
-								<dd>{{bienImmo.contrat.client.telephone}}</dd>
-								<dt>Adresse</dt>
-								<dd>
-									<address>
-										{{bienImmo.contrat.client.adresse.rue}}<br>
-										{{bienImmo.contrat.client.adresse.codePostal}}
-										{{bienImmo.contrat.client.adresse.ville}}
-									</address>
-								</dd>
-							</dl>
-						</dd>
-					</dl>
-				</td>
-			</tr>
-		</table>
-
-
-
-
-
-
-
-	</div>
+<div>
+	<table>
+		<tr>
+			<td class="table-responsive col-md-8">
+				<div style="height: 500px; overflow: scroll; overflow-x: hidden;">
+					<table class="table table-bordered table-hover">
+						<thead>
+							<tr>
+								<td>#</td>
+								<td>Statut</td>
+								<td>Soumis le</td>
+								<td>Disponible le</td>
+								<td>Revenu Cadastral</td>
+								<td>Prix</td>
+								<td>Etat</td>
+								<td></td>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="bi in biAchat" ng-click="getDetail(bi.id)">
+								<td>{{bi.id}}</td>
+								<td>{{bi.statut}}</td>
+								<td>{{bi.dateSoumission | date : 'dd/MM/yyyy'}}</td>
+								<td>{{bi.dateDispo | date : 'dd/MM/yyyy'}}</td>
+								<td>{{bi.revenuCadastral | currency:'&euro;':2}}</td>
+								<td>{{bi.prixAchat | currency:'&euro;':2}}</td>
+								<td>{{bi.etat}}</td>
+								<td><a href="#/updateBienAAcheter/{{bi.id}}">Modifier</a> |
+									<a ng-click="delBI(bi.id)">Supprimer</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</td>
+			<td class="table-responsive col-md-4">
+			<div>
+					<table>
+						<tr>
+							<td class="col-md-2">
+								<address>
+									<strong style="text-decoration: underline;">Adresse</strong><br>{{bienImmo.adresse.rue}}<br>
+									{{bienImmo.adresse.codePostal}} {{bienImmo.adresse.ville}}
+								</address>
+							</td>
+							<td class="col-md-2">
+								<dl>
+									<dt style="text-decoration: underline;">Classe Standard</dt>
+									<dd></dd>
+									<dt>Code</dt>
+									<dd>{{bienImmo.classeStandard.code}}</dd>
+									<dt>Type</dt>
+									<dd>{{bienImmo.classeStandard.typeOffre}}</dd>
+									<dt>Prix Max</dt>
+									<dd>{{bienImmo.classeStandard.prixMax}}</dd>
+									<dt>Superficie Min</dt>
+									<dd>{{bienImmo.classeStandard.superficieMin}}</dd>
+									<dt>Type de bien</dt>
+									<dd>{{bienImmo.classeStandard.typeBien}}</dd>
+								</dl>
+							</td>
+						</tr>
+						<tr>
+							<td class="col-md-2">
+								<dl>
+									<dt style="text-decoration: underline;">Propri&eacute;taire</dt>
+									<dd></dd>
+									<dt>Nom</dt>
+									<dd>{{bienImmo.proprietaire.nom}}</dd>
+									<dt>Adresse</dt>
+									<dd>
+										<address>
+											{{bienImmo.proprietaire.adresse.rue}}<br>
+											{{bienImmo.proprietaire.adresse.codePostal}}
+											{{bienImmo.proprietaire.adresse.ville}}<br> <abbr
+												title="T&eacute;l&eacute;phone Priv&eacute;">Tel.
+												Priv&eacute; :</abbr> {{bienImmo.proprietaire.tel_prive}}<br>
+											<abbr title="T&eacute;l&eacute;phone Professionel">Tel.
+												Pro :</abbr> {{bienImmo.proprietaire.tel_travail}}
+										</address>
+									</dd>
+								</dl>
+							</td>
+							<td class="col-md-2">
+								<dl>
+									<dt style="text-decoration: underline;">Contrat</dt>
+									<dd></dd>
+									<dt>Prix</dt>
+									<dd>{{bienImmo.contrat.prixEffectif}}</dd>
+									<dt>Date</dt>
+									<dd>{{bienImmo.contrat.dateAchat}}</dd>
+									<dt style="text-decoration: underline;">Client</dt>
+									<dd>
+										<dl>
+											<dt>Nom</dt>
+											<dd>{{bienImmo.contrat.client.nom}}</dd>
+											<dt>T&eacute;l&eacute;phone</dt>
+											<dd>{{bienImmo.contrat.client.telephone}}</dd>
+											<dt>Adresse</dt>
+											<dd>
+												<address>
+													{{bienImmo.contrat.client.adresse.rue}}<br>
+													{{bienImmo.contrat.client.adresse.codePostal}}
+													{{bienImmo.contrat.client.adresse.ville}}
+												</address>
+											</dd>
+										</dl>
+									</dd>
+								</dl>
+							</td>
+						</tr>
+					</table>
+				</div></td>
+		</tr>
+	</table>
 </div>
+
+
