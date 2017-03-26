@@ -8,7 +8,7 @@
 					<td>Signe le</td>
 					<td>Acheteur/Bailleur</td>
 					<td>Biens</td>
-				
+					<td></td>
 				</tr>
 			</thead>
 			<tbody>
@@ -17,10 +17,14 @@
 					<td>{{con.prixEffectif}}</td>
 					<td>{{con.dateAchat | date : 'dd/MM/yyyy'}}</td>
 					<td>{{con.client.nom}}</td>
-					<td>{{con.bienALouer.classeStandard.code}}{{con.bienAAcheter.classeStandard.code}} #{{con.bienALouer.id}}{{con.bienAAcheter.id}}</td>
+					<td>{{con.bienALouer.classeStandard.code}}{{con.bienAAcheter.classeStandard.code}}
+						#{{con.bienALouer.id}}{{con.bienAAcheter.id}}</td>
+					<td><a href="#/updateContrat/{{con.id}}">Modifier</a> | <a
+						ng-click="delContrat(con.id)">Supprimer</a></td>
 				</tr>
 			</tbody>
 		</table>
-		<span>Chiffre du mois : {{chiffreAffaire | currency:'&euro;':2}} </span>
+		<span>Chiffre du mois : {{chiffreAffaire |
+			currency:'&euro;':2}} </span>
 	</div>
 </div>

@@ -99,6 +99,37 @@ app.factory("contratProvider", function($http,$rootScope) {
 
 	}
 	
+	function updContrat(contratForm,callback) {
+		$http({
+			method : 'POST',
+			url : urlglobal + '/contrat/update',
+			data: angular.toJson(contratForm),
+			headers :{
+				'Content-Type' : 'application/json'
+			}
+			
+		}).then(function successCallback(response) {
+			console.log(response.data);
+			callback(response);
+		}, function errorCallback(response) {
+			console.log("erreur : " + response.statusText);
+		});
+
+	}
+	
+	function getContratFromView(id, callback) {
+		$http({
+			method : 'GET',
+			url : urlglobal + '/contrat/contrat/' + id
+		}).then(function successCallback(response) {
+			callback(response);
+		}, function errorCallback(response) {
+			console.log("erreur : " + response.statusText);
+		});
+
+	}
+	
+	
 	
 	return {
 		addContrat : AddContrat,
@@ -107,8 +138,8 @@ app.factory("contratProvider", function($http,$rootScope) {
 		getBienAAcheterById : getBienAAcheterById,
 		getAllBienAAcheter : getAllBienAAcheter,
 		getAllBienALouer : getAllBienALouer,
-		getBienALouerById : getBienALouerById
-		
+		getBienALouerById : getBienALouerById,
+		updContrat : updContrat
 	}
 	
 });
