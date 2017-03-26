@@ -30,6 +30,7 @@
 <script src="static/scriptsJS/routing/routingConsulterClientParBI.js"></script>
 <script src="static/scriptsJS/routing/routingConsulterBIParProp.js"></script>
 <script src="static/scriptsJS/routing/routingProprietaire.js"></script>
+<script src="static/scriptsJS/routing/routingContrat.js"></script>
 
 <!-- controllers -->
 <script src="static/scriptsJS/controllers/controller.js"></script>
@@ -42,6 +43,7 @@
 <script src="static/scriptsJS/controllers/controllerConsulterClientParBI.js"></script>
 <script src="static/scriptsJS/controllers/controllerConsulterPropByBI.js"></script>
 <script src="static/scriptsJS/controllers/controllerProprietaire.js"></script>
+<script src="static/scriptsJS/controllers/controllerContrat.js"></script>
 
 <!-- providers -->
 <script src="static/scriptsJS/providers/provider.js"></script>
@@ -54,6 +56,7 @@
 <script src="static/scriptsJS/providers/providerGetClientByBI.js"></script>
 <script src="static/scriptsJS/providers/providerGetPropByBI.js"></script>
 <script src="static/scriptsJS/providers/providerProprietaire.js"></script>
+<script src="static/scriptsJS/providers/providerContrat.js"></script>
 
 <!-- Import du date time  -->
 <script type="text/javascript"
@@ -65,6 +68,7 @@
 <title>Index</title>
 </head>
 <body>
+
 	<nav class="navbar navbar-inverse">
 		<ul class="nav nav-pills">
 			<li role="presentation" class="active" id="accueil"><a href="#">Accueil</a></li>
@@ -91,9 +95,12 @@
 						<li><a href="#updateBienALouer">Modifier</a></li>
 						<li><a href="#/getClientByBI">Obtenir la liste des clients</a></li>
 						<li><a href="#/getPropByBI">Obtenir la liste des proprietaires</a></li>
+						<li role="separator" class="divider"></li>
+						<li><a href="#/biensByClasseStandard">Liste des biens par classe standard</a></li>
 					</ul>
 				</div>
 			</li>
+			
 			<li role="presentation">
 				<!-- Single button -->
 				<div class="btn-group">
@@ -110,6 +117,7 @@
 					</ul>
 				</div>
 			</li>
+			
 			<li role="presentation">
 				<!-- Single button -->
 				<div class="btn-group">
@@ -126,6 +134,7 @@
 					</ul>
 				</div>
 			</li>
+			
 			<li role="presentation">
 				<!-- Single button -->
 				<div class="btn-group">
@@ -134,11 +143,12 @@
 						Agent <span class="caret"></span>
 					</button>
 					<ul class="dropdown-menu">
-						<li><a href="#/getAllAgent">Obtenir la liste</a></li>
 						<li><a href="#/getAllContratsAgent">Contrats</a></li>
+						<li><a href="#/addContrat">Ajouter un contrat</a></li>
 					</ul>
 				</div>
 			</li>
+			
 			<li role="presentation">
 				<!-- Single button -->
 				<div class="btn-group">
@@ -155,22 +165,7 @@
 					</ul>
 				</div>
 			</li>
-			<li role="presentation">
-				<!-- Single button -->
-				<div class="btn-group">
-					<button type="button" class="btn btn-default dropdown-toggle"
-						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						Contrat <span class="caret"></span>
-					</button>
-					<ul class="dropdown-menu">
-						<li><a href="#/getAllContrat">Obtenir la liste</a></li>
-						<li><a href="#/getbyIdContrat">Rechercher</a></li>
-						<li><a href="#/addContrat">Ajouter</a></li>
-						<li><a href="#/delContrat">Supprimer</a></li>
-						<li><a href="#/updateContrat">Modifier</a></li>
-					</ul>
-				</div>
-			</li>
+			
 			<li role="presentation">
 				<!-- Single button -->
 				<div class="btn-group">

@@ -3,14 +3,14 @@
  */
 
 app.factory("agentProvider", function($http,$rootScope) {
-	var urlglobal = "http://localhost:8080/Agence_CavAle/agent";
+	var urlglobal = "http://localhost:8080/Agence_CavAle";
 	
 	
 	
 	function getAllContratsAgent(agent, callback) {
 		$http({
 			method : 'POST',
-			url : urlglobal + '/contrats',
+			url : urlglobal + '/agent/contrats',
 			data: angular.toJson(agent),
 			headers :{
 				'Content-Type' : 'application/json'

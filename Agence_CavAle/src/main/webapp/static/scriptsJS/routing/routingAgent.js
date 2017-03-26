@@ -11,11 +11,11 @@ app.config(function($routeProvider) {
 		
 		controller : "allContratsAgentCtrl"
 			
-	}).when("/getAllBiensByClasseStandard", {
+	}).when("/biensByClasseStandard", {
 		
-		templateUrl : "pages/agentAllContrats.html",
+		templateUrl : "pages/biensByClasseStandard.html",
 		
-		controller : "allContratsAgentCtrl"
+		controller : "biensByClasseStandardCtrl"
 			
 	}).otherwise({
 		

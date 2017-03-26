@@ -7,9 +7,9 @@
 					<div class="form-group">
 						<label class="col-sm-6 control-label" for="CSID">Catégorie de Biens</label>
 						<div class="col-sm-6">
-							<select class="form-control" ng-model="classeStandardSelected"
-								id="CSID" ng-click="bienByCS(cs)">
-								<option value="{{cs}}" ng-repeat="cs in listeCS">{{cs.code}} 
+							<select class="form-control" ng-model="classeStandardSelectedId"
+								id="CSID" ng-click="bienByCS(cs.id)">
+								<option value="{{cs.id}}" ng-repeat="cs in listeCS">{{cs.code}} 
 								prixMax: {{cs.prixMax}} superficieMin: {{cs.superficieMin}}</option>
 							</select>
 						</div>

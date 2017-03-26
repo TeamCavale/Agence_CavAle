@@ -82,45 +82,46 @@ app
 
 									});
 
-				}).controller("allContratsAgentCtrl", function($scope, $rootScope,
+				}).controller("biensByClasseStandardCtrl", function($scope, $rootScope,
 													$window, agentProvider, $location){
+					$scope.classeStandard = {
+							"code": "",
+							"typeOffre": "",
+							"prixMax": 0,
+							"superficieMin": "",
+							"typeBien": null,
+							"listeClients":[],
+							"listeBiensAAcheter":[],
+							"listeBiensALouer":[]
+								};
 					
-//					$scope.classeStandardSelected = {
-//							"code": "",
-//							"typeOffre": "",
-//							"prixMax": 0,
-//							"superficieMin": "",
-//							"typeBien": null,
-//							"listeClients":[],
-//							"listeBiensAAcheter":[],
-//							"listeBiensALouer":[]
-//								};
-//					
+					
 					agentProvider.getAllClassesStandard(function(callback) {
 						if (callback != undefined && callback != "") {
 							$scope.listeCS = callback.data;
 						}
 					});
 
-//					$scope.getCS = function() {
-//
-//						var id = $scope.classeStandardSelectedId;
-//						if (id == undefined) {
-//							id = 0;
-//						}
-//
-//						agentProvider.getClasseStandardById(id, function(callback) {
-//							if (callback != undefined && callback != "") {
-//							$scope.classeStandardSelected = callback.data;
-//							}
-//						});
-//					};
+					$scope.getCS = function() {
+
+						var id = $scope.classeStandardSelectedId;
+						if (id == undefined) {
+							id = 0;
+						}
+
+						agentProvider.getClasseStandardById(id, function(callback) {
+							if (callback != undefined && callback != "") {
+							$scope.classeStandard = callback.data;
+							}
+						});
+					};
 					
 					$scope.bienByCS = function(){
-						var classeStandard = $scope.classeStandardSelected
 						
-						$scope.listeBAA = classeStandard.listeBiensAAcheter;
-						$scope.listeBAL = classeStandard.listeBiensALouer;
+						
+						
+						$scope.listeBAA = $scope.classeStandard.listeBiensAAcheter;
+						$scope.listeBAL = $scope.classeStandard.listeBiensALouer;
 						
 						
 					};

@@ -132,7 +132,7 @@ app.factory("contratProvider", function($http,$rootScope) {
 	
 	
 	return {
-		addContrat : AddContrat,
+		addContrat : addContrat,
 		getAllClient : getAllClient,
 		getClientById : getClientById,
 		getBienAAcheterById : getBienAAcheterById,

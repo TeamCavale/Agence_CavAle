@@ -13,9 +13,9 @@ app.config(function($routeProvider) {
 			
 	}).when("/updateContrat/:idContrat", {
 		
-		templateUrl : "pages/biensByClasseStandard.html",
+		templateUrl : "pages/contratAdd.html",
 		
-		controller : "biensByClasseStandardCtrl"
+		controller : "updateContratCtrl"
 			
 	}).otherwise({
 		
