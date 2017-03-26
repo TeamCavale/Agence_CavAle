@@ -43,7 +43,7 @@ public class BienImmoWSRest {
 
 	@RequestMapping(value = "/location/add", method = RequestMethod.POST, consumes = "application/json")
 	public void addBienALouer(@RequestBody BienALouer bienImmoLouer) {
-		//bienImmoService.addBienImmo(bienImmoLouer);
+		bienImmoService.addBienImmoLocation(bienImmoLouer);
 	}
 	
 	@RequestMapping(value = "/achat/del/{id}", method = RequestMethod.DELETE)

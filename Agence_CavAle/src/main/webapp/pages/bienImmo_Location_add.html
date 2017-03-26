@@ -1,6 +1,6 @@
 <div>
-{{bienImmo}}
 	<form class="form-horizontal">
+	{{bienImmo}}
 		<table>
 			<tr>
 				<td class="col-sm-4">
@@ -10,7 +10,7 @@
 							<select ng-model="bienImmo.statut" id="statut_bi"
 								class="form-control">
 								<option value="disponible">Disponible</option>
-								<option value="vendu">Vendu</option>
+								<option value="loue">Lou&eacute;</option>
 							</select>
 						</div>
 					</div>
@@ -32,21 +32,34 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-6 control-label" for="prix_bi">Prix
-							achat (&euro;)</label>
+						<label class="col-sm-6 control-label" for="prix_bi">Loyer (&euro;)</label>
 						<div class="col-sm-6">
-							<input type="number" class="form-control" id="prix_bi"
-								placeholder="Prix Achat" ng-model="bienImmo.prixAchat">
+							<input type="number" class="form-control" id="loyer_bi"
+								placeholder="Loyer" ng-model="bienImmo.loyer">
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-6 control-label" for="etat_bi">Etat</label>
+						<label class="col-sm-6 control-label" for="charges_bi">Charges (&euro;)</label>
 						<div class="col-sm-6">
-							<select ng-model="bienImmo.etat" id="etat_bi"
+							<input type="number" class="form-control" id="charges_bi"
+								placeholder="Charges" ng-model="bienImmo.charges">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-6 control-label" for="caution_bi">Caution (&euro;)</label>
+						<div class="col-sm-6">
+							<input type="number" class="form-control" id="caution_bi"
+								placeholder="Caution" ng-model="bienImmo.caution">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-6 control-label" for="typeBail_bi">Type de bail</label>
+						<div class="col-sm-6">
+							<select ng-model="bienImmo.typeBail" id="typeBail_bi"
 								class="form-control">
-								<option value="arestaurer">A restaurer</option>
-								<option value="correct">Correct</option>
-								<option value="impeccable">Impeccable</option>
+								<option value="Bail 1">Bail 1</option>
+								<option value="Bail 2">Bail 2</option>
+								<option value="Bail 3">Bail 3</option>
 							</select>
 						</div>
 					</div>
@@ -121,8 +134,8 @@
 							<div class="col-sm-6">
 								<select class="form-control" ng-model="clientSelectId"
 									id="client_bi" ng-click="getClient(clientBi.id)">
-									<option value="{{clientBi.id}}"
-										ng-repeat="clientBi in listeClient" ng-selected="clselected[{{clientBi.id}}]">{{clientBi.nom}}</option>
+									<option value="{{clientBi.id}}" ng-selected="clselected[{{clientBi.id}}]"
+										ng-repeat="clientBi in listeClient">{{clientBi.nom}}</option>
 								</select>
 							</div>
 						</div>

@@ -3,20 +3,20 @@
  */
 app
 		.controller(
-				"findAllBIAAcheterCtrl",
+				"findAllBIALouerCtrl",
 				function($scope, $rootScope, $window, $location,
-						bienImmoAchatProvider) {
-					bienImmoAchatProvider.findAllBiensImmoAchat(function(
+						bienImmoLocationProvider) {
+					bienImmoLocationProvider.findAllBiensImmoLocation(function(
 							callback) {
 						if (callback != undefined && callback != "") {
-							$scope.biAchat = callback.data;
+							$scope.biLocation = callback.data;
 						}
 					});
 
 					$scope.getDetail = function(id, callback) {
 
-						bienImmoAchatProvider
-								.findDetailsBiensImmoAchat(
+						bienImmoLocationProvider
+								.findDetailsBiensImmoLocation(
 										id,
 										function(callback) {
 											if (callback != undefined
@@ -27,18 +27,18 @@ app
 					}
 
 					$scope.delBI = function(id, callback) {
-						bienImmoAchatProvider
-								.delBIAchat(
+						bienImmoLocationProvider
+								.delBILocation(
 										id,
 										function(callback) {
 											if (callback != undefined
 													&& callback != "") {
-												bienImmoAchatProvider
-														.findAllBiensImmoAchat(function(
+												bienImmoLocationProvider
+														.findAllBiensImmoLocation(function(
 																callback) {
 															if (callback != undefined
 																	&& callback != "") {
-																$scope.biAchat = callback.data;
+																$scope.biLocation = callback.data;
 															}
 														});
 											}
@@ -47,14 +47,14 @@ app
 
 				})
 		.controller(
-				"findBIAAcheterCtrl",
+				"findBIALouerCtrl",
 				function($scope, $rootScope, $window, $location,
-						bienImmoAchatProvider) {
+						bienImmoLocationProvider) {
 
 					$scope.getBI = function() {
 						var id = $scope.id_bi;
-						bienImmoAchatProvider
-								.findDetailsBiensImmoAchat(
+						bienImmoLocationProvider
+								.findDetailsBiensImmoLocation(
 										id,
 										function(callback) {
 											if (callback != undefined
@@ -65,16 +65,16 @@ app
 					}
 				})
 		.controller(
-				"addBIAAcheterCtrl",
+				"addBIALouerCtrl",
 				function($scope, $rootScope, $window, $location,
-						bienImmoAchatProvider) {
+						bienImmoLocationProvider) {
 					$scope.bienImmo = {
 						"id" : 0,
 						"statut" : "",
 						"dateSoumission" : 0,
 						"dateDispo" : 0,
 						"revenuCadastral" : 0,
-						"prixAchat" : 0,
+						"prixLocation" : 0,
 						"etat" : "",
 						"classeStandard" : null,
 						"adresse" : null,
@@ -82,19 +82,19 @@ app
 						"proprietaire" : null
 					}
 
-					bienImmoAchatProvider.getAllProp(function(callback) {
+					bienImmoLocationProvider.getAllProp(function(callback) {
 						if (callback != undefined && callback != "") {
 							$scope.listeProp = callback.data;
 						}
 					});
 
-					bienImmoAchatProvider.getAllClient(function(callback) {
+					bienImmoLocationProvider.getAllClient(function(callback) {
 						if (callback != undefined && callback != "") {
 							$scope.listeClient = callback.data;
 						}
 					});
 
-					bienImmoAchatProvider.getAllClassStand(function(callback) {
+					bienImmoLocationProvider.getAllClassStand(function(callback) {
 						if (callback != undefined && callback != "") {
 							$scope.listeCS = callback.data;
 						}
@@ -107,7 +107,7 @@ app
 							id = 0;
 						}
 
-						bienImmoAchatProvider.getCSById(id, function(callback) {
+						bienImmoLocationProvider.getCSById(id, function(callback) {
 							if (callback != undefined && callback != "") {
 								$scope.bienImmo.classeStandard = callback.data;
 							}
@@ -121,7 +121,7 @@ app
 							id = 0;
 						}
 
-						bienImmoAchatProvider.getClientById(id, function(
+						bienImmoLocationProvider.getClientById(id, function(
 								callback) {
 							if (callback != undefined && callback != "") {
 								$scope.bienImmo.client = callback.data;
@@ -136,7 +136,7 @@ app
 							id = 0;
 						}
 
-						bienImmoAchatProvider
+						bienImmoLocationProvider
 								.getPropById(
 										id,
 										function(callback) {
@@ -151,33 +151,33 @@ app
 						$scope.bienImmo.dateSoumission = new Date();
 						var bi = $scope.bienImmo;
 
-						bienImmoAchatProvider.addBienImmoAchat(bi, function(
+						bienImmoLocationProvider.addBienImmoLocation(bi, function(
 								callback) {
 							if (callback != undefined && callback != "") {
-								$location.path("getAllBienAAcheter");
+								$location.path("getAllBienALouer");
 							}
 						});
 					};
 
 				})
 		.controller(
-				"updateBIAAcheterCtrl",
+				"updateBIALouerCtrl",
 				function($scope, $rootScope, $window, $location, $routeParams,
-						bienImmoAchatProvider) {
+						bienImmoLocationProvider) {
 					$scope.bienImmo = {
 						"id" : 0,
 						"statut" : "",
 						"dateSoumission" : 0,
 						"dateDispo" : 0,
 						"revenuCadastral" : 0,
-						"prixAchat" : 0,
+						"prixLocation" : 0,
 						"etat" : "",
 						"classeStandard" : null,
 						"adresse" : null,
 						"contrat" : null,
 						"proprietaire" : null
 					}
-					bienImmoAchatProvider.findDetailsBiensImmoAchat(
+					bienImmoLocationProvider.findDetailsBiensImmoLocation(
 							$routeParams.idBI, function(callback) {
 								if (callback != undefined && callback != "") {
 									var bi = callback.data;
@@ -188,29 +188,48 @@ app
 									if (bi.dateDispo != null) {
 										bi.dateDispo = new Date(bi.dateDispo);
 									}
+									
 									if (bi.contrat != null) {
 										if (bi.contrat.dateAchat != null) {
 											bi.contrat.dateAchat = new Date(
-													bi.contrat.dateAchat);
+													bi.contrat.dateLocation);
+										}
+										if (bi.contrat.client != null) {
+											if (bi.contrat.client.id != null) {
+												$scope.clselected = [false];
+												$scope.clselected[bi.contrat.client.id] = true;
+											}
+										}
+									}
+									if (bi.adresse != null) {
+										if (bi.adresse.codePostal != null) {
+											bi.adresse.codePostal = Number(bi.adresse.codePostal);
+										}
+									}
+									
+									if (bi.proprietaire != null) {
+										if (bi.proprietaire.id != null) {
+											$scope.propselected = [false];
+											$scope.propselected[bi.proprietaire.id] = true;
 										}
 									}
 									$scope.bienImmo = bi;
 								}
 							})
 
-					bienImmoAchatProvider.getAllProp(function(callback) {
+					bienImmoLocationProvider.getAllProp(function(callback) {
 						if (callback != undefined && callback != "") {
 							$scope.listeProp = callback.data;
 						}
 					});
 
-					bienImmoAchatProvider.getAllClient(function(callback) {
+					bienImmoLocationProvider.getAllClient(function(callback) {
 						if (callback != undefined && callback != "") {
 							$scope.listeClient = callback.data;
 						}
 					});
 
-					bienImmoAchatProvider.getAllClassStand(function(callback) {
+					bienImmoLocationProvider.getAllClassStand(function(callback) {
 						if (callback != undefined && callback != "") {
 							$scope.listeCS = callback.data;
 						}
@@ -223,7 +242,7 @@ app
 							id = 0;
 						}
 
-						bienImmoAchatProvider.getCSById(id, function(callback) {
+						bienImmoLocationProvider.getCSById(id, function(callback) {
 							if (callback != undefined && callback != "") {
 								$scope.bienImmo.classeStandard = callback.data;
 							}
@@ -237,10 +256,10 @@ app
 							id = 0;
 						}
 
-						bienImmoAchatProvider.getClientById(id, function(
+						bienImmoLocationProvider.getClientById(id, function(
 								callback) {
 							if (callback != undefined && callback != "") {
-								$scope.bienImmo.client = callback.data;
+								$scope.bienImmo.contrat.client = callback.data;
 							}
 						});
 					};
@@ -252,7 +271,7 @@ app
 							id = 0;
 						}
 
-						bienImmoAchatProvider
+						bienImmoLocationProvider
 								.getPropById(
 										id,
 										function(callback) {
@@ -264,28 +283,27 @@ app
 					};
 
 					$scope.addBI = function() {
-						$scope.bienImmo.dateSoumission = new Date();
 						var bi = $scope.bienImmo;
 						if (bi.id == 0) {
-							bienImmoAchatProvider
-									.addBienImmoAchat(
+							bienImmoLocationProvider
+									.addBienImmoLocation(
 											bi,
 											function(callback) {
 												if (callback != undefined
 														&& callback != "") {
 													$location
-															.path("getAllBienAAcheter");
+															.path("getAllBienALouer");
 												}
 											});
 						} else {
-							bienImmoAchatProvider
-									.updateBienImmoAchat(
+							bienImmoLocationProvider
+									.updateBienImmoLocation(
 											bi,
 											function(callback) {
 												if (callback != undefined
 														&& callback != "") {
 													$location
-															.path("getAllBienAAcheter");
+															.path("getAllBienALouer");
 												}
 											});
 						}

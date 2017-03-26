@@ -55,12 +55,12 @@ public class BienAAcheter extends BienImmo implements Serializable {
 
 	
 	
-	@OneToMany(mappedBy = "bienAAcheter", fetch=FetchType.EAGER,cascade=CascadeType.REMOVE)
+	@OneToMany(mappedBy = "bienAAcheter",cascade=CascadeType.ALL)
 	@Fetch(value=FetchMode.SUBSELECT)
 	@JsonIgnore
 	private List<Visite> listeVisites;
 
-	@OneToOne(mappedBy = "bienAAcheter")
+	@OneToOne(mappedBy = "bienAAcheter", cascade=CascadeType.ALL)
 	private Contrat contrat;
 	
 	@ManyToOne
@@ -130,7 +130,7 @@ public class BienAAcheter extends BienImmo implements Serializable {
 		this.listeVisites = listeVisites;
 	}
 
-	@JsonIgnore
+
 	public Contrat getContrat() {
 		return contrat;
 	}

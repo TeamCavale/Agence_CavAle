@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -46,19 +47,19 @@ public class Adresse implements Serializable {
 	@Column(name = "ville_adr")
 	private String ville;
 	
-	@OneToOne
+	@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="fk_prop", referencedColumnName="id_prop")
 	private Proprietaire proprietaire;
 	
-	@OneToOne
+	@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="fk_cl", referencedColumnName="id_cl")
 	private Client client;
 	
-	@OneToOne
+	@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="fk_bl",referencedColumnName="id_bi")
 	private BienALouer bienALouer;
 	
-	@OneToOne
+	@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="fk_ba",referencedColumnName="id_bi")
 	private BienAAcheter bienAAcheter;
 
@@ -117,7 +118,7 @@ public class Adresse implements Serializable {
 		this.ville = ville;
 	}
 
-	@XmlTransient
+	@JsonIgnore
 	public Proprietaire getProprietaire() {
 		return proprietaire;
 	}

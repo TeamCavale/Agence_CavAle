@@ -3,8 +3,10 @@ package fr.adaming.model;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,7 +18,11 @@ import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.hibernate.annotations.ManyToAny;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * 
@@ -44,20 +50,23 @@ public class Contrat implements Serializable {
 	@Column(name = "dateAchat_con")
 	private Date dateAchat;
 
-	@ManyToOne
-	@JoinColumn(name="fk_ag", referencedColumnName="id_ag")
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "fk_ag", referencedColumnName = "id_ag")
 	private Agent agent;
 
-	@ManyToOne
-	@JoinColumn(name="fk_cl", referencedColumnName="id_cl")
+	@ManyToOne(fetch = FetchType.EAGER)
+	@Fetch(value=FetchMode.SELECT)
+	@JoinColumn(name = "fk_cl", referencedColumnName = "id_cl")
 	private Client client;
-	
-	@OneToOne
-	@JoinColumn(name="fk_bl",referencedColumnName="id_bi")
+
+	@OneToOne(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+	@Fetch(value = FetchMode.SELECT)
+	@JoinColumn(name = "fk_bl", referencedColumnName = "id_bi")
 	private BienALouer bienALouer;
-	
-	@OneToOne
-	@JoinColumn(name="fk_ba",referencedColumnName="id_bi")
+
+	@OneToOne(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+	@Fetch(value = FetchMode.SELECT)
+	@JoinColumn(name = "fk_ba", referencedColumnName = "id_bi")
 	private BienAAcheter bienAAcheter;
 
 	public Contrat() {
@@ -122,7 +131,7 @@ public class Contrat implements Serializable {
 		this.client = client;
 	}
 
-	@XmlElement
+	@JsonIgnore
 	public BienALouer getBienALouer() {
 		return bienALouer;
 	}
@@ -131,7 +140,7 @@ public class Contrat implements Serializable {
 		this.bienALouer = bienALouer;
 	}
 
-	@XmlElement
+	@JsonIgnore
 	public BienAAcheter getBienAAcheter() {
 		return bienAAcheter;
 	}
@@ -139,7 +148,5 @@ public class Contrat implements Serializable {
 	public void setBienAAcheter(BienAAcheter bienAAcheter) {
 		this.bienAAcheter = bienAAcheter;
 	}
-
-	
 
 }

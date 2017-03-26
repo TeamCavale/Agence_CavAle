@@ -8,21 +8,17 @@
 					<td>Soumis le</td>
 					<td>Disponible le</td>
 					<td>Revenu Cadastral</td>
-					<td>Prix</td>
-					<td>Etat</td>
 					<td></td>
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat="bi in biAchat" ng-click="getDetail(bi.id)">
+				<tr ng-repeat="bi in biLocation" ng-click="getDetail(bi.id)">
 					<td>{{bi.id}}</td>
 					<td>{{bi.statut}}</td>
 					<td>{{bi.dateSoumission | date : 'dd/MM/yyyy'}}</td>
 					<td>{{bi.dateDispo | date : 'dd/MM/yyyy'}}</td>
 					<td>{{bi.revenuCadastral | currency:'&euro;':2}}</td>
-					<td>{{bi.prixAchat | currency:'&euro;':2}}</td>
-					<td>{{bi.etat}}</td>
-					<td><a href="#/updateBienAAcheter/{{bi.id}}">Modifier</a> | <a
+					<td><a href="#/updateBienALouer/{{bi.id}}">Modifier</a> | <a
 						ng-click="delBI(bi.id)">Supprimer</a></td>
 				</tr>
 			</tbody>
@@ -32,6 +28,18 @@
 		<table>
 			<tr height="300px;">
 				<td class="col-md-2">
+					<dl>
+						<dt>Caution</dt>
+						<dd>{{bienImmo.caution}}</dd>
+						<dt>Loyer</dt>
+						<dd>{{bienImmo.loyer}}</dd>
+						<dt>Charges</dt>
+						<dd>{{bienImmo.charges}}</dd>
+						<dt>Type de Bail</dt>
+						<dd>{{bienImmo.typeBail}}</dd>
+						<dt>Garniture</dt>
+						<dd>{{bienImmo.garniture}}</dd>
+					</dl>
 					<address>
 						<strong style="text-decoration: underline;">Adresse</strong><br>{{bienImmo.adresse.rue}}<br>
 						{{bienImmo.adresse.codePostal}} {{bienImmo.adresse.ville}}
@@ -82,7 +90,7 @@
 						<dt>Prix</dt>
 						<dd>{{bienImmo.contrat.prixEffectif}}</dd>
 						<dt>Date</dt>
-						<dd>{{bienImmo.contrat.dateAchat}}</dd>
+						<dd>{{bienImmo.contrat.dateAchat | date : 'dd/MM/yyyy'}}</dd>
 						<dt style="text-decoration: underline;">Client</dt>
 						<dd>
 							<dl>
@@ -104,12 +112,5 @@
 				</td>
 			</tr>
 		</table>
-
-
-
-
-
-
-
 	</div>
 </div>

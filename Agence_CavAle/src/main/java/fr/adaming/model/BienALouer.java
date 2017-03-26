@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -14,12 +15,12 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 /**
  * 
@@ -51,21 +52,21 @@ public class BienALouer extends BienImmo implements Serializable {
 	@Column(name="garniture_bl")
 	private String garniture;
 	
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name = "fk_cs", referencedColumnName = "id_cs")
 	private ClasseStandard classeStandard;
 
-	@OneToOne(mappedBy = "bienALouer")
+	@OneToOne(mappedBy = "bienALouer",fetch=FetchType.LAZY)
 	private Adresse adresse;
 
-	@OneToMany(mappedBy = "bienALouer", fetch=FetchType.EAGER)
+	@OneToMany(mappedBy = "bienALouer", fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	@Fetch(value=FetchMode.SUBSELECT)
 	private List<Visite> listeVisites;
 
-	@OneToOne(mappedBy = "bienALouer")
+	@OneToOne(mappedBy = "bienALouer",fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	private Contrat contrat;
 	
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="fk_prop",referencedColumnName="id_prop")
 	private Proprietaire proprietaire;
 	
@@ -140,7 +141,7 @@ public class BienALouer extends BienImmo implements Serializable {
 		this.garniture = garniture;
 	}
 
-	@XmlTransient
+	@JsonIgnore
 	public ClasseStandard getClasseStandard() {
 		return classeStandard;
 	}
@@ -167,7 +168,6 @@ public class BienALouer extends BienImmo implements Serializable {
 		this.listeVisites = listeVisites;
 	}
 
-	@JsonIgnore
 	public Contrat getContrat() {
 		return contrat;
 	}

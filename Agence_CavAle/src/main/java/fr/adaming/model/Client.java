@@ -53,7 +53,7 @@ public class Client implements Serializable {
 	@Column(name = "telephone_cl")
 	private String telephone;
 
-	@OneToOne(mappedBy="client")
+	@OneToOne(mappedBy="client", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	private Adresse adresse;
 
 	@ManyToMany(mappedBy="listeClients", fetch=FetchType.EAGER, cascade=CascadeType.ALL)
@@ -139,7 +139,7 @@ public class Client implements Serializable {
 		this.listeContrats = listeContrats;
 	}
 
-	@XmlTransient
+	@JsonIgnore
 	public List<Visite> getListeVisites() {
 		return listeVisites;
 	}
