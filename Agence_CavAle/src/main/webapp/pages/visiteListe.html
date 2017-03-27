@@ -33,7 +33,7 @@
        
             <div class="alert alert-success" ng-show="event">{{event.startTime|date:
                 'MMM/dd,yyyy,HH:mm'}} - {{event.endTime|date:'MMM/dd,yyyy,HH:mm'}}, {{event.title}}, 
-                 
+                 <a ng-click="updateLien(visite)">Modifier</a> | <a ng-click="deleteLien(visite.id)">Supprimer</a>
             </div>
 
             <div class="btn-toolbar">
