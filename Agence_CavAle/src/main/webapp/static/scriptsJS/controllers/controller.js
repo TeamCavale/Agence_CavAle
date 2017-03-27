@@ -27,16 +27,13 @@ app.controller("findAllClientCtrl", function($scope, $rootScope, $window, client
 			id:undefined,
 			nom: "",
 			telephone: "",
-			adresse: null
+			
 	}
 	// appelé la methode du provider avec le lien de l'index
 	$scope.updateLien=function(client){
 		$rootScope.clientForm.id=client.id;
 		$rootScope.clientForm.nom=client.nom;
-		$rootScope.clientForm.population=client.population;
-		$rootScope.clientForm.adresse.rue=client.adresse.rue;
-		$rootScope.clientForm.adresse.codePostal=client.adresse.codePosta;
-		$rootScope.clientForm.adresse.ville=client.adresse.ville;
+		$rootScope.clientForm.telephone=client.telephone;
 		$location.path("updateClient")
 	}
 })
@@ -92,7 +89,8 @@ console.log("adresse recup : "+$scope.clientForm.adresse)
 		$scope.clientForm = {
 				id:undefined,
 				nom : "",
-				telephone : ""
+				telephone : "",
+			
 			};
 		
 	}else{
@@ -101,6 +99,7 @@ console.log("adresse recup : "+$scope.clientForm.adresse)
 			$rootscope.clientForm.id=client.id;
 			$rootscope.clientForm.nom=client.nom;
 			$rootscope.clientForm.telephone=client.telephone;
+			
 			
 		}
 		

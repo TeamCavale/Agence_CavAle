@@ -2,16 +2,16 @@
 	<form class="form-inline">
 		
 	
-		<div class="form-group">
-			<label class="sr-only" for="cs_bi">Bien a acheter</label>
+		<div  class="form-group">
+			<label  for="cs_bi">Bien a acheter</label>
 			<select
 				ng-model="bASelectId"  id="cs_bi" ng-click="getBA(bl.classeStandard.id)">
 				<option value="{{ba.classeStandard.id}}" ng-repeat="ba in bienAchat">{{ba.statut}}
 					| {{ba.etat}}</option>
 			</select>
 		</div>
-		<div class="form-group">
-			<label class="sr-only" for="cs_bi">Bien a louer</label>
+		<div  class="form-group">
+			<label for="cs_bi">Bien a louer</label>
 			<select
 				ng-model="bLSelectId"  id="cs_bi" ng-click="getBL(bl.classeStandard.id)">
 				<option value="{{bl.classeStandard.id}}" ng-repeat="bl in bienLocation">{{bl.statut}}

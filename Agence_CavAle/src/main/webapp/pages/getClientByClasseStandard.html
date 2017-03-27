@@ -3,7 +3,7 @@
 		
 	
 		<div class="form-group">
-			<label class="sr-only" for="cs_bi">Classe standard par client</label>
+			<label for="cs_bi">Classe standard</label>
 			<select
 				ng-model="classStandSelectId"  id="cs_bi" ng-click="getCS(classStand.id)">
 				<option value="{{classStand.id}}" ng-repeat="classStand in classeStandard">{{classStand.typeOffre}}
@@ -21,7 +21,7 @@
 				<th style="text-align: center">Telephone</th>
 			</tr>
 		</thead>
-		<tbody ng-repeat="client in classeStandard">
+		<tbody ng-repeat="client in clients">
 			<tr>
 				<td>{{client.nom}}</td>
 				<td>{{client.telephone}}</td>

@@ -20,12 +20,12 @@ import fr.adaming.service.IAgentService;
 /**
  * 
  * @author TeamCavale
- *  
+ * 
  */
 @RestController
 @RequestMapping("/agent")
 public class AgentWSRest {
-	
+
 	@Autowired
 	IAgentService agentService;
 
@@ -33,30 +33,38 @@ public class AgentWSRest {
 		this.agentService = agentService;
 	}
 
-	@RequestMapping(value="/visites", method=RequestMethod.POST, produces="application/json",consumes="application/json")
-	public List<Visite> getAllVisites(@RequestBody Agent agent){
+	@RequestMapping(value = "/visites", method = RequestMethod.POST, produces = "application/json", consumes = "application/json")
+	public List<Visite> getAllVisites(@RequestBody Agent agent) {
 		return agentService.getAllVisites(agent);
 	}
-	
-	@RequestMapping(value="/all", method=RequestMethod.GET, produces="application/json")
-	public List<Agent> getAllAgents(){
+
+	@RequestMapping(value = "/all", method = RequestMethod.GET, produces = "application/json")
+	public List<Agent> getAllAgents() {
 		return agentService.getAllAgents();
 	}
-	
-	@RequestMapping(value="/contrats", method=RequestMethod.POST, produces="application/json",consumes="application/json")
-	public List<Contrat> getAllContrats(@RequestBody Agent agent){
+
+	@RequestMapping(value = "/contrats", method = RequestMethod.POST, produces = "application/json", consumes = "application/json")
+	public List<Contrat> getAllContrats(@RequestBody Agent agent) {
 		return agentService.getAllContrats(agent);
 	}
-	
-	@RequestMapping(value="/clientsByClasseStandard", method=RequestMethod.POST, produces="application/json",consumes="application/json")
-	public List<Client> getClientsByClasseStandard(@RequestBody ClasseStandard classeStandard){
+
+	@RequestMapping(value = "/clientsByClasseStandard", method = RequestMethod.POST, produces = "application/json", consumes = "application/json")
+	public List<Client> getClientsByClasseStandard(@RequestBody ClasseStandard classeStandard) {
 		return agentService.getAllClientsByClasseStandard(classeStandard);
 	}
-	
-	@RequestMapping(value="/biensByProprietaire", method=RequestMethod.POST, produces="application/json",consumes="application/json")
-	public List<BienImmo> getBiensByProprietaire(@RequestBody Proprietaire proprietaire){
+
+	@RequestMapping(value = "/biensByProprietaire", method = RequestMethod.POST, produces = "application/json", consumes = "application/json")
+	public List<BienImmo> getBiensByProprietaire(@RequestBody Proprietaire proprietaire) {
 		return agentService.getAllBiensByProprietaire(proprietaire);
 	}
-	
-	
+
+	@RequestMapping(value = "/isExist", method = RequestMethod.POST, produces = "application/json", consumes = "application/json")
+	public String isExistWS(@RequestBody Agent agent) {
+		boolean b = agentService.isExist(agent);
+		if(b){
+			return "Connexion";
+		}
+		return null;
+	}
+
 }

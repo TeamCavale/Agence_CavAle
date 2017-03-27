@@ -66,4 +66,9 @@ public class AgentServiceImpl implements IAgentService {
 		return agentDao.getAllAgents();
 	}
 
+	@Override
+	public boolean isExist(Agent agent) {
+		return agentDao.isExist(agent);
+	}
+
 }

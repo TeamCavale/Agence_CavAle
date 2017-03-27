@@ -2,9 +2,10 @@
  * Fichier pour le routage
  */
 app.config(function($routeProvider) {
-	$routeProvider.when("/getAllClient", {
+	 $routeProvider.when("/getAllClient", {
 		templateUrl : "pages/listeClients.html",
-		controller : "findAllClientCtrl"
+		controller : "findAllClientCtrl",
+		
 	})
 	
 	.when("/addClient", {
@@ -25,7 +26,19 @@ app.config(function($routeProvider) {
 		controller : "findClientCtrl"
 	})
 	
-	.otherwise({
-		redirectTo : "/listeClients"
-	})
+	. when('/login', {
+        controller: 'LoginController',
+        templateUrl: 'modules/authentication/views/login.html',
+        hideMenus: true
+    })
+
+    .when('/', {
+        controller: 'HomeController',
+        templateUrl: 'modules/home/views/home.html'
+    })
+
+    .otherwise({ redirectTo: '/login' });
+
+	
+	
 });

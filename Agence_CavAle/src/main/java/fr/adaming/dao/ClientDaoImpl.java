@@ -51,6 +51,9 @@ public class ClientDaoImpl implements IClientDao{
 	@Override
 	public void updateClientDao(Client client) {
 		Session s=sf.getCurrentSession();
+		Adresse adresse=new Adresse(client.getAdresse().getRue(), client.getAdresse().getCodePostal(), client.getAdresse().getVille());
+		s.save(adresse);
+		adresse.setClient(client);
 		s.saveOrUpdate(client);
 		
 	}

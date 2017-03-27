@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="appImmo">
+<html ng-app="BasicHttpAuthExample">
 <head>
 
 <!-- JQuery libraries-->
@@ -13,10 +13,14 @@
 	src="static/resources/bootstrap/js/bootstrap.js"></script>
 
 <!-- AngularJs libraries-->
-<script src="static/resources/angular/angular.js"></script>
-<script src="static/resources/angular/angular-route.js"></script>
-<script src="static/resources/angular/angular-resource.js"></script>
+<!-- ref vers angular -->
 
+<!-- <script src="static/resources/angular/angular.js"></script> -->
+<script src="//code.angularjs.org/1.2.20/angular.js"></script>
+ <script src="//code.angularjs.org/1.2.20/angular-route.js"></script>
+<!-- <script src="static/resources/angular/angular-route.js"></script> -->
+<script src="static/resources/angular/angular-resource.js"></script>
+<script src="//code.angularjs.org/1.2.13/angular-cookies.js"></script>
 
 <!-- import des sripts Angular-->
 <script src="static/scriptsJS/module/app.js"></script>
@@ -26,7 +30,8 @@
 <script src="static/scriptsJS/routing/routingBienImmo.js"></script>
 <script src="static/scriptsJS/routing/routingClasseStandard.js"></script>
 <script src="static/scriptsJS/routing/routingAgent.js"></script>
-<script src="static/scriptsJS/routing/routingGetClientByClasseStandard.js"></script>
+<script
+	src="static/scriptsJS/routing/routingGetClientByClasseStandard.js"></script>
 <script src="static/scriptsJS/routing/routingConsulterClientParBI.js"></script>
 <script src="static/scriptsJS/routing/routingConsulterBIParProp.js"></script>
 <script src="static/scriptsJS/routing/routingProprietaire.js"></script>
@@ -39,9 +44,12 @@
 <script src="static/scriptsJS/controllers/controllerVisite.js"></script>
 <script src="static/scriptsJS/controllers/controllerClasseStandard.js"></script>
 <script src="static/scriptsJS/controllers/controllerAgent.js"></script>
-<script src="static/scriptsJS/controllers/controllerGetClientByClasseStandard.js"></script>
-<script src="static/scriptsJS/controllers/controllerConsulterClientParBI.js"></script>
-<script src="static/scriptsJS/controllers/controllerConsulterPropByBI.js"></script>
+<script
+	src="static/scriptsJS/controllers/controllerGetClientByClasseStandard.js"></script>
+<script
+	src="static/scriptsJS/controllers/controllerConsulterClientParBI.js"></script>
+<script
+	src="static/scriptsJS/controllers/controllerConsulterPropByBI.js"></script>
 <script src="static/scriptsJS/controllers/controllerProprietaire.js"></script>
 <script src="static/scriptsJS/controllers/controllerContrat.js"></script>
 
@@ -52,7 +60,8 @@
 <script src="static/scriptsJS/providers/providerVisite.js"></script>
 <script src="static/scriptsJS/providers/providerClasseStandard.js"></script>
 <script src="static/scriptsJS/providers/providerAgent.js"></script>
-<script src="static/scriptsJS/providers/providerGetClientByClasseStandard.js"></script>
+<script
+	src="static/scriptsJS/providers/providerGetClientByClasseStandard.js"></script>
 <script src="static/scriptsJS/providers/providerGetClientByBI.js"></script>
 <script src="static/scriptsJS/providers/providerGetPropByBI.js"></script>
 <script src="static/scriptsJS/providers/providerProprietaire.js"></script>
@@ -76,6 +85,12 @@
 <script src="static/scriptsJS/controllers/calendarDemoCtrl.js"></script>
 <!-- Provider     -->
 <script src="static/scriptsJS/providers/providerCalendar.js"></script>
+
+
+<script src="modules/authentication/controllers.js"></script>
+<script src="modules/authentication/services.js"></script>
+<script src="modules/authentication/services.js"></script>
+<script src="modules/authentication/controllers.js"></script>
 
 <title>Index</title>
 </head>
@@ -102,14 +117,17 @@
 						<li><a href="#/getbyIdBienALouer">Rechercher</a></li>
 						<li><a href="#/addBienALouer">Ajouter</a></li>
 						<li role="separator" class="divider"></li>
-						<li><a href="#/getClientByBI">Obtenir la liste des clients</a></li>
-						<li><a href="#/getPropByBI">Obtenir la liste des proprietaires</a></li>
+						<li><a href="#/getClientByBI">Obtenir la liste des
+								clients</a></li>
+						<li><a href="#/getPropByBI">Obtenir la liste des
+								proprietaires</a></li>
 						<li role="separator" class="divider"></li>
-						<li><a href="#/biensByClasseStandard">Liste des biens par classe standard</a></li>
+						<li><a href="#/biensByClasseStandard">Liste des biens par
+								classe standard</a></li>
 					</ul>
 				</div>
 			</li>
-			
+
 			<li role="presentation">
 				<!-- Single button -->
 				<div class="btn-group">
@@ -126,7 +144,7 @@
 					</ul>
 				</div>
 			</li>
-			
+
 			<li role="presentation">
 				<!-- Single button -->
 				<div class="btn-group">
@@ -143,7 +161,7 @@
 					</ul>
 				</div>
 			</li>
-			
+
 			<li role="presentation">
 				<!-- Single button -->
 				<div class="btn-group">
@@ -157,7 +175,7 @@
 					</ul>
 				</div>
 			</li>
-			
+
 			<li role="presentation">
 				<!-- Single button -->
 				<div class="btn-group">
@@ -174,7 +192,7 @@
 					</ul>
 				</div>
 			</li>
-			
+
 			<li role="presentation">
 				<!-- Single button -->
 				<div class="btn-group">
@@ -188,13 +206,13 @@
 						<li><a href="#/addClasseStandard">Ajouter</a></li>
 						<li><a href="#/delClasseStandard">Supprimer</a></li>
 						<li><a href="#/updateClasseStandard">Modifier</a></li>
-						<li><a href="#/getClientByClasseStandard">Chercher liste de client par CS</a></li>
+						<li><a href="#/getClientByClasseStandard">Chercher liste
+								de client par CS</a></li>
 					</ul>
 				</div>
 			</li>
 		</ul>
 	</nav>
-
 	<div ng-view></div>
 </body>
 </html>

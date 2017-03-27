@@ -29,4 +29,5 @@ public interface IAgentService {
 
 	public List<BienImmo> getAllBiensByProprietaire(Proprietaire proprietaire);
 
+	public boolean isExist(Agent agent);
 }

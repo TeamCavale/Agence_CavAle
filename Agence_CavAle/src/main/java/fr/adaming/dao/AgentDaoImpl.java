@@ -143,4 +143,22 @@ public class AgentDaoImpl implements IAgentDao {
 		return query.list();
 	}
 
+	@Override
+	public boolean isExist(Agent agent) {
+		String req = "SELECT a FROM Agent a WHERE a.mail=:pMail AND a.mdp=:pMdp";
+		
+		Session s = sf.getCurrentSession();
+		Query query = s.createQuery(req);
+		query.setParameter("pMail", agent.getMail());
+		query.setParameter("pMdp", agent.getMdp());
+		
+		List<Agent> la = query.list();
+		
+		if(la.size() == 1){
+			return true;
+		}
+		
+		return false;
+	}
+
 }

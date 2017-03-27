@@ -2,7 +2,7 @@
 	<form class="form-inline">
 	>
 		<div class="form-group">
-			<label class="sr-only" for="cs_bi">Proprietaires</label>
+			<label for="cs_bi">Proprietaires</label>
 			<select
 				ng-model="propSelectId"  id="cs_bi" ng-click="getProp(prop.id)">
 				<option value="{{prop.id}}" ng-repeat="prop in proprietaire">{{prop.nom}}
@@ -17,12 +17,26 @@
 			<tr>
 				<th style="text-align: center">Statut</th>
 				<th style="text-align: center">revenuCadastral</th>
+				<th style="text-align: center">dateSoumission</th>
+				<th style="text-align: center">dateDispo</th>
+				<th style="text-align: center">prixAchat</th>
+				<th style="text-align: center">etat</th>
+				<th style="text-align: center">loyer</th>
+				<th style="text-align: center">typeBail</th>
+				<th style="text-align: center">garniture</th>
 			</tr>
 		</thead>
 		<tbody ng-repeat="client in bienImmo">
 			<tr>
 				<td>{{client.statut}}</td>
 				<td>{{client.revenuCadastral}}</td>
+				<td>{{client.dateSoumission}}</td>
+				<td>{{client.dateDispo}}</td>
+				<td>{{client.prixAchat}}</td>
+				<td>{{client.etat}}</td>
+				<td>{{client.loyer}}</td>
+				<td>{{client.typeBail}}</td>
+				<td>{{client.garniture}}</td>
 			</tr>
 		</tbody>
 	</table>
