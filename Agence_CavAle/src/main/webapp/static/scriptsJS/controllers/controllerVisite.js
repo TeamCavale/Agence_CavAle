@@ -140,7 +140,7 @@ app.controller(
 
 			$scope.ajouter = function() {
 				var gne = $scope.visiteForm;
-				visiteProvider.addVisite(visiteForm, function(callback) {
+				visiteProvider.addVisite(gne, function(callback) {
 					if (callback != undefined && callback != "") {
 						$location.path("getAllVisite");
 					}
