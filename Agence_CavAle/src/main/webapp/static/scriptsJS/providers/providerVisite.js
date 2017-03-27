@@ -46,6 +46,7 @@ app.factory("visiteProvider", function ($http){
 			}
 			
 		}).success(function (response){
+			response='OK';
 			console.log(response);
 			callback(response);
 			
