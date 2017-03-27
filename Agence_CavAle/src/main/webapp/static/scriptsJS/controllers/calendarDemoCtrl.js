@@ -1,4 +1,4 @@
-app.controller('CalendarDemoCtrl', function($scope, visiteProvider, $rootScope,
+app.controller('CalendarDemoCtrl', function($scope, visiteProvider,visiteProviderCal, $rootScope,
 		$location) {
 	'use strict';
 	
@@ -34,7 +34,7 @@ app.controller('CalendarDemoCtrl', function($scope, visiteProvider, $rootScope,
 	function lecturedesVisite() {
 		var events = [];
 		
-		visiteProvider.findAllVisite2(function(callback) {
+		visiteProviderCal.findAllVisite2(function(callback) {
 			if (callback != undefined && callback != "") {
 				$rootScope.visites = callback.data;
 
