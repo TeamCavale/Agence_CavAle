@@ -24,10 +24,10 @@
 <script src="static/scriptsJS/providers/providerCalendar.js"></script>
 </head>
 <body>
-
 <section class="content" style="margin-top: 70px;">
     <section class="container">
         <section ng-controller="CalendarDemoCtrl" ng-init="loadEvents()">
+       
             <div class="alert alert-success" ng-show="event">Event selected:{{event.startTime|date:
                 'MMM/dd,yyyy,HH:mm'}} - {{event.endTime|date:'MMM/dd,yyyy,HH:mm'}}, {{event.title}}
             </div>
