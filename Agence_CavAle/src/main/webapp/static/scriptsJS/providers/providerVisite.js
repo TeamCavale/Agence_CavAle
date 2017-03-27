@@ -55,6 +55,8 @@ app.factory("visiteProvider", function ($http){
 		})
 	}
 	function deleteVisite(id, callback){
+		
+			
 		$http({
 			method : 'GET',
 			url : urlglobal+'/del?id_param='+id

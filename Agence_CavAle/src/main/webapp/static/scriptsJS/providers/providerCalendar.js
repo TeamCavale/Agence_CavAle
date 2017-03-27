@@ -3,7 +3,7 @@
  */
 
 
-cal.factory("visiteProvider", function ($http){
+app.factory("visiteProvider", function ($http){
 	
 	var urlglobal= "http://localhost:8080/Agence_CavAle/visite";
 	

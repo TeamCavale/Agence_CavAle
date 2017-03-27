@@ -11,37 +11,40 @@
 
 	<div class="form-group">
 		<div class="col-sm-6">
-			<label for="Client" class="col-sm-2 control-label">Client</label> <input
-				type="text" class="form-control" id="Client" placeholder="Client"
-				ng-model="visiteForm.client">
+			<label for="Client" class="col-sm-2 control-label">Client</label>
+			<select class="form-control" ng-model="clientSelectId"  id="idclient" ng-click="getClient(client.id)">
+				<option value="{{client.id}}" ng-repeat="client in listeClient" >{{client.nom}}
+					| {{client.telephone}}</option>
+			</select>
 		</div>
 	</div>
 	<div class="form-group">
 		<div class="col-sm-6">
-			<label for="Agent" class="col-sm-2 control-label">Agent</label> <input
-				type="text" class="form-control" id="Agent" placeholder="Agent"
-				ng-model="visiteForm.agent">
+			<label for="Agent" class="col-sm-2 control-label">Agent</label><!--  <select  -->
+<!-- 			ng-model="visiteForm.agent" /> -->
+<!-- 				<option value="{{agent.id}}" ng-repeat="agent in listeAgent">{{agent.nom}} -->
+<!-- 					| {{agent.telephone}}</option> -->
+<!-- 			</select> -->
 		</div>
 	</div>
 	<div class="form-group">
 		<div class="col-sm-6">
 			<label for="bienAAcheter" class="col-sm-2 control-label">Bien
-				a acheter</label> 
-				<select>
-				<option></option>
-				
-				</select>
-				
-				<input type="text" class="form-control"
-				id="bienAAcheter" placeholder="Bien a acheter"
-				ng-model="visiteForm.bienAAcheter">
+				a acheter</label> <select class="form-control"
+				ng-model="bienAAcheterSelectedId"  id="cs_bi" ng-click="getProp(bienAA.id)">
+				<option value="{{bienAA.id}}" ng-repeat="bienAA in listebienAA">{{bienAA.id}}
+					</option>
+			</select>
 		</div>
 	</div>
 	<div class="form-group">
 		<div class="col-sm-6">
 			<label for="bienALouer" class="col-sm-2 control-label">bien A
-				Louer</label> <input type="text" class="form-control" id="bienALouer"
-				placeholder="bienALouer" ng-model="visiteForm.bienALouer">
+				Louer</label> <select class="form-control"
+				ng-model="bienALouerSelectedId"  id="cs_bi" ng-click="getBienALouer(bienAL.id)">
+				<option value="{{bienAL.id}}" ng-repeat="bienAL in listebienAL">{{bienAL.id}}
+				</option>
+			</select>
 		</div>
 	</div>
 	<div class="col-sm-2">

@@ -8,7 +8,7 @@ app.config(function($routeProvider) {
 
 		templateUrl : "pages/visiteListe.html",
 
-		controller : "getAllVisiteCtrl"
+		controller : "CalendarDemoCtrl"
 
 	}).when("/getbyIdVisite", {
 		templateUrl : "pages/visiteFind.html",
