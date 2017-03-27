@@ -3,7 +3,7 @@
  */
 
 app.controller("addContratCtrl",
-		function($scope, $rootScope, $window, contratProvider, $location,bienImmoAchatProvider) {
+		function($scope, $rootScope, $window, contratProvider, $location, bienImmoAchatProvider) {
 
 			var agent = {
 				id : 1,
@@ -108,6 +108,14 @@ app.controller("addContratCtrl",
 				"bienALouer" : null,
 				"bienAAcheter" : null,
 			}
+			
+			var agent = {
+					id : 1,
+					mail : "a@a",
+					mdp : "a",
+					nom : "a",
+					telephone : "0515515"
+				} // $rootScope.agentAuth;
 
 			contratProvider.getContratFromView($routeParams.idContrat,
 					function(callback) {

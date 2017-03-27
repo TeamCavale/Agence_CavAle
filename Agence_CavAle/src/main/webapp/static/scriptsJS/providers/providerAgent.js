@@ -28,7 +28,7 @@ app.factory("agentProvider", function($http,$rootScope) {
 	function delContratAgent(id, callback){
 		
 		$http({
-			method : 'DELETE',
+			method : 'GET',
 			url : urlglobal + '/contrat/del/' + id
 		}).then(function successCallback(response) {
 			callback(response);
