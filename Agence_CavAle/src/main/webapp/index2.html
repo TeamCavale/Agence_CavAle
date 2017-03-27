@@ -64,169 +64,173 @@
 <!-- import du calendard -->
 <script type="text/javascript"
 	src="static/resources/bootstrap/js/jquery.js"></script>
-	
-<link rel="stylesheet" href="static/resources/calendar/calendar.css"/>
-   
+
+<link rel="stylesheet" href="static/resources/calendar/calendar.css" />
+
 <script src="static/resources/calendar/calendar-tpls.js"></script>
 <!--     Module -->
 <script src="static/scriptsJS/module/cal.js"></script>
 <!--     Controler -->
-    <script src="static/scriptsJS/controllers/calendarDemoCtrl.js"></script>
+<script src="static/scriptsJS/controllers/calendarDemoCtrl.js"></script>
 <!-- Provider     -->
 <script src="static/scriptsJS/providers/providerCalendar.js"></script>
 
 <title>Index</title>
 </head>
 <body>
-	<div class="container-fluid" style="background-image: url('static/resources/img/Fotolia_15077239_M1.jpg');">
+	<div class="container-fluid"
+		style="background-image: url('static/resources/img/Fotolia_15077239_M1.jpg');">
 		<div class="row">
 			<nav class="navbar navbar-inverse" id="navBar">
-			<div id="nav">
-				<ul class="nav nav-pills">
-					<li role="presentation" class="active" id="accueil"><a href="#">Accueil</a></li>
-					<li role="presentation">
-						<!-- Single button -->
-						<div class="btn-group">
-							<button type="button" class="btn btn-default dropdown-toggle"
-								data-toggle="dropdown" aria-haspopup="true"
-								aria-expanded="false" id="jojo">
-								Bien Immobilier <span class="caret"></span>
-							</button>
-							<ul class="dropdown-menu">
-								<li style="text-align: center;">Bien en Achat</li>
-								<li><a href="#/getAllBienAAcheter">Obtenir la liste</a></li>
-								<li><a href="#/getbyIdBienAAcheter">Rechercher</a></li>
-								<li><a href="#/addBienAAcheter">Ajouter</a></li>
-								<li><a href="#/delBienAAcheter">Supprimer</a></li>
-								<li><a href="#/updateBienAAcheter">Modifier</a></li>
-								<li role="separator" class="divider"></li>
-								<li style="text-align: center;">Bien en Location</li>
-								<li><a href="#/getAllBienALouer">Obtenir la liste</a></li>
-								<li><a href="#/getbyIdBienALouer">Rechercher</a></li>
-								<li><a href="#/addBienALouer">Ajouter</a></li>
-								<li><a href="#/delBienALouer">Supprimer</a></li>
-								<li><a href="#updateBienALouer">Modifier</a></li>
-								<li><a href="#/getClientByBI">Obtenir la liste des
-										clients</a></li>
-								<li><a href="#/getPropByBI">Obtenir la liste des
-										proprietaires</a></li>
-							</ul>
-						</div>
-					</li>
-					<li role="presentation">
-						<!-- Single button -->
-						<div class="btn-group">
-							<button type="button" class="btn btn-default dropdown-toggle"
-								data-toggle="dropdown" aria-haspopup="true"
-								aria-expanded="false">
-								Propriétaire <span class="caret"></span>
-							</button>
-							<ul class="dropdown-menu">
-								<li><a href="#/getAllProprietaire">Obtenir la liste</a></li>
-								<li><a href="#/getbyIdProprietaire">Rechercher</a></li>
-								<li><a href="#/addProprietaire">Ajouter</a></li>
-								<li><a href="#/delProprietaire">Supprimer</a></li>
-								<li><a href="#/updateProprietaire">Modifier</a></li>
-							</ul>
-						</div>
-					</li>
-					<li role="presentation">
-						<!-- Single button -->
-						<div class="btn-group">
-							<button type="button" class="btn btn-default dropdown-toggle"
-								data-toggle="dropdown" aria-haspopup="true"
-								aria-expanded="false">
-								Client <span class="caret"></span>
-							</button>
-							<ul class="dropdown-menu">
-								<li><a href="#/getAllClient">Obtenir la liste</a></li>
-								<li><a href="#/getbyIdClient">Rechercher</a></li>
-								<li><a href="#/addClient">Ajouter</a></li>
-								<li><a href="#/delClient">Supprimer</a></li>
-								<li><a href="#/updateClient">Modifier</a></li>
-							</ul>
-						</div>
-					</li>
-					<li role="presentation">
-						<!-- Single button -->
-						<div class="btn-group">
-							<button type="button" class="btn btn-default dropdown-toggle"
-								data-toggle="dropdown" aria-haspopup="true"
-								aria-expanded="false">
-								Agent <span class="caret"></span>
-							</button>
-							<ul class="dropdown-menu">
-								<li><a href="#/getAllAgent">Obtenir la liste</a></li>
-								<li><a href="#/getAllContratsAgent">Contrats</a></li>
-							</ul>
-						</div>
-					</li>
-					<li role="presentation">
-						<!-- Single button -->
-						<div class="btn-group">
-							<button type="button" class="btn btn-default dropdown-toggle"
-								data-toggle="dropdown" aria-haspopup="true"
-								aria-expanded="false">
-								Visite <span class="caret"></span>
-							</button>
-							<ul class="dropdown-menu">
-								<li><a href="#/getAllVisite">Obtenir la liste</a></li>
-								<li><a href="#/getbyIdVisite">Rechercher</a></li>
-								<li><a href="#/addVisite">Ajouter</a></li>
-								<li><a href="#/delVisite">Supprimer</a></li>
-								<li><a href="#/updateVisite">Modifier</a></li>
-							</ul>
-						</div>
-					</li>
-					<li role="presentation">
-						<!-- Single button -->
-						<div class="btn-group">
-							<button type="button" class="btn btn-default dropdown-toggle"
-								data-toggle="dropdown" aria-haspopup="true"
-								aria-expanded="false">
-								Contrat <span class="caret"></span>
-							</button>
-							<ul class="dropdown-menu">
-								<li><a href="#/getAllContrat">Obtenir la liste</a></li>
-								<li><a href="#/getbyIdContrat">Rechercher</a></li>
-								<li><a href="#/addContrat">Ajouter</a></li>
-								<li><a href="#/delContrat">Supprimer</a></li>
-								<li><a href="#/updateContrat">Modifier</a></li>
-							</ul>
-						</div>
-					</li>
-					<li role="presentation">
-						<!-- Single button -->
-						<div class="btn-group">
-							<button type="button" class="btn btn-default dropdown-toggle"
-								data-toggle="dropdown" aria-haspopup="true"
-								aria-expanded="false">
-								Classe Standard <span class="caret"></span>
-							</button>
-							<ul class="dropdown-menu">
-								<li><a href="#/getAllClasseStandard">Obtenir la liste</a></li>
-								<li><a href="#/getbyIdClasseStandard">Rechercher</a></li>
-								<li><a href="#/addClasseStandard">Ajouter</a></li>
-								<li><a href="#/delClasseStandard">Supprimer</a></li>
-								<li><a href="#/updateClasseStandard">Modifier</a></li>
-								<li><a href="#/getClientByClasseStandard">Chercher
-										liste de client par CS</a></li>
-							</ul>
-						</div>
-					</li>
-				</ul>
+				<div id="nav">
+					<ul class="nav nav-pills">
+						<li role="presentation" class="active" id="accueil"><a
+							href="#">Accueil</a></li>
+						<li role="presentation">
+							<!-- Single button -->
+							<div class="btn-group">
+								<button type="button" class="btn btn-default dropdown-toggle"
+									data-toggle="dropdown" aria-haspopup="true"
+									aria-expanded="false" id="jojo">
+									Bien Immobilier <span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu">
+									<li style="text-align: center;">Bien en Achat</li>
+									<li><a href="#/getAllBienAAcheter">Obtenir la liste</a></li>
+									<li><a href="#/getbyIdBienAAcheter">Rechercher</a></li>
+									<li><a href="#/addBienAAcheter">Ajouter</a></li>
+									<li><a href="#/delBienAAcheter">Supprimer</a></li>
+									<li><a href="#/updateBienAAcheter">Modifier</a></li>
+									<li role="separator" class="divider"></li>
+									<li style="text-align: center;">Bien en Location</li>
+									<li><a href="#/getAllBienALouer">Obtenir la liste</a></li>
+									<li><a href="#/getbyIdBienALouer">Rechercher</a></li>
+									<li><a href="#/addBienALouer">Ajouter</a></li>
+									<li><a href="#/delBienALouer">Supprimer</a></li>
+									<li><a href="#updateBienALouer">Modifier</a></li>
+									<li><a href="#/getClientByBI">Obtenir la liste des
+											clients</a></li>
+									<li><a href="#/getPropByBI">Obtenir la liste des
+											proprietaires</a></li>
+								</ul>
+							</div>
+						</li>
+						<li role="presentation">
+							<!-- Single button -->
+							<div class="btn-group">
+								<button type="button" class="btn btn-default dropdown-toggle"
+									data-toggle="dropdown" aria-haspopup="true"
+									aria-expanded="false">
+									Propriétaire <span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu">
+									<li><a href="#/getAllProprietaire">Obtenir la liste</a></li>
+									<li><a href="#/getbyIdProprietaire">Rechercher</a></li>
+									<li><a href="#/addProprietaire">Ajouter</a></li>
+									<li><a href="#/delProprietaire">Supprimer</a></li>
+									<li><a href="#/updateProprietaire">Modifier</a></li>
+								</ul>
+							</div>
+						</li>
+						<li role="presentation">
+							<!-- Single button -->
+							<div class="btn-group">
+								<button type="button" class="btn btn-default dropdown-toggle"
+									data-toggle="dropdown" aria-haspopup="true"
+									aria-expanded="false">
+									Client <span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu">
+									<li><a href="#/getAllClient">Obtenir la liste</a></li>
+									<li><a href="#/getbyIdClient">Rechercher</a></li>
+									<li><a href="#/addClient">Ajouter</a></li>
+									<li><a href="#/delClient">Supprimer</a></li>
+									<li><a href="#/updateClient">Modifier</a></li>
+								</ul>
+							</div>
+						</li>
+						<li role="presentation">
+							<!-- Single button -->
+							<div class="btn-group">
+								<button type="button" class="btn btn-default dropdown-toggle"
+									data-toggle="dropdown" aria-haspopup="true"
+									aria-expanded="false">
+									Agent <span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu">
+									<li><a href="#/getAllAgent">Obtenir la liste</a></li>
+									<li><a href="#/getAllContratsAgent">Contrats</a></li>
+								</ul>
+							</div>
+						</li>
+						<li role="presentation">
+							<!-- Single button -->
+							<div class="btn-group">
+								<button type="button" class="btn btn-default dropdown-toggle"
+									data-toggle="dropdown" aria-haspopup="true"
+									aria-expanded="false">
+									Visite <span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu">
+									<li><a href="#/getAllVisite">Obtenir la liste</a></li>
+									<li><a href="#/getbyIdVisite">Rechercher</a></li>
+									<li><a href="#/addVisite">Ajouter</a></li>
+									<li><a href="#/delVisite">Supprimer</a></li>
+									<li><a href="#/updateVisite">Modifier</a></li>
+								</ul>
+							</div>
+						</li>
+						<li role="presentation">
+							<!-- Single button -->
+							<div class="btn-group">
+								<button type="button" class="btn btn-default dropdown-toggle"
+									data-toggle="dropdown" aria-haspopup="true"
+									aria-expanded="false">
+									Contrat <span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu">
+									<li><a href="#/getAllContrat">Obtenir la liste</a></li>
+									<li><a href="#/getbyIdContrat">Rechercher</a></li>
+									<li><a href="#/addContrat">Ajouter</a></li>
+									<li><a href="#/delContrat">Supprimer</a></li>
+									<li><a href="#/updateContrat">Modifier</a></li>
+								</ul>
+							</div>
+						</li>
+						<li role="presentation">
+							<!-- Single button -->
+							<div class="btn-group">
+								<button type="button" class="btn btn-default dropdown-toggle"
+									data-toggle="dropdown" aria-haspopup="true"
+									aria-expanded="false">
+									Classe Standard <span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu">
+									<li><a href="#/getAllClasseStandard">Obtenir la liste</a></li>
+									<li><a href="#/getbyIdClasseStandard">Rechercher</a></li>
+									<li><a href="#/addClasseStandard">Ajouter</a></li>
+									<li><a href="#/delClasseStandard">Supprimer</a></li>
+									<li><a href="#/updateClasseStandard">Modifier</a></li>
+									<li><a href="#/getClientByClasseStandard">Chercher
+											liste de client par CS</a></li>
+								</ul>
+							</div>
+						</li>
+					</ul>
 				</div>
 			</nav>
-			<div class="container" id="header"> 
-			<h1>Agence Immo Team Cavale</h1>
-			
+			<div class="container" id="header">
+				<h1>Agence Immo Team Cavale</h1>
+
 			</div>
 			<div class=container id="Enveloppe">
-			
-			
-			
-			
-				<div ng-view> <h1>Accueil</h1>< /div>
+
+
+
+
+				<div ng-view>
+					<h1>Accueil</h1>
+				</div>
 			</div>
 		</div>
 	</div>

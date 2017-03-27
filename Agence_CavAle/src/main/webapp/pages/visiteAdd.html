@@ -18,15 +18,7 @@
 			</select>
 		</div>
 	</div>
-	<div class="form-group">
-		<div class="col-sm-6">
-			<label for="Agent" class="col-sm-2 control-label">Agent</label><!--  <select  -->
-<!-- 			ng-model="visiteForm.agent" /> -->
-<!-- 				<option value="{{agent.id}}" ng-repeat="agent in listeAgent">{{agent.nom}} -->
-<!-- 					| {{agent.telephone}}</option> -->
-<!-- 			</select> -->
-		</div>
-	</div>
+	
 	<div class="form-group">
 		<div class="col-sm-6">
 			<label for="bienAAcheter" class="col-sm-2 control-label">Bien
@@ -48,6 +40,7 @@
 		</div>
 	</div>
 	<div class="col-sm-2">
+	{{visiteForm}}
 		<button ng-click="ajouter()" class="btn btn-default">Ajouter</button>
 	</div>
 </form>

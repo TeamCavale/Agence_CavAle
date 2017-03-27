@@ -66,7 +66,7 @@ app.controller(
 		"addVisiteCtrl",
 		function($scope, $rootScope, visiteProvider, classeStandardProvider,
 				agentProvider, bienImmoAchatProvider, bienImmoLocationProvider,
-				$location) {
+				contratProvider, $location) {
 
 			$scope.visiteForm = {
 				"date" : "",
@@ -77,15 +77,9 @@ app.controller(
 			};
 
 			classeStandardProvider.findAllClients(function(callback) {
-
-				$scope.listeClient = callback.data;
-
-			});
-
-			agentProvider.getAllContratsAgent(function(callback) {
-
-				$scope.listeAgent = callback.data;
-
+				if (callback != undefined && callback != "") {
+					$scope.listeClient = callback.data;
+				}
 			});
 
 			bienImmoAchatProvider.findAllBiensImmoAchat(function(callback) {
@@ -115,7 +109,6 @@ app.controller(
 				});
 			};
 
-
 			$scope.getBienALouer = function() {
 
 				var id = $scope.bienALouerSelectedId;
@@ -129,7 +122,7 @@ app.controller(
 					}
 				});
 			};
-			
+
 			$scope.getBienAAcheter = function() {
 
 				var id = $scope.bienAAcheterSelectedId;
@@ -145,31 +138,32 @@ app.controller(
 			};
 
 			$scope.ajouter = function() {
-				visiteProvider.addVisite($scope.visiteForm, function(callback) {
-
+				var gne = $scope.visiteForm;
+				visiteProvider.addVisite(visiteForm, function(callback) {
 					if (callback != undefined && callback != "") {
 						$location.path("getAllVisite");
 					}
-				})
+				});
+
 			};
 
-		}).controller("delVisiteCtrl",
+		}).controller(
+		"delVisiteCtrl",
 		function($scope, visiteProvider, $location) {
-			
+
 			$scope.visiteForm = {
-					"id" : undefined,
-					"date" : "",
-					"client" : null,
-					"agent" : null,
-					"bienALouer" : null,
-					"bienAAcheter" : null
-				};
-			
+				"id" : undefined,
+				"date" : "",
+				"client" : null,
+				"agent" : null,
+				"bienALouer" : null,
+				"bienAAcheter" : null
+			};
+
 			$scope.supprimer = function() {
-				
-				visiteProvider.deleteVisite($scope.visiteForm.id, function(callback) {
-					
-			
+
+				visiteProvider.deleteVisite($scope.visiteForm.id, function(
+						callback) {
 
 					if (callback != undefined && callback != "") {
 						$location.path("getAllVisite");
