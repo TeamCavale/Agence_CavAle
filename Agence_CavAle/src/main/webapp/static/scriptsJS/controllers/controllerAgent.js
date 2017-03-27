@@ -83,8 +83,9 @@ app
 									});
 
 				}).controller("biensByClasseStandardCtrl", function($scope, $rootScope,
-													$window, agentProvider, $location){
+													$window, agentProvider, $location,contratProvider){
 					$scope.classeStandard = {
+							"id": 0,
 							"code": "",
 							"typeOffre": "",
 							"prixMax": 0,
@@ -99,6 +100,18 @@ app
 					agentProvider.getAllClassesStandard(function(callback) {
 						if (callback != undefined && callback != "") {
 							$scope.listeCS = callback.data;
+						}
+					});
+					
+					contratProvider.getAllBienALouer(function(callback) {
+						if (callback != undefined && callback != "") {
+							$scope.listeBienALouer = callback.data;
+						}
+					});
+					
+					contratProvider.getAllBienAAcheter(function(callback) {
+						if (callback != undefined && callback != "") {
+							$scope.listeBienAAcheter = callback.data;
 						}
 					});
 
@@ -116,14 +129,33 @@ app
 						});
 					};
 					
+					
+					
 					$scope.bienByCS = function(){
 						console.log("caca");
 						
-						$scope.listeBAA = $scope.classeStandard.listeBiensAAcheter;
-						$scope.listeBAL = $scope.classeStandard.listeBiensALouer;	
+						$scope.listeBAA = [];
+						$scope.listeBAL = [];
 						
-						console.log($scope.listeBAA);
-						console.log($scope.listeBAL);
+						for (var int = 0; int < $scope.listeBienAAcheter.length; int++) {
+							console.log(int)
+							console.log($scope.listeBienAAcheter[int].id  );
+							console.log($scope.classeStandard.id);
+						if($scope.listeBienAAcheter[int].classeStandard.id == $scope.classeStandardSelectedId )
+							
+							$scope.listeBAA[int] = $scope.listeBienAAcheter[int];
+						
+						}
+						for (var int = 0; int < $scope.listeBienALouer.length; int++) {
+							console.log(int)
+							console.log($scope.listeBienALouer[int].id);
+							console.log($scope.classeStandardSelectedId);
+							if($scope.listeBienALouer[int].classeStandard.id == $scope.classeStandardSelectedId )
+								
+								$scope.listeBAL[int] = $scope.listeBienALouer[int];
+							
+							}
+						
 					};
 					
 					$scope.delBA = function(id, callback) {

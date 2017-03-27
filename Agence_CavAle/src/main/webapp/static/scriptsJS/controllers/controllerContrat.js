@@ -3,7 +3,7 @@
  */
 
 app.controller("addContratCtrl",
-		function($scope, $rootScope, $window, contratProvider, $location) {
+		function($scope, $rootScope, $window, contratProvider, $location,bienImmoAchatProvider) {
 
 			var agent = {
 				id : 1,
@@ -29,7 +29,8 @@ app.controller("addContratCtrl",
 				}
 			});
 
-			contratProvider.getAllBienAAcheter(function(callback) {
+			bienImmoAchatProvider.findAllBiensImmoAchat(function(callback) {
+				console.log("je suis dans controller getall")
 				if (callback != undefined && callback != "") {
 					$scope.listeBienAAcheter = callback.data;
 				}
@@ -126,11 +127,12 @@ app.controller("addContratCtrl",
 				}
 			});
 
-			contratProvider.getAllBienAAcheter(function(callback) {
+			bienImmoAchatProvider.findAllBiensImmoAchat(function(callback) {
+				console.log("je suis dans controller getall")
 				if (callback != undefined && callback != "") {
 					
 					$scope.listeBienAAcheter = callback.data;
-					console.log($scope.listeBienAAcheter);
+					console.log($scope.listeBienAAcheter[0]);
 				}
 			});
 
