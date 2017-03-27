@@ -9,7 +9,7 @@
 						<div class="col-sm-6">
 							<select class="form-control" ng-model="bienAAcheterSelectedId"
 								id="BAId" ng-click="getBienAAcheter(ba.id)">
-								<option value="{{ba.id}}" ng-repeat="ba in listeBienAAcheter">{{ba.bienAAcheter.classeStandard.code}} #{{ba.bienAAcheter.id}}</option>
+								<option value="{{ba.id}}" ng-repeat="ba in listeBienAAcheter">{{ba.classeStandard.code}} #{{ba.id}}</option>
 							</select>
 						</div>
 					</div>
@@ -19,7 +19,7 @@
 						<div class="col-sm-6">
 							<select class="form-control" ng-model="bienALouerSelectedId"
 								id="BLId" ng-click="getBienALouer(bl.id)">
-								<option value="{{bl.id}}" ng-repeat="bl in listeBienALouer">{{bl.bienALouer.classeStandard.code}} #{{bl.bienALouer.id}}</option>
+								<option value="{{bl.id}}" ng-repeat="bl in listeBienALouer">{{bl.classeStandard.code}} #{{bl.id}}</option>
 							</select>
 						</div>
 					</div>
