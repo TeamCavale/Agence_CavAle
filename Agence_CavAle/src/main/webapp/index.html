@@ -21,7 +21,9 @@
 <!-- <script src="static/resources/angular/angular-route.js"></script> -->
 <script src="static/resources/angular/angular-resource.js"></script>
 <script src="//code.angularjs.org/1.2.13/angular-cookies.js"></script>
-
+<!-- import du style -->
+<link rel="stylesheet" type="text/css"
+	href="static/resources/css/style.css">
 <!-- import des sripts Angular-->
 <script src="static/scriptsJS/module/app.js"></script>
 <!-- routing -->
@@ -53,6 +55,7 @@
 <script src="static/scriptsJS/controllers/controllerProprietaire.js"></script>
 <script src="static/scriptsJS/controllers/controllerContrat.js"></script>
 
+
 <!-- providers -->
 <script src="static/scriptsJS/providers/provider.js"></script>
 <script src="static/scriptsJS/providers/providerBienImmoAchat.js"></script>
@@ -66,7 +69,7 @@
 <script src="static/scriptsJS/providers/providerGetPropByBI.js"></script>
 <script src="static/scriptsJS/providers/providerProprietaire.js"></script>
 <script src="static/scriptsJS/providers/providerContrat.js"></script>
-
+<script src="static/scriptsJS/providers/providerCalendar.js"></script>
 <!-- Import du date time  -->
 <script type="text/javascript"
 	src="static/resources/bootstrap/js/bootstrap-datetimepicker.min.js"></script>
@@ -95,8 +98,11 @@
 <title>Index</title>
 </head>
 <body>
-
+<div class="container-fluid"
+		style="background-image: url('static/resources/img/Fotolia_15077239_M1.jpg');">
+		<div class="row">
 	<nav class="navbar navbar-inverse">
+	
 		<ul class="nav nav-pills">
 			<li role="presentation" class="active" id="accueil"><a href="#">Accueil</a></li>
 			<li role="presentation">
@@ -213,6 +219,17 @@
 			</li>
 		</ul>
 	</nav>
+	</nav>
+			<div class="container" id="header">
+				<h1>Agence Immo Team Cavale</h1>
+
+			</div>
+			<div class=container id="Enveloppe">
+	
 	<div ng-view></div>
+</div>
+
+	</div>
+</div>
 </body>
 </html>
