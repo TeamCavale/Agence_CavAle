@@ -18,7 +18,7 @@
 						<label class="col-sm-6 control-label" for="BLId">Bien (Location)</label>
 						<div class="col-sm-6">
 							<select class="form-control" ng-model="bienALouerSelectedId"
-								id="BAId" ng-click="getBienALouer(bl.id)">
+								id="BLId" ng-click="getBienALouer(bl.id)">
 								<option value="{{bl.id}}" ng-repeat="bl in listeBienALouer">{{bl.bienALouer.classeStandard.code}} #{{bl.bienALouer.id}}</option>
 							</select>
 						</div>

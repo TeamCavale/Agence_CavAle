@@ -117,13 +117,13 @@ app
 					};
 					
 					$scope.bienByCS = function(){
-						
-						
+						console.log("caca");
 						
 						$scope.listeBAA = $scope.classeStandard.listeBiensAAcheter;
-						$scope.listeBAL = $scope.classeStandard.listeBiensALouer;
+						$scope.listeBAL = $scope.classeStandard.listeBiensALouer;	
 						
-						
+						console.log($scope.listeBAA);
+						console.log($scope.listeBAL);
 					};
 					
 					$scope.delBA = function(id, callback) {

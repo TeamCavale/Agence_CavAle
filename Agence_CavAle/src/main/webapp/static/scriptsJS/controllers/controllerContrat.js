@@ -37,7 +37,7 @@ app.controller("addContratCtrl",
 
 			contratProvider.getAllBienALouer(function(callback) {
 				if (callback != undefined && callback != "") {
-					$scope.listeBienAAcheter = callback.data;
+					$scope.listeBienALouer = callback.data;
 				}
 			});
 
@@ -128,7 +128,9 @@ app.controller("addContratCtrl",
 
 			contratProvider.getAllBienAAcheter(function(callback) {
 				if (callback != undefined && callback != "") {
+					
 					$scope.listeBienAAcheter = callback.data;
+					console.log($scope.listeBienAAcheter);
 				}
 			});
 

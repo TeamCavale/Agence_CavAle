@@ -68,6 +68,7 @@ app.factory("contratProvider", function($http,$rootScope) {
 			method : 'GET',
 			url : urlglobal + '/bienimmo/achat/getAll'
 		}).then(function successCallback(response) {
+			console.log("provider");
 			callback(response);
 		}, function errorCallback(response) {
 			console.log("erreur : " + response.statusText);
