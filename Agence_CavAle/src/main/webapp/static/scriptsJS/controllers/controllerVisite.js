@@ -65,8 +65,7 @@ app.controller(
 }).controller(
 		"addVisiteCtrl",
 		function($scope, $rootScope, visiteProvider, classeStandardProvider,
-				agentProvider, bienImmoAchatProvider, bienImmoLocationProvider,
-				contratProvider, $location) {
+				agentProvider, bienImmoAchatProvider, bienImmoLocationProvider, contratProvider, $location) {
 
 			$scope.visiteForm = {
 				"date" : "",

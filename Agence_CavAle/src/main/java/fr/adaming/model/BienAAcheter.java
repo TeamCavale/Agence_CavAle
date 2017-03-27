@@ -53,7 +53,6 @@ public class BienAAcheter extends BienImmo implements Serializable {
 
 	@OneToMany(mappedBy = "bienAAcheter", cascade = CascadeType.ALL)
 	@Fetch(value = FetchMode.SUBSELECT)
-	@JsonIgnore
 	private List<Visite> listeVisites;
 
 	@OneToOne(mappedBy = "bienAAcheter", cascade = CascadeType.ALL)
@@ -116,7 +115,7 @@ public class BienAAcheter extends BienImmo implements Serializable {
 		this.adresse = adresse;
 	}
 
-	@XmlTransient
+	@JsonIgnore
 	public List<Visite> getListeVisites() {
 		return listeVisites;
 	}

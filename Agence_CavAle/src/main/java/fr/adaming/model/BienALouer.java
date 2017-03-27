@@ -19,6 +19,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 /**
  * 
@@ -156,7 +158,7 @@ public class BienALouer extends BienImmo implements Serializable {
 		this.adresse = adresse;
 	}
 
-	@XmlElement
+	@JsonIgnore
 	public List<Visite> getListeVisites() {
 		return listeVisites;
 	}

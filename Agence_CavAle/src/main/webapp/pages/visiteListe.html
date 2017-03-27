@@ -31,8 +31,10 @@
     <section class="container">
         <section ng-controller="CalendarDemoCtrl" ng-init="loadEvents()">
        
-            <div class="alert alert-success" ng-show="event">{{event.startTime|date:
-                'MMM/dd,yyyy,HH:mm'}} - {{event.endTime|date:'MMM/dd,yyyy,HH:mm'}}, {{event.title}}, 
+            <div class="alert alert-success" ng-show="event"> heure de debut : {{event.startTime|date:
+                'MMM/dd,yyyy,HH:mm'}}  duree : 1h ,  {{event.title}}, 
+                 M/Mme : {{event.client.nom}},
+  
                  <a ng-click="updateLien(visite)">Modifier</a> | <a ng-click="deleteLien(visite.id)">Supprimer</a>
             </div>
 
