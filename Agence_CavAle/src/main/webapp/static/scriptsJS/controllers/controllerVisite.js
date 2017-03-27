@@ -109,6 +109,7 @@ app.controller(
 				});
 			};
 
+			
 			$scope.getBienALouer = function() {
 
 				var id = $scope.bienALouerSelectedId;

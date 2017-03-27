@@ -1,6 +1,7 @@
 app.controller('CalendarDemoCtrl', function($scope, visiteProvider, $rootScope,
 		$location) {
 	'use strict';
+	
 	$scope.changeMode = function(mode) {
 		$scope.mode = mode;
 	};
