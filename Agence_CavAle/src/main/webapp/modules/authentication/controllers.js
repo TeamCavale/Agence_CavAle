@@ -7,6 +7,17 @@ angular.module('Authentication')
     function ($scope, $rootScope, $location, AuthenticationService) {
         // reset login status
         AuthenticationService.ClearCredentials();
+        
+        $rootScope.agentAuth = {
+        		
+        		"id" : 1,
+        		"nom":"",
+        		"mail": "a@a",
+        		"mpd":"a",
+        		"telephone":""
+        }
+        
+        
  
         $scope.login = function () {
             $scope.dataLoading = true;
@@ -14,10 +25,30 @@ angular.module('Authentication')
                 if(response.success) {
                     AuthenticationService.SetCredentials($scope.email, $scope.password);
                     $location.path('/');
+                    
+                    
+//                    agentProvider.getAllAgents(function(callback) {
+//                    	var agents = callback.data;
+//                    	
+//                    	for (var int = 0; int < agents.length; int++) {
+//
+//                    		if(agent.mail == $scope.email && agent.mail == $scope.password){
+//                    			
+//                    			$rootScope.agentAuth = agent[int];
+//                    			
+//                    		}
+//		
+//            			}
+//                    });
+                    
+                    
+                    
                 } else {
                     $scope.error = response.message;
                     $scope.dataLoading = false;
                 }
+                
+                
             });
         };
     }]);

@@ -62,6 +62,18 @@ app.factory("agentProvider", function($http,$rootScope) {
 
 	}
 	
+	function getAllAgents(callback) {
+		$http({
+			method : 'GET',
+			url : urlglobal + '/agent/all/' + id
+		}).then(function successCallback(response) {
+			callback(response);
+		}, function errorCallback(response) {
+			console.log("erreur : " + response.statusText);
+		});
+
+	}
+	
 	
 	
 	return {

@@ -40,7 +40,7 @@ public class AgentDaoImpl implements IAgentDao {
 
 		String req = "select v from Visite v where v.agent.id=:idAgent";
 
-		Query query = s.createQuery(req);
+		Query query = s.createQuery(req);		
 
 		query.setParameter("idAgent", agent.getId());
 

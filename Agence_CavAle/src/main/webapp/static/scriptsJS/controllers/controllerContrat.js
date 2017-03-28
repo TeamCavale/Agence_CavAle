@@ -109,13 +109,15 @@ app.controller("addContratCtrl",
 				"bienAAcheter" : null,
 			}
 			
-			var agent = {
-					id : 1,
-					mail : "a@a",
-					mdp : "a",
-					nom : "a",
-					telephone : "0515515"
-				} // $rootScope.agentAuth;
+//			var agent = {
+//					id : 1,
+//					mail : "a@a",
+//					mdp : "a",
+//					nom : "a",
+//					telephone : "0515515"
+//				} 
+			
+			var agent = $rootScope.agentAuth;
 
 			contratProvider.getContratFromView($routeParams.idContrat,
 					function(callback) {

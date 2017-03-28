@@ -8,13 +8,14 @@ app
 				function(contratProvider, $scope, $rootScope, $window,
 						agentProvider, $location) {
 
-					var agent = {
-						id : 1,
-						mail : "a@a",
-						mdp : "a",
-						nom : "a",
-						telephone : "0515515"
-					} // $rootScope.agentAuth;
+//					var agent = {
+//						id : 1,
+//						mail : "a@a",
+//						mdp : "a",
+//						nom : "a",
+//						telephone : "0515515"
+//					} 
+					var agent = $rootScope.agentAuth;
 
 					agentProvider
 							.getAllContratsAgent(
@@ -23,73 +24,75 @@ app
 
 										var listeContrats = callback.data;
 										
-										$scope.listeContratsView = [];
+										$scope.contrats = listeContrats;
+										
+										//$scope.listeContratsView = [];
 
-										contratProvider
-												.getAllBienAAcheter(function(
-														callback) {
-													if (callback != undefined
-															&& callback != "") {
-														
-														$scope.listeBienAAcheter = callback.data;
-														console.log("coucou" +callback.data)
-
-														var listeBAA = $scope.listeBienAAcheter;
-														console.log(listeBAA);
-
-														for (var i = 0; i < listeBAA.length; i++) {
-
-															for (var j = 0; j < listeContrats.length; j++) {
-
-																if ($scope.listeBienAAcheter[i].contrat != null) {
-
-																	if ($scope.listeBienAAcheter[i].contrat.id == listeContrats[j].id) {
-
-																		listeContrats[j].bienAAcheter = $scope.listeBienAAcheter[i];
-																		$scope.listeContratsView[i] = listeContrats[j];
-
-																	}
-																}
-															}
-														}
-														console
-																.log($scope.listeContratsView);
-
-														contratProvider
-																.getAllBienALouer(function(
-																		callback) {
-																	if (callback != undefined
-																			&& callback != "") {
-																		$scope.listeBienALouer = callback.data;
-																		
-																		console.log("coucou2" +callback.data)
-
-																		var listeBAL = $scope.listeBienALouer;
-																		console
-																				.log(listeBAL);
-
-																		for (var i = 0; i < listeBAL.length; i++) {
-
-																			for (var j = 0; j < listeContrats.length; j++) {
-
-																				if ($scope.listeBienALouer[i].contrat != null) {
-
-																					if ($scope.listeBienALouer[i].contrat.id == listeContrats[j].id) {
-
-																						listeContrats[j].bienALouer = $scope.listeBienALouer[i];
-																						$scope.listeContratsView[i
-																								+ listeBAA.length] = listeContrats[j];
-
-																					}
-																				}
-																			}
-																		}
-																		console
-																		.log($scope.listeContratsView);
-																	}
-																});
-													}
-												});
+//										contratProvider
+//												.getAllBienAAcheter(function(
+//														callback) {
+//													if (callback != undefined
+//															&& callback != "") {
+//														
+//														$scope.listeBienAAcheter = callback.data;
+//														console.log("coucou" +callback.data)
+//
+//														var listeBAA = $scope.listeBienAAcheter;
+//														console.log(listeBAA);
+//
+//														for (var i = 0; i < listeBAA.length; i++) {
+//
+//															for (var j = 0; j < listeContrats.length; j++) {
+//
+//																if ($scope.listeBienAAcheter[i].contrat != null) {
+//
+//																	if ($scope.listeBienAAcheter[i].contrat.id == listeContrats[j].id) {
+//
+//																		listeContrats[j].bienAAcheter = $scope.listeBienAAcheter[i];
+//																		$scope.listeContratsView[i] = listeContrats[j];
+//
+//																	}
+//																}
+//															}
+//														}
+//														console
+//																.log($scope.listeContratsView);
+//
+//														contratProvider
+//																.getAllBienALouer(function(
+//																		callback) {
+//																	if (callback != undefined
+//																			&& callback != "") {
+//																		$scope.listeBienALouer = callback.data;
+//																		
+//																		console.log("coucou2" +callback.data)
+//
+//																		var listeBAL = $scope.listeBienALouer;
+//																		console
+//																				.log(listeBAL);
+//
+//																		for (var i = 0; i < listeBAL.length; i++) {
+//
+//																			for (var j = 0; j < listeContrats.length; j++) {
+//
+//																				if ($scope.listeBienALouer[i].contrat != null) {
+//
+//																					if ($scope.listeBienALouer[i].contrat.id == listeContrats[j].id) {
+//
+//																						listeContrats[j].bienALouer = $scope.listeBienALouer[i];
+//																						$scope.listeContratsView[i
+//																								+ listeBAA.length] = listeContrats[j];
+//
+//																					}
+//																				}
+//																			}
+//																		}
+//																		console
+//																		.log($scope.listeContratsView);
+//																	}
+//																});
+//													}
+//												});
 
 										var total = 0;
 
